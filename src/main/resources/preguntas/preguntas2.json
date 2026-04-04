@@ -1,0 +1,202 @@
+[
+  {
+    "enunciado": "En Spring Boot, la anotación @__________ permite definir un controlador que maneja solicitudes HTTP y devuelve respuestas en formato JSON.",
+    "opciones": [
+      "RestController",
+      "Controller",
+      "Service",
+      "Component"
+    ],
+    "respuestaCorrecta": "RestController"
+  },
+  {
+    "enunciado": "¿Qué tipo de relación entre entidades en JPA se describe como \"uno a muchos (1:N)\"?",
+    "opciones": [
+      "Cada entidad A está asociada con una única entidad B, y viceversa.",
+      "Una entidad A puede estar asociada con varias entidades B, pero cada entidad B está asociada solo a una entidad A.",
+      "Varias entidades A pueden estar asociadas a varias entidades B.",
+      "Ninguna de las anteriores."
+    ],
+    "respuestaCorrecta": "Una entidad A puede estar asociada con varias entidades B, pero cada entidad B está asociada solo a una entidad A."
+  },
+  {
+    "enunciado": "En Spring Security, __________ es una interfaz que proporciona la información del usuario autenticado.",
+    "opciones": [
+      "UserDetails",
+      "UserService",
+      "UserAuth",
+      "SecurityUser"
+    ],
+    "respuestaCorrecta": "UserDetails"
+  },
+  {
+    "enunciado": "En JPA, la anotación @__________ se usa para marcar una clase como una entidad mapeada a una tabla de base de datos.",
+    "opciones": [
+      "Entity",
+      "Table",
+      "Column",
+      "Id"
+    ],
+    "respuestaCorrecta": "Entity"
+  },
+  {
+    "enunciado": "En Spring Data JPA, ¿qué anotación se usa para marcar una clase como entidad?",
+    "opciones": [
+      "@Entity",
+      "@Repository",
+      "@Table",
+      "@Persistence"
+    ],
+    "respuestaCorrecta": "@Entity"
+  },
+  {
+    "enunciado": "En el código proporcionado, ¿qué método del UserDetailsServiceImpl carga un usuario por su nombre de usuario?",
+    "opciones": [
+      "findUserByUsername",
+      "loadUserByUsername",
+      "getUserDetails",
+      "authenticateUser"
+    ],
+    "respuestaCorrecta": "loadUserByUsername"
+  },
+  {
+    "enunciado": "¿Cuál de los siguientes es un beneficio principal de Spring Data JPA?",
+    "opciones": [
+      "Requiere que se escriba SQL manualmente para cada consulta.",
+      "Facilita la interacción con bases de datos mediante JPA sin necesidad de escribir SQL.",
+      "Solo se puede usar con bases de datos NoSQL.",
+      "No permite realizar operaciones CRUD en bases de datos."
+    ],
+    "respuestaCorrecta": "Facilita la interacción con bases de datos mediante JPA sin necesidad de escribir SQL."
+  },
+  {
+    "enunciado": "En JPA, ¿qué representa una entidad?",
+    "opciones": [
+      "Una clase Java que se mapea a una tabla en la base de datos.",
+      "Un procedimiento almacenado dentro de la base de datos.",
+      "Un archivo de configuración XML en la aplicación.",
+      "Una tabla que almacena solo valores numéricos."
+    ],
+    "respuestaCorrecta": "Una clase Java que se mapea a una tabla en la base de datos."
+  },
+  {
+    "enunciado": "La arquitectura RESTful se basa en el protocolo __________ para la comunicación entre clientes y servidores.",
+    "opciones": [
+      "HTTP",
+      "FTP",
+      "TCP",
+      "SMTP"
+    ],
+    "respuestaCorrecta": "HTTP"
+  },
+  {
+    "enunciado": "En SecurityConfig, el método authenticationProvider() utiliza un objeto de tipo __________ para gestionar la autenticación.",
+    "opciones": [
+      "DaoAuthenticationProvider",
+      "AuthManager",
+      "SecurityProvider",
+      "UserProvider"
+    ],
+    "respuestaCorrecta": "DaoAuthenticationProvider"
+  },
+  {
+    "enunciado": "La interfaz __________ de Spring Data JPA permite realizar operaciones CRUD sin necesidad de escribir consultas SQL.",
+    "opciones": [
+      "JpaRepository",
+      "CrudRepository",
+      "DataRepository",
+      "EntityManager"
+    ],
+    "respuestaCorrecta": "JpaRepository"
+  },
+  {
+    "enunciado": "¿Qué anotación permite definir un repositorio en Spring Data JPA?",
+    "opciones": [
+      "@Service",
+      "@Repository",
+      "@Entity",
+      "@PersistenceContext"
+    ],
+    "respuestaCorrecta": "@Repository"
+  },
+  {
+    "enunciado": "¿Qué es la persistencia de datos en aplicaciones Java?",
+    "opciones": [
+      "Un proceso para eliminar datos de una base de datos.",
+      "El almacenamiento temporal de datos en memoria.",
+      "El proceso de almacenar datos de manera permanente en una base de datos.",
+      "Un método para comprimir datos antes de almacenarlos."
+    ],
+    "respuestaCorrecta": "El proceso de almacenar datos de manera permanente en una base de datos."
+  },
+  {
+    "enunciado": "En la configuración de Spring Security, el método securityFilterChain() utiliza el objeto __________ para definir las reglas de acceso a los endpoints.",
+    "opciones": [
+      "HttpSecurity",
+      "WebSecurity",
+      "SecurityManager",
+      "FilterChain"
+    ],
+    "respuestaCorrecta": "HttpSecurity"
+  },
+  {
+    "enunciado": "En el código proporcionado, el método passwordEncoder() retorna una instancia de __________ para codificar contraseñas.",
+    "opciones": [
+      "BCryptPasswordEncoder",
+      "PasswordEncoder",
+      "MD5Encoder",
+      "ShaEncoder"
+    ],
+    "respuestaCorrecta": "BCryptPasswordEncoder"
+  },
+  {
+    "enunciado": "¿Qué método en SecurityConfig se encarga de definir las reglas de autorización para los endpoints?",
+    "opciones": [
+      "passwordEncoder()",
+      "securityFilterChain()",
+      "authenticationProvider()",
+      "authorizeRequests()"
+    ],
+    "respuestaCorrecta": "securityFilterChain()"
+  },
+  {
+    "enunciado": "En Spring Boot, la anotación @__________ se usa para definir una clase como un componente de servicio.",
+    "opciones": [
+      "Service",
+      "Component",
+      "Controller",
+      "Repository"
+    ],
+    "respuestaCorrecta": "Service"
+  },
+  {
+    "enunciado": "El método findByUsername(String username) en UserRepository retorna un objeto de tipo __________ para manejar la posible ausencia de un usuario.",
+    "opciones": [
+      "Optional",
+      "User",
+      "List<User>",
+      "String"
+    ],
+    "respuestaCorrecta": "Optional"
+  },
+  {
+    "enunciado": "¿Qué anotación se utiliza para habilitar la seguridad en Spring Boot?",
+    "opciones": [
+      "@EnableSecurity",
+      "@EnableWebSecurity",
+      "@SecurityConfiguration",
+      "@Secure"
+    ],
+    "respuestaCorrecta": "@EnableWebSecurity"
+  },
+  {
+    "enunciado": "¿Cuál es el propósito de los repositorios JPA en Spring Data?",
+    "opciones": [
+      "Administrar los archivos de configuración de la base de datos.",
+      "Permitir la ejecución automática de consultas y operaciones CRUD sin escribir SQL.",
+      "Configurar la conexión a bases de datos sin necesidad de controladores JDBC.",
+      "Eliminar automáticamente los datos después de cierto tiempo."
+    ],
+    "respuestaCorrecta": "Permitir la ejecución automática de consultas y operaciones CRUD sin escribir SQL."
+  }
+]

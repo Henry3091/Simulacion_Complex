@@ -1,0 +1,202 @@
+[
+  {
+    "enunciado": "En Thymeleaf, ¿qué atributo se usa para enlazar un objeto con un formulario?",
+    "opciones": [
+      "th:value",
+      "th:model",
+      "th:object",
+      "th:bind"
+    ],
+    "respuestaCorrecta": "th:object"
+  },
+  {
+    "enunciado": "¿Qué hace el siguiente fragmento en UserService?\n\n@Autowired\nUserRepository repository;",
+    "opciones": [
+      "Crea una nueva instancia de UserRepository manualmente",
+      "Inyecta una dependencia de UserRepository automáticamente",
+      "Declara un nuevo objeto sin inicializarlo",
+      "Define una variable local"
+    ],
+    "respuestaCorrecta": "Inyecta una dependencia de UserRepository automáticamente"
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes opciones NO es una funcionalidad de UserController?",
+    "opciones": [
+      "Mostrar el formulario de registro",
+      "Guardar un usuario en la base de datos",
+      "Editar usuarios existentes",
+      "Usar el modelo Model para pasar datos a la vista"
+    ],
+    "respuestaCorrecta": "Editar usuarios existentes"
+  },
+  {
+    "enunciado": "Completa el código para definir la interfaz UserRepository con JpaRepository:\n@Repository\npublic interface UserRepository extends JpaRepository<__________, Long> {\n}",
+    "opciones": [
+      "User",
+      "Usuario",
+      "Entity",
+      "Model"
+    ],
+    "respuestaCorrecta": "User"
+  },
+  {
+    "enunciado": "Completa el código Thymeleaf para enlazar el atributo username al formulario:\n<input th:field=\"__________\" class=\"form-control\" type=\"text\">",
+    "opciones": [
+      "*{username}",
+      "{username}",
+      "username",
+      "${username}"
+    ],
+    "respuestaCorrecta": "{username}"
+  },
+  {
+    "enunciado": "En application.properties, ¿qué propiedad define el dialecto de MySQL en Hibernate?",
+    "opciones": [
+      "spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect",
+      "spring.datasource.url=jdbc:mysql://localhost:3306/miBD",
+      "spring.datasource.username=root",
+      "spring.jpa.hibernate.ddl-auto=create"
+    ],
+    "respuestaCorrecta": "spring.jpa.database-platform=org.hibernate.dialect.MySQLDialect"
+  },
+  {
+    "enunciado": "Completa la anotación para definir la clase User como una entidad en JPA:\n__________ (name=\"users\")\npublic class User {",
+    "opciones": [
+      "@Entity",
+      "@Table",
+      "@Column",
+      "@Id"
+    ],
+    "respuestaCorrecta": "@Entity"
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes interfaces en Spring maneja operaciones CRUD en la base de datos?",
+    "opciones": [
+      "UserController",
+      "UserRepository",
+      "UserService",
+      "UserEntity"
+    ],
+    "respuestaCorrecta": "UserRepository"
+  },
+  {
+    "enunciado": "En application.properties, ¿qué configuración permite que Hibernate cree y elimine las tablas automáticamente?",
+    "opciones": [
+      "spring.jpa.hibernate.ddl-auto=validate",
+      "spring.jpa.hibernate.ddl-auto=update",
+      "spring.jpa.hibernate.ddl-auto=create-drop",
+      "spring.jpa.hibernate.ddl-auto=none"
+    ],
+    "respuestaCorrecta": "spring.jpa.hibernate.ddl-auto=create-drop"
+  },
+  {
+    "enunciado": "Completa el método en UserService para guardar un usuario:\npublic User save(__________){\n    return repository.save(__________);\n}",
+    "opciones": [
+      "User user / user",
+      "User / user",
+      "user / user",
+      "User user / User"
+    ],
+    "respuestaCorrecta": "(User user), (user)"
+  },
+  {
+    "enunciado": "En la entidad User, ¿cuál es la función de @Id y @GeneratedValue(strategy = GenerationType.IDENTITY)?",
+    "opciones": [
+      "Define la clave primaria y su generación automática",
+      "Define una relación con otra tabla",
+      "Especifica el tipo de dato de un campo",
+      "Convierte la clase en una tabla de base de datos"
+    ],
+    "respuestaCorrecta": "Define la clave primaria y su generación automática"
+  },
+  {
+    "enunciado": "Completa el código para definir la clave primaria id con generación automática:\n@Id\n@GeneratedValue(strategy = __________)\nprivate Long id;",
+    "opciones": [
+      "GenerationType.IDENTITY",
+      "GenerationType.AUTO",
+      "GenerationType.SEQUENCE",
+      "GenerationType.TABLE"
+    ],
+    "respuestaCorrecta": "GenerationType.IDENTITY"
+  },
+  {
+    "enunciado": "Completa el código para configurar el acceso a la base de datos en application.properties:\nspring.datasource.url=jdbc:mysql://__________:3306/investigacion",
+    "opciones": [
+      "localhost",
+      "127.0.0.1",
+      "mysql",
+      "db"
+    ],
+    "respuestaCorrecta": "localhost"
+  },
+  {
+    "enunciado": "Completa el código para inyectar UserRepository en UserService:\n@Service\npublic class UserService {\n    @Autowired\n    __________ repository;\n}",
+    "opciones": [
+      "UserRepository",
+      "Repository",
+      "JpaRepository",
+      "CrudRepository"
+    ],
+    "respuestaCorrecta": "UserRepository"
+  },
+  {
+    "enunciado": "¿Qué comando SQL es equivalente al uso de @Repository con JpaRepository en Spring Boot?",
+    "opciones": [
+      "SELECT * FROM users;",
+      "CREATE TABLE users (...);",
+      "INSERT INTO users (...) VALUES (...);",
+      "Todas las anteriores"
+    ],
+    "respuestaCorrecta": "Todas las anteriores"
+  },
+  {
+    "enunciado": "Completa el código Thymeleaf para especificar la acción del formulario:\n<form th:action=\"__________\" th:object=\"${user}\" method=\"post\">",
+    "opciones": [
+      "@{/register}",
+      "@{/save}",
+      "/register",
+      "/save"
+    ],
+    "respuestaCorrecta": "@{/register}"
+  },
+  {
+    "enunciado": "Completa el código para indicar que un método maneja solicitudes POST en UserController:\n@PostMapping(__________)\npublic String registerUser(@ModelAttribute User user){",
+    "opciones": [
+      "\"/register\"",
+      "\"/save\"",
+      "/register",
+      "/save"
+    ],
+    "respuestaCorrecta": "\"/register\""
+  },
+  {
+    "enunciado": "¿Qué método HTTP maneja la anotación @GetMapping(\"/register\") en UserController?",
+    "opciones": [
+      "POST",
+      "GET",
+      "PUT",
+      "DELETE"
+    ],
+    "respuestaCorrecta": "GET"
+  },
+  {
+    "enunciado": "¿Qué anotación en Spring Boot se usa para definir una clase como un controlador?",
+    "opciones": [
+      "@Service",
+      "@Controller",
+      "@Repository",
+      "@Entity"
+    ],
+    "respuestaCorrecta": "@Controller"
+  },
+  {
+    "enunciado": "Completa el código para inyectar UserService en UserController:\n@Autowired\n__________ service;",
+    "opciones": [
+      "UserService",
+      "Service",
+      "ControllerService",
+      "AppService"
+    ],
+    "respuestaCorrecta": "UserService"
+  }
+]

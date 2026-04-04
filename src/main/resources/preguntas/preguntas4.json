@@ -1,0 +1,202 @@
+[
+  {
+    "enunciado": "La anotación @GetMapping(\"/add\") se usa para manejar solicitudes __________ en un controlador de Spring.",
+    "opciones": [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE"
+    ],
+    "respuestaCorrecta": "GET"
+  },
+  {
+    "enunciado": "El método saveProduct(Product product) en ProductService permite __________ un producto en la base de datos.",
+    "opciones": [
+      "guardar",
+      "eliminar",
+      "actualizar",
+      "consultar"
+    ],
+    "respuestaCorrecta": "guardar"
+  },
+  {
+    "enunciado": "¿Qué significa CORS en el contexto de seguridad?",
+    "opciones": [
+      "Sistema de encriptación de contraseñas",
+      "Restricción de acceso a recursos entre dominios",
+      "Un método de autenticación",
+      "Un tipo de sesión en Spring Security"
+    ],
+    "respuestaCorrecta": "Restricción de acceso a recursos entre dominios"
+  },
+  {
+    "enunciado": "¿Qué anotación se usa para aplicar restricciones de seguridad en métodos de Spring Security?",
+    "opciones": [
+      "@Autowired",
+      "@RestController",
+      "@Secured",
+      "@Entity"
+    ],
+    "respuestaCorrecta": "@Secured"
+  },
+  {
+    "enunciado": "¿Qué anotación se usa para definir seguridad a nivel de método en Spring Security?",
+    "opciones": [
+      "@PreAuthorize",
+      "@Component",
+      "@RequestMapping",
+      "@Service"
+    ],
+    "respuestaCorrecta": "@PreAuthorize"
+  },
+  {
+    "enunciado": "¿Qué ataque se previene mediante la inclusión de tokens CSRF en formularios?",
+    "opciones": [
+      "Inyección SQL",
+      "CSRF (Cross-Site Request Forgery)",
+      "XSS (Cross-Site Scripting)",
+      "Ataques de denegación de servicio (DDoS)"
+    ],
+    "respuestaCorrecta": "CSRF (Cross-Site Request Forgery)"
+  },
+  {
+    "enunciado": "¿Cuál es una característica clave de la gestión de sesiones en Spring Security?",
+    "opciones": [
+      "Permite múltiples sesiones simultáneas por usuario",
+      "Impide que los usuarios inicien sesión",
+      "Permite definir políticas como la expiración de sesión",
+      "No afecta el inicio de sesión de usuarios"
+    ],
+    "respuestaCorrecta": "Permite definir políticas como la expiración de sesión"
+  },
+  {
+    "enunciado": "En Spring, la anotación @Autowired se usa para la __________ automática de dependencias.",
+    "opciones": [
+      "inyección",
+      "configuración",
+      "creación",
+      "validación"
+    ],
+    "respuestaCorrecta": "inyección"
+  },
+  {
+    "enunciado": "En Spring, la anotación @PostMapping indica que el método manejará solicitudes HTTP de tipo __________.",
+    "opciones": [
+      "POST",
+      "GET",
+      "PUT",
+      "DELETE"
+    ],
+    "respuestaCorrecta": "POST"
+  },
+  {
+    "enunciado": "En la plantilla HTML, th:action=\"@{${product.id == null} ? '/add' : '/product/edit/'+${product.id}}\" se usa para definir la __________ del formulario.",
+    "opciones": [
+      "acción",
+      "ruta",
+      "vista",
+      "configuración"
+    ],
+    "respuestaCorrecta": "acción"
+  },
+  {
+    "enunciado": "En ProductController, el método deleteProduct(Long id) se asocia con la anotación @PostMapping(\"/product/delete/{id}\") y se usa para __________ un producto.",
+    "opciones": [
+      "eliminar",
+      "guardar",
+      "consultar",
+      "editar"
+    ],
+    "respuestaCorrecta": "eliminar"
+  },
+  {
+    "enunciado": "¿Qué método de autenticación NO es soportado por Spring Security?",
+    "opciones": [
+      "Contraseñas",
+      "Autenticación basada en tokens",
+      "Identificación por huella dactilar",
+      "OAuth2"
+    ],
+    "respuestaCorrecta": "Identificación por huella dactilar"
+  },
+  {
+    "enunciado": "¿Cuál es el propósito principal de Spring Security en una aplicación Java?",
+    "opciones": [
+      "Proteger la interfaz de usuario",
+      "Implementar medidas de seguridad como autenticación y autorización",
+      "Gestionar la base de datos",
+      "Optimizar el rendimiento del código"
+    ],
+    "respuestaCorrecta": "Implementar medidas de seguridad como autenticación y autorización"
+  },
+  {
+    "enunciado": "¿Qué ataque ocurre cuando un atacante inyecta código malicioso en una página web?",
+    "opciones": [
+      "CSRF",
+      "XSS",
+      "Phishing",
+      "Spoofing"
+    ],
+    "respuestaCorrecta": "XSS"
+  },
+  {
+    "enunciado": "El atributo th:field=\"*{name}\" en el formulario HTML se usa para enlazar el campo __________ del objeto product.",
+    "opciones": [
+      "nombre",
+      "name",
+      "id",
+      "valor"
+    ],
+    "respuestaCorrecta": "nombre"
+  },
+  {
+    "enunciado": "¿Cómo se definen los permisos en Spring Security?",
+    "opciones": [
+      "A través de claves de encriptación",
+      "Mediante roles y permisos",
+      "Solo mediante autenticación de usuarios",
+      "Configurando archivos XML"
+    ],
+    "respuestaCorrecta": "Mediante roles y permisos"
+  },
+  {
+    "enunciado": "En Spring Security, authentication.getAuthorities() devuelve los __________ del usuario autenticado.",
+    "opciones": [
+      "roles",
+      "permisos",
+      "usuarios",
+      "tokens"
+    ],
+    "respuestaCorrecta": "roles"
+  },
+  {
+    "enunciado": "La anotación @Service indica que ProductService es un __________ de Spring.",
+    "opciones": [
+      "servicio",
+      "bean",
+      "controlador",
+      "repositorio"
+    ],
+    "respuestaCorrecta": "servicio"
+  },
+  {
+    "enunciado": "¿Cuál es la ventaja principal de Spring Security?",
+    "opciones": [
+      "No requiere configuración",
+      "Se integra fácilmente con otras tecnologías",
+      "Funciona solo con bases de datos SQL",
+      "No protege contra ataques de seguridad"
+    ],
+    "respuestaCorrecta": "Se integra fácilmente con otras tecnologías"
+  },
+  {
+    "enunciado": "En la vista HTML, la expresión th:text=\"${category.name}\" sirve para mostrar el __________ de la categoría.",
+    "opciones": [
+      "nombre",
+      "id",
+      "valor",
+      "tipo"
+    ],
+    "respuestaCorrecta": "nombre"
+  }
+]
