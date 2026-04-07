@@ -1,0 +1,192 @@
+[
+  {
+    "enunciado": "¿Cuál es la función principal de SQL?",
+    "opciones": [
+      "Gestionar el almacenamiento físico",
+      "Consultar y manipular los datos almacenados",
+      "Establecer reglas de seguridad",
+      "Establecer relaciones entre tablas"
+    ],
+    "respuestaCorrecta": "Consultar y manipular los datos almacenados"
+  },
+  {
+    "enunciado": "En SQL, ¿Qué tipo de comando es 'CREATE TABLE'?",
+    "opciones": [
+      "DDL",
+      "TCL",
+      "DML",
+      "DCL"
+    ],
+    "respuestaCorrecta": "DDL"
+  },
+  {
+    "enunciado": "¿Qué se entiende por diseño conceptual en bases de datos?",
+    "opciones": [
+      "El diseño visual de las tablas",
+      "El diseño de las consultas SQL para acceder a los datos",
+      "La estructura de almacenamiento de los datos",
+      "La organización de los datos sin detalles de implementación"
+    ],
+    "respuestaCorrecta": "La organización de los datos sin detalles de implementación"
+  },
+  {
+    "enunciado": "¿En qué etapa del diseño de bases de datos se usa un modelo Entidad-Relación (ER)?",
+    "opciones": [
+      "En la programación de las consultas SQL",
+      "En el diseño conceptual",
+      "En la administración de la base de datos",
+      "En el diseño físico de los datos"
+    ],
+    "respuestaCorrecta": "En el diseño conceptual"
+  },
+  {
+    "enunciado": "¿Qué es la normalización en bases de datos?",
+    "opciones": [
+      "El proceso de organizar los datos para mejorar su consistencia y evitar duplicados",
+      "El proceso de optimizar las consultas mediante la reorganización de las tablas",
+      "El proceso de dividir los datos en tablas relacionadas para optimizar el almacenamiento",
+      "El proceso de eliminar la redundancia de los datos mediante la organización de tablas"
+    ],
+    "respuestaCorrecta": "El proceso de organizar los datos para mejorar su consistencia y evitar duplicados"
+  },
+  {
+    "enunciado": "En SQL, ¿Cuál de las siguientes claves impide valores duplicados en una columna?",
+    "opciones": [
+      "FOREIGN KEY",
+      "CHECK",
+      "PRIMARY KEY",
+      "DEFAULT"
+    ],
+    "respuestaCorrecta": "PRIMARY KEY"
+  },
+  {
+    "enunciado": "En SQL, ¿Qué operador se usa para filtrar datos en una consulta?",
+    "opciones": [
+      "GROUP BY",
+      "ORDER BY",
+      "WHERE",
+      "FILTER"
+    ],
+    "respuestaCorrecta": "WHERE"
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes afirmaciones es correcta respecto a la Tercera Forma Normal (3FN)?",
+    "opciones": [
+      "Una tabla está en 3FN si cada atributo tiene valores únicos y no hay claves candidatas adicionales",
+      "Para que una tabla esté en 3FN, debe evitarse completamente la redundancia de datos, incluso si afecta la eficiencia",
+      "Una tabla está en 3FN si no tiene dependencias transitivas ni claves foráneas",
+      "Una tabla está en 3FN si está en 2FN y todos sus atributos dependen funcionalmente de la clave primaria, sin depender de atributos no clave"
+    ],
+    "respuestaCorrecta": "Una tabla está en 3FN si está en 2FN y todos sus atributos dependen funcionalmente de la clave primaria, sin depender de atributos no clave"
+  },
+  {
+    "enunciado": "Considerando las diferencias entre las sentencias DDL y DML en SQL, ¿Cuál de las siguientes afirmaciones es correcta?",
+    "opciones": [
+      "ALTER TABLE es DDL porque cambia la estructura de la tabla.",
+      "INSERT y DELETE son DDL porque modifican los registros.",
+      "DROP TABLE es DML porque elimina datos de la base.",
+      "TRUNCATE es DML porque borra filas sin condiciones."
+    ],
+    "respuestaCorrecta": "ALTER TABLE es DDL porque cambia la estructura de la tabla."
+  },
+  {
+    "enunciado": "¿Cómo podría evitar que un empleado sea insertado con un salario inferior a 1000 utilizando un trigger?",
+    "opciones": [
+      "CREATE TRIGGER control_salario BEFORE INSERT ON empleados FOR EACH ROW IF NEW.salario < 1000 THEN INSERT INTO LogSalarios VALUES (NEW.id, 'Salario no permitido'); END;",
+      "CREATE TRIGGER control_salario BEFORE INSERT ON empleados FOR EACH ROW IF NEW.salario < 1000 THEN SET NEW.salario = 0; END;",
+      "CREATE TRIGGER control_salario BEFORE INSERT ON empleados FOR EACH ROW IF NEW.salario < 1000 THEN DELETE FROM empleados WHERE id = NEW.id; END;",
+      "CREATE TRIGGER control_salario BEFORE INSERT ON empleados FOR EACH ROW IF NEW.salario < 1000 THEN SET NEW.salario = 1000; END;"
+    ],
+    "respuestaCorrecta": "CREATE TRIGGER control_salario BEFORE INSERT ON empleados FOR EACH ROW IF NEW.salario < 1000 THEN SET NEW.salario = 1000; END;"
+  },
+  {
+    "enunciado": "¿Cuál es la sintaxis correcta para crear un procedimiento almacenado en SQL?",
+    "opciones": [
+      "CREATE PROCEDURE nombre_procedimiento BEGIN ... END;",
+      "CREATE PROCEDURE nombre_procedimiento (parametros) BEGIN ... END;",
+      "CREATE PROCEDURE nombre_procedimiento (parametros) SET ...;",
+      "CREATE PROCEDURE nombre_procedimiento () AS BEGIN ... END;"
+    ],
+    "respuestaCorrecta": "CREATE PROCEDURE nombre_procedimiento (parametros) BEGIN ... END;"
+  },
+  {
+    "enunciado": "¿Cuál es la principal desventaja de usar triggers?",
+    "opciones": [
+      "Pueden hacer que la base de datos sea más lenta si no se usan correctamente.",
+      "Aumentan el tamaño de las tablas.",
+      "Solo pueden ser utilizados por los administradores de la base de datos.",
+      "Son muy fáciles de crear y no requieren ningún tipo de monitoreo."
+    ],
+    "respuestaCorrecta": "Pueden hacer que la base de datos sea más lenta si no se usan correctamente."
+  },
+  {
+    "enunciado": "Trigger para asegurar que cada vez que se actualice el salario de un empleado, se registre la fecha de la actualización",
+    "opciones": [
+      "CREATE TRIGGER actualizar_salario BEFORE UPDATE ON empleados FOR EACH ROW SET NEW.fecha_actualizacion = CURRENT_DATE;",
+      "CREATE TRIGGER actualizar_salario AFTER UPDATE ON empleados FOR EACH ROW SET NEW.fecha_actualizacion = CURRENT_DATE;",
+      "CREATE TRIGGER actualizar_salario BEFORE INSERT ON empleados FOR EACH ROW SET NEW.fecha_actualizacion = CURRENT_DATE;",
+      "CREATE TRIGGER actualizar_salario AFTER UPDATE ON empleados FOR EACH ROW SET OLD.fecha_actualizacion = CURRENT_DATE;"
+    ],
+    "respuestaCorrecta": "CREATE TRIGGER actualizar_salario BEFORE UPDATE ON empleados FOR EACH ROW SET NEW.fecha_actualizacion = CURRENT_DATE;"
+  },
+  {
+    "enunciado": "¿Qué sucede si se intenta ejecutar un COMMIT dentro de una transacción que ya ha sido finalizada?",
+    "opciones": [
+      "El COMMIT se omite y no ocurre ningún cambio en la base de datos.",
+      "El COMMIT eliminará todas las tablas involucradas en la transacción.",
+      "La transacción no puede ser finalizada nuevamente, y el COMMIT no tendrá efecto.",
+      "La transacción se ejecuta de nuevo desde el principio."
+    ],
+    "respuestaCorrecta": "La transacción no puede ser finalizada nuevamente, y el COMMIT no tendrá efecto."
+  },
+  {
+    "enunciado": "¿Qué es un procedimiento almacenado en SQL?",
+    "opciones": [
+      "Una función que permite ejecutar múltiples instrucciones SQL dentro de una transacción.",
+      "Un tipo de índice optimizado para mejorar el rendimiento de consultas complejas.",
+      "Un conjunto de comandos SQL almacenados en el servidor para ser ejecutados bajo demanda por un administrador de bases de datos.",
+      "Un conjunto de instrucciones SQL que se almacenan en la base de datos y pueden ser ejecutadas en cualquier momento, sin necesidad de reescribirlas."
+    ],
+    "respuestaCorrecta": "Un conjunto de instrucciones SQL que se almacenan en la base de datos y pueden ser ejecutadas en cualquier momento, sin necesidad de reescribirlas."
+  },
+  {
+    "enunciado": "¿Cuál es la principal función de una vista en SQL?",
+    "opciones": [
+      "Proporcionar una manera de simplificar consultas complejas al encapsular una consulta SQL dentro de un objeto reutilizable.",
+      "Permitir la modificación directa de los datos subyacentes sin restricciones.",
+      "Mejorar el rendimiento de las consultas mediante el almacenamiento en caché de los resultados.",
+      "Optimizar las operaciones de inserción y eliminación de datos mediante el uso de índices."
+    ],
+    "respuestaCorrecta": "Proporcionar una manera de simplificar consultas complejas al encapsular una consulta SQL dentro de un objeto reutilizable."
+  },
+  {
+    "enunciado": "¿Cuál es la ventaja principal de utilizar transacciones en SQL?",
+    "opciones": [
+      "Mejoran el rendimiento de las consultas al ejecutar varias instrucciones a la vez.",
+      "Evitan que los usuarios modifiquen datos de forma simultánea en la base de datos.",
+      "Permiten agrupar múltiples instrucciones SQL y asegurar que todas se ejecuten correctamente antes de confirmar los cambios.",
+      "Permiten ejecutar procedimientos almacenados sin la necesidad de esperar por la confirmación de cambios."
+    ],
+    "respuestaCorrecta": "Permiten agrupar múltiples instrucciones SQL y asegurar que todas se ejecuten correctamente antes de confirmar los cambios."
+  },
+  {
+    "enunciado": "¿Qué es un 'INNER JOIN' en SQL?",
+    "opciones": [
+      "Una operación que devuelve solo las filas que tienen coincidencias en ambas tablas.",
+      "Una operación que devuelve todas las filas de ambas tablas, incluyendo las que no tienen coincidencias.",
+      "Una operación que se utiliza para realizar una consulta recursiva entre tablas.",
+      "Una operación que crea una nueva tabla basada en la unión de las dos tablas involucradas."
+    ],
+    "respuestaCorrecta": "Una operación que devuelve solo las filas que tienen coincidencias en ambas tablas."
+  },
+  {
+    "enunciado": "¿Cómo se debe unir la tabla Paciente con la tabla Cita en un JOIN para obtener todos los pacientes junto con las citas que tengan (si existen)?",
+    "opciones": [
+      "Unirlas utilizando LEFT JOIN sobre la columna paciente_id.",
+      "Unirlas utilizando INNER JOIN sobre la columna cita_id.",
+      "Unirlas utilizando RIGHT JOIN sobre la columna paciente_id.",
+      "Usando FULL OUTER JOIN sobre la columna paciente_id para obtener todos los pacientes y todas las citas, independientemente de que estén asociadas o no."
+    ],
+    "respuestaCorrecta": "Unirlas utilizando LEFT JOIN sobre la columna paciente_id."
+  }
+]
