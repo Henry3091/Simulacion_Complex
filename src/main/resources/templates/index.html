@@ -7,7 +7,21 @@
 </head>
 <body>
 
-<div class="d-flex justify-content-center align-items-center vh-100">
+<!-- 🔵 MENÚ SUPERIOR -->
+<nav class="navbar navbar-dark bg-dark px-3 flex-wrap">
+    <span class="navbar-brand">Simulador EXA</span>
+
+    <div class="d-flex flex-wrap gap-2 mt-2 mt-md-0">
+        <a href="/?banco=preguntas1.json" class="btn btn-outline-light btn-sm">Banco 1</a>
+        <a href="/?banco=preguntas2.json" class="btn btn-outline-light btn-sm">Banco 2</a>
+        <a href="/?banco=preguntas3.json" class="btn btn-outline-light btn-sm">Banco 3</a>
+        <a href="/?banco=preguntas4.json" class="btn btn-outline-light btn-sm">Banco 4</a>
+        <a href="/?banco=preguntas5.json" class="btn btn-outline-light btn-sm">Banco 5</a>
+    </div>
+</nav>
+
+<!-- 🔵 CONTENIDO -->
+<div class="d-flex justify-content-center align-items-center p-3" style="min-height: calc(100vh - 70px);">
     <div class="card shadow p-4 text-center" style="max-width: 600px; width: 100%;">
 
         <!-- RESULTADO FINAL -->

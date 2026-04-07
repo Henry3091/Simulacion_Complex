@@ -22,17 +22,21 @@ public class PreguntaController {
     private boolean mostrarResultado = false;
     private boolean ultimaCorrecta = false;
 
+    // 👇 AQUÍ eliges el banco
     @GetMapping("/")
-    public String iniciar(Model model) {
+    public String iniciar(
+            @RequestParam(defaultValue = "preguntas1.json") String banco,
+            Model model) {
 
-        preguntas = preguntaService.obtenerPreguntas();
+        preguntas = preguntaService.obtenerPreguntas(banco);
+
         indice = 0;
         puntaje = 0;
         mostrarResultado = false;
 
         model.addAttribute("pregunta", preguntas.get(indice));
         model.addAttribute("indice", indice);
-        model.addAttribute("mostrarResultado", false); // 👈 IMPORTANTE
+        model.addAttribute("mostrarResultado", false);
 
         return "index";
     }
@@ -73,7 +77,7 @@ public class PreguntaController {
 
         model.addAttribute("pregunta", preguntas.get(indice));
         model.addAttribute("indice", indice);
-        model.addAttribute("mostrarResultado", false); // 👈 IMPORTANTE
+        model.addAttribute("mostrarResultado", false);
 
         return "index";
     }

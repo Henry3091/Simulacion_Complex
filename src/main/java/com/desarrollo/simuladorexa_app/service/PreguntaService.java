@@ -14,27 +14,23 @@ import java.util.List;
 @Service
 public class PreguntaService {
 
-    public List<Pregunta> obtenerPreguntas() {
-        List<Pregunta> todas = new ArrayList<>();
+    public List<Pregunta> obtenerPreguntas(String archivo) {
         ObjectMapper mapper = new ObjectMapper();
 
         try {
-            Resource[] resources = new PathMatchingResourcePatternResolver()
-                    .getResources("classpath:preguntas/*.json");
+            Resource resource = new PathMatchingResourcePatternResolver()
+                    .getResource("classpath:preguntas/" + archivo);
 
-            for (Resource resource : resources) {
-                try (InputStream is = resource.getInputStream()) {
-                    List<Pregunta> lista = mapper.readValue(
-                            is, new TypeReference<List<Pregunta>>() {}
-                    );
-                    todas.addAll(lista);
-                }
+            try (InputStream is = resource.getInputStream()) {
+                return mapper.readValue(
+                        is, new TypeReference<List<Pregunta>>() {}
+                );
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return todas;
+        return new ArrayList<>();
     }
 }
