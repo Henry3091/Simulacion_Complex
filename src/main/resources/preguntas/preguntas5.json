@@ -107,7 +107,7 @@
       "CREATE PROCEDURE nombre_procedimiento (parametros) SET ...;",
       "CREATE PROCEDURE nombre_procedimiento () AS BEGIN ... END;"
     ],
-    "respuestaCorrecta": "CREATE PROCEDURE nombre_procedimiento (parametros) BEGIN ... END;"
+    "respuestaCorrecta": "CREATE PROCEDURE nombre_procedimiento () AS BEGIN ... END;"
   },
   {
     "enunciado": "¿Cuál es la principal desventaja de usar triggers?",

@@ -1,0 +1,202 @@
+[
+  {
+    "enunciado": "¿Qué característica garantiza una transacción en una base de datos para asegurar que todos los cambios se realicen correctamente o ninguno se realice?",
+    "opciones": [
+      "Durabilidad",
+      "Aislamiento",
+      "Consistencia",
+      "Atomicidad"
+    ],
+    "respuestaCorrecta": "Atomicidad"
+  },
+  {
+    "enunciado": "¿Qué instrucción SQL se usa para otorgar privilegios de lectura a un usuario sobre una tabla específica?",
+    "opciones": [
+      "GRANT SELECT ON tabla TO usuario",
+      "GRANT READ ON tabla TO usuario",
+      "SET PRIVILEGES TO usuario",
+      "ALLOW READ TO usuario"
+    ],
+    "respuestaCorrecta": "GRANT SELECT ON tabla TO usuario"
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes afirmaciones es cierta sobre los privilegios en una base de datos?",
+    "opciones": [
+      "Los privilegios deben ser otorgados solo a los administradores.",
+      "Un privilegio de 'DELETE' permite al usuario eliminar filas de cualquier tabla.",
+      "Los privilegios deben ser gestionados cuidadosamente para evitar accesos no autorizados.",
+      "Los privilegios no afectan el rendimiento de la base de datos."
+    ],
+    "respuestaCorrecta": "Los privilegios deben ser gestionados cuidadosamente para evitar accesos no autorizados."
+  },
+  {
+    "enunciado": "¿Cuál es el principal beneficio de utilizar índices en una base de datos?",
+    "opciones": [
+      "Permitir la duplicación de registros.",
+      "Reducir el tamaño de la base de datos.",
+      "Mejorar el rendimiento de las consultas, especialmente en búsquedas y filtros.",
+      "Asegurar que las transacciones sean atómicas."
+    ],
+    "respuestaCorrecta": "Mejorar el rendimiento de las consultas, especialmente en búsquedas y filtros."
+  },
+  {
+    "enunciado": "¿Qué comando SQL utilizarías para eliminar los privilegios de un usuario llamado usuario1 sobre la tabla empleados?",
+    "opciones": [
+      "DROP PRIVILEGES ON empleados FOR usuario1;",
+      "DENY SELECT, INSERT ON empleados TO usuario1;",
+      "REMOVE SELECT, INSERT FROM usuario1 ON empleados;",
+      "REVOKE ALL PRIVILEGES ON empleados FROM usuario1;"
+    ],
+    "respuestaCorrecta": "REVOKE ALL PRIVILEGES ON empleados FROM usuario1;"
+  },
+  {
+    "enunciado": "¿Qué tipo de base de datos NoSQL se utiliza principalmente para almacenar documentos como JSON?",
+    "opciones": [
+      "Bases de datos orientadas a documentos.",
+      "Bases de datos para grafos",
+      "Bases de datos orientadas a grafos.",
+      "Bases de datos orientadas a columnas."
+    ],
+    "respuestaCorrecta": "Bases de datos orientadas a documentos."
+  },
+  {
+    "enunciado": "¿Qué método en MongoDB se utiliza para mostrar todos los documentos en una colección llamada 'clientes'?",
+    "opciones": [
+      "db.clientes.findAll()",
+      "db.clientes.find()",
+      "db.clientes.getAll()",
+      "db.clientes.select()"
+    ],
+    "respuestaCorrecta": "db.clientes.find()"
+  },
+  {
+    "enunciado": "¿Cómo se realiza un filtro con condiciones en MongoDB?",
+    "opciones": [
+      "db.collection.select({ campo: valor })",
+      "db.collection.filter({ campo: valor })",
+      "db.collection.find({ campo: valor })",
+      "db.collection.query({ campo: valor })"
+    ],
+    "respuestaCorrecta": "db.collection.find({ campo: valor })"
+  },
+  {
+    "enunciado": "¿Qué ventaja tiene usar un modelo de base de datos NoSQL sobre un modelo relacional en una aplicación que requiere alta escalabilidad y manejo de datos no estructurados?",
+    "opciones": [
+      "Las bases de datos NoSQL son mejores para realizar transacciones complejas de múltiples tablas.",
+      "Las bases de datos NoSQL permiten una mayor flexibilidad en la estructura de los datos y escalan horizontalmente con facilidad.",
+      "Las bases de datos NoSQL son más eficientes en operaciones de agregación y complejas uniones de datos.",
+      "Las bases de datos NoSQL permiten relaciones complejas entre entidades, lo que las hace más útiles para grandes aplicaciones empresariales."
+    ],
+    "respuestaCorrecta": "Las bases de datos NoSQL permiten una mayor flexibilidad en la estructura de los datos y escalan horizontalmente con facilidad."
+  },
+  {
+    "enunciado": "¿Qué representa el ObjectId en MongoDB?",
+    "opciones": [
+      "Es un identificador único generado automáticamente para cada documento.",
+      "Es un tipo de dato utilizado para almacenar fechas.",
+      "Es una clave foránea que relaciona dos colecciones.",
+      "Es el nombre de la colección en la que se almacena el documento."
+    ],
+    "respuestaCorrecta": "Es un identificador único generado automáticamente para cada documento."
+  },
+  {
+    "enunciado": "¿Qué hace el operador $unwind en MongoDB?",
+    "opciones": [
+      "Desestructura un array para convertir sus elementos en documentos individuales.",
+      "Agrupa los elementos de un array.",
+      "Ordena los documentos de una colección.",
+      "Filtra los documentos que contienen un array"
+    ],
+    "respuestaCorrecta": "Desestructura un array para convertir sus elementos en documentos individuales."
+  },
+  {
+    "enunciado": "¿Cuál de los siguientes es un operador de comparación en MongoDB?",
+    "opciones": [
+      "$gt",
+      "$unwind",
+      "$set",
+      "$addFields"
+    ],
+    "respuestaCorrecta": "$gt"
+  },
+  {
+    "enunciado": "¿Cómo podemos acceder al campo nombre de un array info_medico dentro de un documento?",
+    "opciones": [
+      "medico_info[0].nombre",
+      "medico_info.nombre[0]",
+      "medico_info.nombre",
+      "medico_info[0]['nombre']"
+    ],
+    "respuestaCorrecta": "medico_info[0]['nombre']"
+  },
+  {
+    "enunciado": "¿Qué operador se utiliza para unir dos colecciones en MongoDB?",
+    "opciones": [
+      "$match",
+      "$unwind",
+      "$lookup",
+      "$group"
+    ],
+    "respuestaCorrecta": "$lookup"
+  },
+  {
+    "enunciado": "En una operación de $lookup, ¿Qué hace el campo localField?",
+    "opciones": [
+      "Especifica el campo de la colección de destino.",
+      "Define el nombre del campo resultante",
+      "Especifica el campo que se va a comparar con el campo de la colección fuente.",
+      "Filtra los resultados de la unión"
+    ],
+    "respuestaCorrecta": "Especifica el campo que se va a comparar con el campo de la colección fuente."
+  },
+  {
+    "enunciado": "¿Cómo se puede actualizar un campo específico de un documento sin modificar los demás?",
+    "opciones": [
+      "Usando $group",
+      "Usando $set",
+      "Usando $match",
+      "Usando $addToSet"
+    ],
+    "respuestaCorrecta": "Usando $set"
+  },
+  {
+    "enunciado": "¿Cómo podría eliminar una clave de todos los documentos en una colección?",
+    "opciones": [
+      "Usando $drop",
+      "Usando $delete",
+      "Usando $remove",
+      "Usando $unset"
+    ],
+    "respuestaCorrecta": "Usando $unset"
+  },
+  {
+    "enunciado": "¿Qué hace la siguiente consulta de MongoDB?\ndb.citas_medicas.find({ \"motivo\": { \"$in\": [\"Consulta\", \"Chequeo\"] } })",
+    "opciones": [
+      "Devuelve todas las citas médicas con motivo diferente de 'Consulta' y 'Chequeo'",
+      "Devuelve las citas médicas que no tienen motivo",
+      "Devuelve todas las citas médicas con el motivo 'Consulta' o 'Chequeo'",
+      "Devuelve las citas médicas con el motivo 'Consulta' y el médico asociado a 'Chequeo'"
+    ],
+    "respuestaCorrecta": "Devuelve todas las citas médicas con el motivo 'Consulta' o 'Chequeo'"
+  },
+  {
+    "enunciado": "¿Cuál de las siguientes afirmaciones es correcta sobre las colecciones en MongoDB?",
+    "opciones": [
+      "Una colección puede contener documentos con estructuras diferentes.",
+      "Todas las colecciones deben tener un esquema fijo.",
+      "Cada colección solo puede contener documentos con claves predefinidas.",
+      "En MongoDB, las colecciones no pueden ser indexadas."
+    ],
+    "respuestaCorrecta": "Una colección puede contener documentos con estructuras diferentes."
+  },
+  {
+    "enunciado": "¿Qué operador permite ordenar documentos dentro de una agregación?",
+    "opciones": [
+      "$order",
+      "$project",
+      "$sort",
+      "$orderby"
+    ],
+    "respuestaCorrecta": "$sort"
+  }
+]
