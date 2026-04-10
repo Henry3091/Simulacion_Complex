@@ -1,0 +1,312 @@
+[
+  {
+    "enunciado": "¿Qué es una base de datos?",
+    "opciones": [
+      "Un programa para editar texto",
+      "Un conjunto de datos organizados estructuradamente",
+      "Un sistema operativo",
+      "Un lenguaje de programación"
+    ],
+    "respuestaCorrecta": "Un conjunto de datos organizados estructuradamente"
+  },
+  {
+    "enunciado": "¿Qué característica permite que los datos no dependan de los programas?",
+    "opciones": [
+      "Seguridad",
+      "Redundancia",
+      "Independencia de los datos",
+      "Integridad"
+    ],
+    "respuestaCorrecta": "Independencia de los datos"
+  },
+  {
+    "enunciado": "¿Qué tipo de integridad garantiza que cada fila sea única?",
+    "opciones": [
+      "Referencial",
+      "Dominio",
+      "Entidad",
+      "Lógica"
+    ],
+    "respuestaCorrecta": "Entidad"
+  },
+  {
+    "enunciado": "¿Qué fase del diseño define entidades y relaciones?",
+    "opciones": [
+      "Físico",
+      "Lógico",
+      "Conceptual",
+      "Implementación"
+    ],
+    "respuestaCorrecta": "Conceptual"
+  },
+  {
+    "enunciado": "¿Qué modelo usa tablas con filas y columnas?",
+    "opciones": [
+      "Jerárquico",
+      "Red",
+      "Relacional",
+      "NoSQL"
+    ],
+    "respuestaCorrecta": "Relacional"
+  },
+  {
+    "enunciado": "¿Qué busca la normalización?",
+    "opciones": [
+      "Duplicar datos",
+      "Eliminar redundancia",
+      "Aumentar tablas",
+      "Reducir consultas"
+    ],
+    "respuestaCorrecta": "Eliminar redundancia"
+  },
+  {
+    "enunciado": "¿Qué condición cumple la 1FN?",
+    "opciones": [
+      "Datos duplicados",
+      "Atributos atómicos",
+      "Dependencia transitiva",
+      "Claves externas"
+    ],
+    "respuestaCorrecta": "Atributos atómicos"
+  },
+  {
+    "enunciado": "¿Qué lenguaje se usa en bases de datos relacionales?",
+    "opciones": [
+      "HTML",
+      "Python",
+      "SQL",
+      "Java"
+    ],
+    "respuestaCorrecta": "SQL"
+  },
+  {
+    "enunciado": "¿Qué comando recupera datos?",
+    "opciones": [
+      "INSERT",
+      "DELETE",
+      "SELECT",
+      "UPDATE"
+    ],
+    "respuestaCorrecta": "SELECT"
+  },
+  {
+    "enunciado": "¿Qué comando crea tablas?",
+    "opciones": [
+      "CREATE",
+      "INSERT",
+      "DELETE",
+      "DROP"
+    ],
+    "respuestaCorrecta": "CREATE"
+  },
+  {
+    "enunciado": "¿Qué tipo de JOIN muestra solo coincidencias?",
+    "opciones": [
+      "LEFT",
+      "RIGHT",
+      "INNER",
+      "FULL"
+    ],
+    "respuestaCorrecta": "INNER"
+  },
+  {
+    "enunciado": "¿Qué operador lógico exige que todas las condiciones sean verdaderas?",
+    "opciones": [
+      "OR",
+      "NOT",
+      "AND",
+      "IN"
+    ],
+    "respuestaCorrecta": "AND"
+  },
+  {
+    "enunciado": "¿Qué es un trigger?",
+    "opciones": [
+      "Una tabla",
+      "Acción automática ante un evento",
+      "Consulta",
+      "Índice"
+    ],
+    "respuestaCorrecta": "Acción automática ante un evento"
+  },
+  {
+    "enunciado": "¿Qué es un procedimiento almacenado?",
+    "opciones": [
+      "Tabla",
+      "Conjunto de instrucciones SQL",
+      "Vista",
+      "Índice"
+    ],
+    "respuestaCorrecta": "Conjunto de instrucciones SQL"
+  },
+  {
+    "enunciado": "¿Qué es una vista?",
+    "opciones": [
+      "Tabla física",
+      "Tabla virtual",
+      "Índice",
+      "Trigger"
+    ],
+    "respuestaCorrecta": "Tabla virtual"
+  },
+  {
+    "enunciado": "¿Una vista almacena datos físicamente?",
+    "opciones": [
+      "Sí",
+      "No",
+      "A veces",
+      "Depende"
+    ],
+    "respuestaCorrecta": "No"
+  },
+  {
+    "enunciado": "¿Qué es una transacción?",
+    "opciones": [
+      "Consulta",
+      "Conjunto de operaciones indivisible",
+      "Tabla",
+      "Índice"
+    ],
+    "respuestaCorrecta": "Conjunto de operaciones indivisible"
+  },
+  {
+    "enunciado": "¿Qué propiedad ACID asegura que todo se ejecuta o nada?",
+    "opciones": [
+      "Consistencia",
+      "Atomicidad",
+      "Durabilidad",
+      "Aislamiento"
+    ],
+    "respuestaCorrecta": "Atomicidad"
+  },
+  {
+    "enunciado": "¿Qué comando confirma una transacción?",
+    "opciones": [
+      "ROLLBACK",
+      "COMMIT",
+      "SAVEPOINT",
+      "SELECT"
+    ],
+    "respuestaCorrecta": "COMMIT"
+  },
+  {
+    "enunciado": "¿Qué comando deshace una transacción?",
+    "opciones": [
+      "COMMIT",
+      "ROLLBACK",
+      "DELETE",
+      "UPDATE"
+    ],
+    "respuestaCorrecta": "ROLLBACK"
+  },
+  {
+    "enunciado": "¿Qué sentencia otorga permisos?",
+    "opciones": [
+      "GRANT",
+      "REVOKE",
+      "DROP",
+      "CREATE"
+    ],
+    "respuestaCorrecta": "GRANT"
+  },
+  {
+    "enunciado": "¿Qué sentencia elimina permisos?",
+    "opciones": [
+      "GRANT",
+      "REVOKE",
+      "DELETE",
+      "UPDATE"
+    ],
+    "respuestaCorrecta": "REVOKE"
+  },
+  {
+    "enunciado": "¿Qué es NoSQL?",
+    "opciones": [
+      "Lenguaje",
+      "Base de datos no relacional",
+      "Tabla",
+      "Consulta"
+    ],
+    "respuestaCorrecta": "Base de datos no relacional"
+  },
+  {
+    "enunciado": "¿Qué tipo de escalabilidad usa NoSQL?",
+    "opciones": [
+      "Vertical",
+      "Horizontal",
+      "Lineal",
+      "Estática"
+    ],
+    "respuestaCorrecta": "Horizontal"
+  },
+  {
+    "enunciado": "¿Cómo se almacenan los datos en MongoDB?",
+    "opciones": [
+      "Tablas",
+      "Documentos JSON",
+      "Filas",
+      "Columnas"
+    ],
+    "respuestaCorrecta": "Documentos JSON"
+  },
+  {
+    "enunciado": "¿Qué es un pipeline de agregación?",
+    "opciones": [
+      "Tabla",
+      "Secuencia de etapas",
+      "Índice",
+      "Trigger"
+    ],
+    "respuestaCorrecta": "Secuencia de etapas"
+  },
+  {
+    "enunciado": "¿Qué operador filtra datos en MongoDB?",
+    "opciones": [
+      "$group",
+      "$match",
+      "$sort",
+      "$lookup"
+    ],
+    "respuestaCorrecta": "$match"
+  },
+  {
+    "enunciado": "¿Qué operador agrupa datos?",
+    "opciones": [
+      "$match",
+      "$group",
+      "$sort",
+      "$limit"
+    ],
+    "respuestaCorrecta": "$group"
+  },
+  {
+    "enunciado": "¿Qué operador ordena datos?",
+    "opciones": [
+      "$group",
+      "$sort",
+      "$match",
+      "$lookup"
+    ],
+    "respuestaCorrecta": "$sort"
+  },
+  {
+    "enunciado": "¿Qué operador une colecciones?",
+    "opciones": [
+      "$group",
+      "$lookup",
+      "$match",
+      "$project"
+    ],
+    "respuestaCorrecta": "$lookup"
+  },
+  {
+    "enunciado": "¿Qué operador separa arrays?",
+    "opciones": [
+      "$lookup",
+      "$unwind",
+      "$group",
+      "$match"
+    ],
+    "respuestaCorrecta": "$unwind"
+  }
+]

@@ -1,0 +1,590 @@
+[
+  {
+    "enunciado": "¿Qué es el patrón de diseño MVC?",
+    "opciones": [
+      "Un lenguaje de programación",
+      "Un patrón arquitectónico que separa Modelo, Vista y Controlador",
+      "Una base de datos",
+      "Un framework de Java"
+    ],
+    "respuestaCorrecta": "Un patrón arquitectónico que separa Modelo, Vista y Controlador"
+  },
+  {
+    "enunciado": "¿Cuál es la función del Modelo en MVC?",
+    "opciones": [
+      "Mostrar datos al usuario",
+      "Gestionar datos y lógica de negocio",
+      "Controlar la interfaz gráfica",
+      "Manejar solicitudes HTTP"
+    ],
+    "respuestaCorrecta": "Gestionar datos y lógica de negocio"
+  },
+  {
+    "enunciado": "¿Qué componente del MVC se encarga de la presentación visual?",
+    "opciones": ["Modelo", "Controlador", "Vista", "Servicio"],
+    "respuestaCorrecta": "Vista"
+  },
+  {
+    "enunciado": "¿Cuál es la función principal del Controlador en MVC?",
+    "opciones": [
+      "Almacenar datos",
+      "Diseñar la interfaz",
+      "Intermediar entre Modelo y Vista",
+      "Ejecutar consultas SQL"
+    ],
+    "respuestaCorrecta": "Intermediar entre Modelo y Vista"
+  },
+  {
+    "enunciado": "¿Qué es Spring Boot?",
+    "opciones": [
+      "Un sistema operativo",
+      "Un framework de Java para simplificar el desarrollo de aplicaciones",
+      "Un lenguaje de programación",
+      "Un gestor de base de datos"
+    ],
+    "respuestaCorrecta": "Un framework de Java para simplificar el desarrollo de aplicaciones"
+  },
+  {
+    "enunciado": "¿Cuál es uno de los beneficios del patrón MVC?",
+    "opciones": [
+      "Aumenta la complejidad del código",
+      "Reduce la reutilización",
+      "Separa responsabilidades",
+      "Elimina la necesidad de base de datos"
+    ],
+    "respuestaCorrecta": "Separa responsabilidades"
+  },
+  {
+    "enunciado": "¿Qué anotación se usa para definir un controlador en Spring Boot?",
+    "opciones": ["@Entity", "@Service", "@Controller", "@Repository"],
+    "respuestaCorrecta": "@Controller"
+  },
+  {
+    "enunciado": "¿Qué anotación devuelve datos directamente en lugar de vistas?",
+    "opciones": ["@Controller", "@Entity", "@RestController", "@Service"],
+    "respuestaCorrecta": "@RestController"
+  },
+  {
+    "enunciado": "¿Qué anotación se utiliza para mapear solicitudes HTTP?",
+    "opciones": ["@RequestMapping", "@Entity", "@Autowired", "@Component"],
+    "respuestaCorrecta": "@RequestMapping"
+  },
+  {
+    "enunciado": "¿Qué anotación define una entidad para base de datos?",
+    "opciones": ["@Controller", "@Entity", "@Service", "@Repository"],
+    "respuestaCorrecta": "@Entity"
+  },
+  {
+    "enunciado": "¿Cuál es el flujo correcto en MVC?",
+    "opciones": [
+      "Vista → Modelo → Controlador",
+      "Modelo → Vista → Controlador",
+      "Usuario → Controlador → Modelo → Vista",
+      "Controlador → Vista → Modelo"
+    ],
+    "respuestaCorrecta": "Usuario → Controlador → Modelo → Vista"
+  },
+  {
+    "enunciado": "¿Qué tecnología se usa comúnmente para la vista en Spring Boot?",
+    "opciones": ["MySQL", "Thymeleaf", "Docker", "Git"],
+    "respuestaCorrecta": "Thymeleaf"
+  },
+  {
+    "enunciado": "¿Qué hace el controlador después de recibir una solicitud?",
+    "opciones": [
+      "Ignora la solicitud",
+      "Llama al modelo y decide la vista",
+      "Borra la base de datos",
+      "Renderiza directamente HTML sin lógica"
+    ],
+    "respuestaCorrecta": "Llama al modelo y decide la vista"
+  },
+  {
+    "enunciado": "¿Cuál es un beneficio de la mantenibilidad en MVC?",
+    "opciones": [
+      "No permite cambios",
+      "Permite cambiar interfaz sin afectar lógica",
+      "Elimina el código",
+      "Hace el sistema más lento"
+    ],
+    "respuestaCorrecta": "Permite cambiar interfaz sin afectar lógica"
+  },
+  {
+    "enunciado": "¿Qué herramienta se usa para gestionar dependencias?",
+    "opciones": ["Chrome", "Maven", "Windows", "HTML"],
+    "respuestaCorrecta": "Maven"
+  },
+  {
+    "enunciado": "¿Qué base de datos es en memoria?",
+    "opciones": ["MySQL", "PostgreSQL", "H2", "Oracle"],
+    "respuestaCorrecta": "H2"
+  },
+  {
+    "enunciado": "¿Qué tipo de solicitudes maneja el controlador?",
+    "opciones": [
+      "Solo archivos",
+      "Solicitudes HTTP como GET y POST",
+      "Solo imágenes",
+      "Solo base de datos"
+    ],
+    "respuestaCorrecta": "Solicitudes HTTP como GET y POST"
+  },
+  {
+    "enunciado": "¿Qué componente contiene la lógica de negocio?",
+    "opciones": ["Vista", "Modelo", "Controlador", "HTML"],
+    "respuestaCorrecta": "Modelo"
+  },
+  {
+    "enunciado": "¿Qué herramienta permite crear proyectos Spring Boot fácilmente?",
+    "opciones": ["Spring Initializr", "Photoshop", "Excel", "Notepad"],
+    "respuestaCorrecta": "Spring Initializr"
+  },
+  {
+    "enunciado": "¿Qué IDE es recomendado para Spring Boot?",
+    "opciones": ["Paint", "IntelliJ IDEA", "Word", "Calculator"],
+    "respuestaCorrecta": "IntelliJ IDEA"
+  },
+
+  {
+    "enunciado": "¿Qué es la persistencia de datos?",
+    "opciones": [
+      "Proceso de eliminar datos",
+      "Proceso de almacenar datos temporalmente",
+      "Proceso de almacenar datos de forma permanente",
+      "Proceso de modificar datos en memoria"
+    ],
+    "respuestaCorrecta": "Proceso de almacenar datos de forma permanente"
+  },
+  {
+    "enunciado": "¿Qué es Spring Data JPA?",
+    "opciones": [
+      "Un lenguaje de programación",
+      "Un módulo que simplifica la capa de persistencia",
+      "Un sistema operativo",
+      "Una base de datos"
+    ],
+    "respuestaCorrecta": "Un módulo que simplifica la capa de persistencia"
+  },
+  {
+    "enunciado": "¿Qué es JPA?",
+    "opciones": [
+      "Una base de datos",
+      "Una especificación de Java para persistencia",
+      "Un framework web",
+      "Un IDE"
+    ],
+    "respuestaCorrecta": "Una especificación de Java para persistencia"
+  },
+  {
+    "enunciado": "¿Qué representa una entidad en JPA?",
+    "opciones": [
+      "Un archivo HTML",
+      "Una clase Java que representa una tabla",
+      "Un controlador",
+      "Una API REST"
+    ],
+    "respuestaCorrecta": "Una clase Java que representa una tabla"
+  },
+  {
+    "enunciado": "¿Qué anotación define una entidad?",
+    "opciones": ["@Controller", "@Entity", "@Service", "@Repository"],
+    "respuestaCorrecta": "@Entity"
+  },
+  {
+    "enunciado": "¿Qué son los repositorios JPA?",
+    "opciones": [
+      "Clases para interfaz gráfica",
+      "Interfaces que gestionan operaciones CRUD",
+      "Archivos de configuración",
+      "Bases de datos"
+    ],
+    "respuestaCorrecta": "Interfaces que gestionan operaciones CRUD"
+  },
+  {
+    "enunciado": "¿Qué interfaz se extiende en Spring Data JPA?",
+    "opciones": ["JpaController", "JpaRepository", "CrudManager", "DataInterface"],
+    "respuestaCorrecta": "JpaRepository"
+  },
+  {
+    "enunciado": "¿Qué significa CRUD?",
+    "opciones": [
+      "Crear, Reemplazar, Unir, Dividir",
+      "Crear, Leer, Actualizar, Eliminar",
+      "Copiar, Revisar, Usar, Descargar",
+      "Configurar, Reiniciar, Utilizar, Destruir"
+    ],
+    "respuestaCorrecta": "Crear, Leer, Actualizar, Eliminar"
+  },
+  {
+    "enunciado": "¿Qué operación corresponde a 'Read'?",
+    "opciones": ["Eliminar datos", "Insertar datos", "Leer datos", "Actualizar datos"],
+    "respuestaCorrecta": "Leer datos"
+  },
+  {
+    "enunciado": "¿Qué tipo de relación es 1:1?",
+    "opciones": [
+      "Una entidad con muchas",
+      "Muchas entidades entre sí",
+      "Una entidad con una sola entidad",
+      "Ninguna relación"
+    ],
+    "respuestaCorrecta": "Una entidad con una sola entidad"
+  },
+  {
+    "enunciado": "¿Qué tipo de relación es 1:N?",
+    "opciones": [
+      "Una entidad con múltiples entidades",
+      "Muchas entidades con muchas",
+      "Una entidad con una",
+      "Sin relación"
+    ],
+    "respuestaCorrecta": "Una entidad con múltiples entidades"
+  },
+  {
+    "enunciado": "¿Qué tipo de relación es M:N?",
+    "opciones": ["Una a una", "Una a muchas", "Muchas a muchas", "Ninguna"],
+    "respuestaCorrecta": "Muchas a muchas"
+  },
+  {
+    "enunciado": "¿Qué lenguaje usa JPA para consultas?",
+    "opciones": ["HTML", "JPQL", "CSS", "Python"],
+    "respuestaCorrecta": "JPQL"
+  },
+  {
+    "enunciado": "¿Qué hace el Entity Manager?",
+    "opciones": [
+      "Diseña interfaces",
+      "Gestiona la persistencia de datos",
+      "Ejecuta JavaScript",
+      "Controla el navegador"
+    ],
+    "respuestaCorrecta": "Gestiona la persistencia de datos"
+  },
+  {
+    "enunciado": "¿Qué permite Spring Data JPA evitar?",
+    "opciones": [
+      "Uso de Java",
+      "Escribir código repetitivo SQL",
+      "Uso de base de datos",
+      "Uso de controladores"
+    ],
+    "respuestaCorrecta": "Escribir código repetitivo SQL"
+  },
+  {
+    "enunciado": "¿Qué mejora el rendimiento de consultas?",
+    "opciones": ["Eliminar tablas", "Índices", "HTML", "CSS"],
+    "respuestaCorrecta": "Índices"
+  },
+  {
+    "enunciado": "¿Qué es la normalización?",
+    "opciones": [
+      "Eliminar datos",
+      "Reducir redundancia de datos",
+      "Aumentar duplicados",
+      "Ignorar relaciones"
+    ],
+    "respuestaCorrecta": "Reducir redundancia de datos"
+  },
+  {
+    "enunciado": "¿Qué anotación permite consultas personalizadas?",
+    "opciones": ["@Controller", "@Query", "@Entity", "@Autowired"],
+    "respuestaCorrecta": "@Query"
+  },
+  {
+    "enunciado": "¿Qué anotación gestiona transacciones?",
+    "opciones": ["@Transactional", "@Entity", "@Controller", "@Service"],
+    "respuestaCorrecta": "@Transactional"
+  },
+  {
+    "enunciado": "¿Qué estrategia guarda toda la jerarquía en una tabla?",
+    "opciones": ["JOINED", "TABLE_PER_CLASS", "SINGLE_TABLE", "MULTI_TABLE"],
+    "respuestaCorrecta": "SINGLE_TABLE"
+  },
+
+  {
+    "enunciado": "¿Qué es el Spring Framework?",
+    "opciones": [
+      "Un sistema operativo",
+      "Un framework de Java que implementa IoC",
+      "Una base de datos",
+      "Un lenguaje de programación"
+    ],
+    "respuestaCorrecta": "Un framework de Java que implementa IoC"
+  },
+  {
+    "enunciado": "¿Qué es Spring Boot?",
+    "opciones": [
+      "Un IDE",
+      "Una extensión de Spring que simplifica la creación de aplicaciones",
+      "Un lenguaje",
+      "Un servidor web"
+    ],
+    "respuestaCorrecta": "Una extensión de Spring que simplifica la creación de aplicaciones"
+  },
+  {
+    "enunciado": "¿Qué es la Inyección de Dependencias (DI)?",
+    "opciones": [
+      "Crear objetos manualmente",
+      "Recibir dependencias desde un contenedor externo",
+      "Eliminar dependencias",
+      "Compilar código automáticamente"
+    ],
+    "respuestaCorrecta": "Recibir dependencias desde un contenedor externo"
+  },
+  {
+    "enunciado": "¿Qué principio está relacionado con DI?",
+    "opciones": ["POO", "IoC (Inversión de Control)", "HTML", "CSS"],
+    "respuestaCorrecta": "IoC (Inversión de Control)"
+  },
+  {
+    "enunciado": "¿Qué es una API RESTful?",
+    "opciones": [
+      "Un lenguaje de programación",
+      "Un estilo arquitectónico para servicios web",
+      "Un tipo de base de datos",
+      "Un IDE"
+    ],
+    "respuestaCorrecta": "Un estilo arquitectónico para servicios web"
+  },
+  {
+    "enunciado": "¿Qué método HTTP se usa para obtener datos?",
+    "opciones": ["POST", "PUT", "GET", "DELETE"],
+    "respuestaCorrecta": "GET"
+  },
+  {
+    "enunciado": "¿Qué componente maneja solicitudes HTTP en Spring Boot?",
+    "opciones": ["Repository", "Service", "Controller", "Entity"],
+    "respuestaCorrecta": "Controller"
+  },
+  {
+    "enunciado": "¿Dónde se encuentra la lógica de negocio?",
+    "opciones": ["Controller", "Repository", "Service", "Vista"],
+    "respuestaCorrecta": "Service"
+  },
+  {
+    "enunciado": "¿Qué componente accede a la base de datos?",
+    "opciones": ["Controller", "Service", "Repository", "Vista"],
+    "respuestaCorrecta": "Repository"
+  },
+  {
+    "enunciado": "¿Qué herramienta gestiona dependencias en Java?",
+    "opciones": ["Chrome", "Maven", "HTML", "Photoshop"],
+    "respuestaCorrecta": "Maven"
+  },
+  {
+    "enunciado": "¿Qué permite la configuración por anotaciones?",
+    "opciones": [
+      "Eliminar Java",
+      "Simplificar la configuración del código",
+      "Crear bases de datos",
+      "Ejecutar HTML"
+    ],
+    "respuestaCorrecta": "Simplificar la configuración del código"
+  },
+  {
+    "enunciado": "¿Qué arquitectura permite dividir en servicios independientes?",
+    "opciones": ["Monolítica", "Microservicios", "MVC", "Cliente-servidor"],
+    "respuestaCorrecta": "Microservicios"
+  },
+  {
+    "enunciado": "¿Qué caracteriza a una arquitectura monolítica?",
+    "opciones": [
+      "Servicios independientes",
+      "Componentes en una sola unidad",
+      "Uso exclusivo de APIs",
+      "Distribución en la nube"
+    ],
+    "respuestaCorrecta": "Componentes en una sola unidad"
+  },
+  {
+    "enunciado": "¿Qué formato es común en APIs REST?",
+    "opciones": ["PDF", "JSON", "DOCX", "TXT"],
+    "respuestaCorrecta": "JSON"
+  },
+  {
+    "enunciado": "¿Qué permite Spring Data JPA?",
+    "opciones": [
+      "Diseñar interfaces",
+      "Realizar CRUD sin SQL manual",
+      "Crear servidores",
+      "Diseñar HTML"
+    ],
+    "respuestaCorrecta": "Realizar CRUD sin SQL manual"
+  },
+  {
+    "enunciado": "¿Qué tipo de componente representa tablas?",
+    "opciones": ["Controller", "Service", "Entity", "Repository"],
+    "respuestaCorrecta": "Entity"
+  },
+  {
+    "enunciado": "¿Qué herramienta se usa para pruebas?",
+    "opciones": ["JUnit", "HTML", "CSS", "Bootstrap"],
+    "respuestaCorrecta": "JUnit"
+  },
+  {
+    "enunciado": "¿Qué anotación se usa para API REST?",
+    "opciones": ["@Controller", "@RestController", "@Entity", "@Service"],
+    "respuestaCorrecta": "@RestController"
+  },
+  {
+    "enunciado": "¿Qué permite JPQL?",
+    "opciones": [
+      "Diseñar UI",
+      "Consultar entidades orientadas a objetos",
+      "Crear servidores",
+      "Editar HTML"
+    ],
+    "respuestaCorrecta": "Consultar entidades orientadas a objetos"
+  },
+  {
+    "enunciado": "¿Qué ventaja tienen los microservicios?",
+    "opciones": [
+      "Menor escalabilidad",
+      "Mayor flexibilidad y escalabilidad",
+      "Más dependencia",
+      "Menos mantenimiento"
+    ],
+    "respuestaCorrecta": "Mayor flexibilidad y escalabilidad"
+  },
+
+  {
+    "enunciado": "¿Qué es Spring Security?",
+    "opciones": [
+      "Un lenguaje de programación",
+      "Un framework de seguridad para aplicaciones Java",
+      "Una base de datos",
+      "Un IDE"
+    ],
+    "respuestaCorrecta": "Un framework de seguridad para aplicaciones Java"
+  },
+  {
+    "enunciado": "¿Qué proceso verifica la identidad de un usuario?",
+    "opciones": ["Autenticación", "Autorización", "Validación", "Encriptación"],
+    "respuestaCorrecta": "Autenticación"
+  },
+  {
+    "enunciado": "¿Qué proceso determina a qué recursos puede acceder un usuario?",
+    "opciones": ["Autenticación", "Autorización", "Validación", "Compilación"],
+    "respuestaCorrecta": "Autorización"
+  },
+  {
+    "enunciado": "¿Qué representa un rol?",
+    "opciones": [
+      "Una acción específica",
+      "Un grupo de usuarios con permisos similares",
+      "Una base de datos",
+      "Un método HTTP"
+    ],
+    "respuestaCorrecta": "Un grupo de usuarios con permisos similares"
+  },
+  {
+    "enunciado": "¿Qué define un permiso?",
+    "opciones": ["Un grupo de usuarios", "Una acción específica", "Una tabla", "Un endpoint"],
+    "respuestaCorrecta": "Una acción específica"
+  },
+  {
+    "enunciado": "¿Qué es un ataque CSRF?",
+    "opciones": [
+      "Inyección SQL",
+      "Ataque que fuerza acciones no deseadas",
+      "Ataque de red",
+      "Error de compilación"
+    ],
+    "respuestaCorrecta": "Ataque que fuerza acciones no deseadas"
+  },
+  {
+    "enunciado": "¿Cómo protege Spring Security contra CSRF?",
+    "opciones": ["Con contraseñas", "Con tokens únicos", "Con firewall", "Con HTML"],
+    "respuestaCorrecta": "Con tokens únicos"
+  },
+  {
+    "enunciado": "¿Qué es CORS?",
+    "opciones": ["Un lenguaje", "Un mecanismo de acceso entre dominios", "Un IDE", "Una base de datos"],
+    "respuestaCorrecta": "Un mecanismo de acceso entre dominios"
+  },
+  {
+    "enunciado": "¿Qué controla la gestión de sesiones?",
+    "opciones": [
+      "El diseño web",
+      "El acceso y duración de sesiones",
+      "El código HTML",
+      "Las consultas SQL"
+    ],
+    "respuestaCorrecta": "El acceso y duración de sesiones"
+  },
+  {
+    "enunciado": "¿Qué anotación permite seguridad a nivel de método?",
+    "opciones": ["@Entity", "@PreAuthorize", "@Controller", "@Autowired"],
+    "respuestaCorrecta": "@PreAuthorize"
+  },
+  {
+    "enunciado": "¿Qué ataque implica inyección de scripts maliciosos?",
+    "opciones": ["CSRF", "XSS", "SQL", "HTTP"],
+    "respuestaCorrecta": "XSS"
+  },
+  {
+    "enunciado": "¿Qué método HTTP se usa para enviar datos?",
+    "opciones": ["GET", "POST", "DELETE", "OPTIONS"],
+    "respuestaCorrecta": "POST"
+  },
+  {
+    "enunciado": "¿Qué es JWT?",
+    "opciones": [
+      "Un lenguaje",
+      "Un tipo de token para autenticación",
+      "Una base de datos",
+      "Un IDE"
+    ],
+    "respuestaCorrecta": "Un tipo de token para autenticación"
+  },
+  {
+    "enunciado": "¿Qué característica tiene JWT?",
+    "opciones": ["Es con estado", "Es sin estado", "Depende de HTML", "Usa SQL"],
+    "respuestaCorrecta": "Es sin estado"
+  },
+  {
+    "enunciado": "¿Qué es OAuth2?",
+    "opciones": [
+      "Un lenguaje",
+      "Un protocolo de autenticación delegada",
+      "Un IDE",
+      "Un servidor web"
+    ],
+    "respuestaCorrecta": "Un protocolo de autenticación delegada"
+  },
+  {
+    "enunciado": "¿Qué permite @Secured?",
+    "opciones": ["Crear tablas", "Definir seguridad por roles", "Ejecutar código", "Eliminar datos"],
+    "respuestaCorrecta": "Definir seguridad por roles"
+  },
+  {
+    "enunciado": "¿Qué es LDAP?",
+    "opciones": ["Un protocolo de directorio", "Un lenguaje", "Un framework", "Una API"],
+    "respuestaCorrecta": "Un protocolo de directorio"
+  },
+  {
+    "enunciado": "¿Qué es SSO?",
+    "opciones": ["Un tipo de base de datos", "Inicio de sesión único", "Un IDE", "Un método HTTP"],
+    "respuestaCorrecta": "Inicio de sesión único"
+  },
+  {
+    "enunciado": "¿Qué permite controlar sesiones concurrentes?",
+    "opciones": [
+      "Número de usuarios",
+      "Número de sesiones activas",
+      "Número de tablas",
+      "Número de consultas"
+    ],
+    "respuestaCorrecta": "Número de sesiones activas"
+  },
+  {
+    "enunciado": "¿Qué protege Spring Security principalmente?",
+    "opciones": [
+      "Interfaces gráficas",
+      "Aplicaciones y recursos",
+      "Bases de datos únicamente",
+      "Archivos locales"
+    ],
+    "respuestaCorrecta": "Aplicaciones y recursos"
+  }
+]

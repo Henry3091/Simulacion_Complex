@@ -127,7 +127,7 @@
       "medico_info.nombre",
       "medico_info[0]['nombre']"
     ],
-    "respuestaCorrecta": "medico_info[0]['nombre']"
+    "respuestaCorrecta": "medico_info.nombre"
   },
   {
     "enunciado": "¿Qué operador se utiliza para unir dos colecciones en MongoDB?",
