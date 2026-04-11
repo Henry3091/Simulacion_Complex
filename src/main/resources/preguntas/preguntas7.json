@@ -1,0 +1,202 @@
+[
+  {
+    "enunciado": "¿Qué herramientas se recomiendan como editores de código para el desarrollo?",
+    "opciones": [
+      "Adobe Photoshop o Illustrator",
+      "Google Sheets o Excel",
+      "Microsoft Word o Google Docs",
+      "VS Code o Android Studio"
+    ],
+    "respuestaCorrecta": "VS Code o Android Studio"
+  },
+  {
+    "enunciado": "¿Qué elementos de la interfaz representan los componentes en una aplicación?",
+    "opciones": [
+      "Solo imágenes estáticas",
+      "Botones, formularios y listas",
+      "Únicamente textos planos",
+      "Exclusivamente colores de fondo"
+    ],
+    "respuestaCorrecta": "Botones, formularios y listas"
+  },
+  {
+    "enunciado": "¿Qué efecto provocan los cambios en el estado de un componente?",
+    "opciones": [
+      "La re-renderización del componente para reflejar los cambios",
+      "La cierre automático de la aplicación",
+      "La eliminación de las props heredadas",
+      "La conversión del componente a lenguaje nativo"
+    ],
+    "respuestaCorrecta": "La re-renderización del componente para reflejar los cambios"
+  },
+  {
+    "enunciado": "¿Por qué se utilizan comúnmente los componentes funcionales?",
+    "opciones": [
+      "Por su complejidad y robustez",
+      "Por su simplicidad y eficiencia",
+      "Porque son exclusivos para iOS",
+      "Porque requieren siempre el uso de clases"
+    ],
+    "respuestaCorrecta": "Por su simplicidad y eficiencia"
+  },
+  {
+    "enunciado": "¿Qué funcionalidad principal permiten los Hooks en React Native?",
+    "opciones": [
+      "Compilar la aplicación para diferentes plataformas automáticamente",
+      "Comprender y cambiar los estados en el dispositivo móvil",
+      "Diseñar la interfaz gráfica sin escribir código",
+      "Conectar automáticamente con cualquier API externa"
+    ],
+    "respuestaCorrecta": "Comprender y cambiar los estados en el dispositivo móvil"
+  },
+  {
+    "enunciado": "¿Qué elemento de interfaz se menciona junto a las imágenes en la implementación práctica?",
+    "opciones": [
+      "Gráficos 3D",
+      "Animaciones SVG",
+      "Realidad Aumentada",
+      "Modales"
+    ],
+    "respuestaCorrecta": "Modales"
+  },
+  {
+    "enunciado": "¿Qué sistemas de navegación se mencionan para organizar la estructura de la aplicación?",
+    "opciones": [
+      "Modal y Popup",
+      "Stack y BottomTab",
+      "Drawer y SideBar",
+      "Carousel y Slider"
+    ],
+    "respuestaCorrecta": "Stack y BottomTab"
+  },
+  {
+    "enunciado": "¿Cuál es la característica distintiva de los componentes de presentación?",
+    "opciones": [
+      "Se encargan únicamente de la visualización y reciben información mediante props",
+      "Se conectan directamente con bases de datos en tiempo real",
+      "Manejan la autenticación y autorización de usuarios",
+      "Gestionan la lógica de negocio y conexión a APIs"
+    ],
+    "respuestaCorrecta": "Se encargan únicamente de la visualización y reciben información mediante props"
+  },
+  {
+    "enunciado": "¿De qué componente reciben información las props principalmente?",
+    "opciones": [
+      "De la base de datos local",
+      "Del componente hijo",
+      "Del componente padre",
+      "Del sistema operativo"
+    ],
+    "respuestaCorrecta": "Del componente padre"
+  },
+  {
+    "enunciado": "¿Qué lenguajes se utilizan principalmente para crear componentes en React Native?",
+    "opciones": [
+      "Java y Kotlin",
+      "C",
+      "Python y XML",
+      "JavaScript y JSX"
+    ],
+    "respuestaCorrecta": "JavaScript y JSX"
+  },
+  {
+    "enunciado": "¿Qué característica define principalmente a las APIs RESTful?",
+    "opciones": [
+      "Requieren conexión constante sin posibilidad de almacenamiento en caché",
+      "Solo funcionan con aplicaciones nativas desarrolladas para Android",
+      "Utilizan métodos HTTP estándar y acceden a recursos mediante URLs únicas",
+      "Utilizan exclusivamente XML para la transmisión de datos"
+    ],
+    "respuestaCorrecta": "Utilizan métodos HTTP estándar y acceden a recursos mediante URLs únicas"
+  },
+  {
+    "enunciado": "¿Qué componente se menciona para mostrar listas de datos obtenidos de una API de manera eficiente?",
+    "opciones": [
+      "ScrollView",
+      "FlatList",
+      "DataGrid",
+      "ListView"
+    ],
+    "respuestaCorrecta": "FlatList"
+  },
+  {
+    "enunciado": "¿Qué es un conjunto de reglas que permiten que una aplicación se comunique con otro servicio?",
+    "opciones": [
+      "Una API",
+      "Un protocolo HTTP",
+      "Un SDK",
+      "Un formato JSON"
+    ],
+    "respuestaCorrecta": "Una API"
+  },
+  {
+    "enunciado": "¿Qué APIs públicas se mencionan como ejemplo práctico para consumir datos en el taller?",
+    "opciones": [
+      "Google Maps API y YouTube Data API",
+      "OpenWeather y NewsAPI",
+      "Twitter API y Facebook Graph API",
+      "Stripe API y PayPal API"
+    ],
+    "respuestaCorrecta": "OpenWeather y NewsAPI"
+  },
+  {
+    "enunciado": "¿Qué formato de datos es comúnmente utilizado por las APIs para intercambiar información?",
+    "opciones": [
+      "JSON",
+      "TXT plano",
+      "XML exclusivamente",
+      "CSV"
+    ],
+    "respuestaCorrecta": "JSON"
+  },
+  {
+    "enunciado": "¿Qué herramienta se recomienda para probar APIs y visualizar respuestas en formato JSON?",
+    "opciones": [
+      "Docker Hub",
+      "Postman",
+      "GitHub Desktop",
+      "Firebase Console"
+    ],
+    "respuestaCorrecta": "Postman"
+  },
+  {
+    "enunciado": "¿Qué método HTTP se utiliza específicamente para solicitar datos desde un servidor?",
+    "opciones": [
+      "POST",
+      "GET",
+      "DELETE",
+      "PUT"
+    ],
+    "respuestaCorrecta": "GET"
+  },
+  {
+    "enunciado": "¿Qué método HTTP se emplea para enviar nuevos datos al servidor para su procesamiento?",
+    "opciones": [
+      "FETCH",
+      "GET",
+      "REMOVE",
+      "POST"
+    ],
+    "respuestaCorrecta": "POST"
+  },
+  {
+    "enunciado": "¿Qué protocolo se utiliza para la transferencia de datos entre cliente y servidor en la web?",
+    "opciones": [
+      "SMTP",
+      "HTTP",
+      "FTP",
+      "TCP"
+    ],
+    "respuestaCorrecta": "HTTP"
+  },
+  {
+    "enunciado": "¿Qué método o biblioteca se utiliza en React Native para realizar solicitudes HTTP?",
+    "opciones": [
+      "request-native especializado",
+      "fetch",
+      "axios como única opción disponible",
+      "http-client exclusivo de terceros"
+    ],
+    "respuestaCorrecta": "fetch"
+  }
+]

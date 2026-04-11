@@ -92,7 +92,7 @@
   {
     "enunciado": "Completa el método en UserService para guardar un usuario:\npublic User save(__________){\n    return repository.save(__________);\n}",
     "opciones": [
-      "User user / user",
+      "(User user), (user)",
       "User / user",
       "user / user",
       "User user / User"
