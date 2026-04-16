@@ -1,0 +1,422 @@
+[
+  {
+    "enunciado": "¿Qué es Angular?",
+    "opciones": [
+      "Un sistema operativo",
+      "Un framework de desarrollo web basado en TypeScript",
+      "Una base de datos NoSQL",
+      "Un lenguaje de programación independiente"
+    ],
+    "respuestaCorrecta": "Un framework de desarrollo web basado en TypeScript"
+  },
+  {
+    "enunciado": "¿Qué es un componente en Angular?",
+    "opciones": [
+      "Una base de datos relacional",
+      "Una unidad básica de la interfaz de usuario con lógica, vista y estilos",
+      "Un servicio externo de APIs",
+      "Un archivo de configuración del servidor"
+    ],
+    "respuestaCorrecta": "Una unidad básica de la interfaz de usuario con lógica, vista y estilos"
+  },
+  {
+    "enunciado": "¿Qué archivos componen un componente en Angular?",
+    "opciones": [
+      "HTML, CSS y TypeScript",
+      "Java, Python y PHP",
+      "JSON, XML y SQL",
+      "TXT, DOC y PDF"
+    ],
+    "respuestaCorrecta": "HTML, CSS y TypeScript"
+  },
+  {
+    "enunciado": "¿Qué es un módulo en Angular?",
+    "opciones": [
+      "Un archivo de estilos globales",
+      "Una estructura que organiza componentes, servicios y funcionalidades",
+      "Un tipo de base de datos",
+      "Un componente visual"
+    ],
+    "respuestaCorrecta": "Una estructura que organiza componentes, servicios y funcionalidades"
+  },
+  {
+    "enunciado": "¿Cuál es el módulo raíz de Angular?",
+    "opciones": [
+      "MainModule",
+      "CoreModule",
+      "AppModule",
+      "RootModule"
+    ],
+    "respuestaCorrecta": "AppModule"
+  },
+  {
+    "enunciado": "¿Qué es el enrutamiento en Angular?",
+    "opciones": [
+      "Un sistema para crear bases de datos",
+      "Un sistema para navegar entre vistas sin recargar la página",
+      "Un lenguaje de programación",
+      "Un sistema de diseño CSS"
+    ],
+    "respuestaCorrecta": "Un sistema para navegar entre vistas sin recargar la página"
+  },
+  {
+    "enunciado": "¿Qué es una ruta estática en Angular?",
+    "opciones": [
+      "Una ruta que cambia constantemente",
+      "Una ruta con parámetros dinámicos",
+      "Una ruta fija que apunta a un componente específico",
+      "Una API externa"
+    ],
+    "respuestaCorrecta": "Una ruta fija que apunta a un componente específico"
+  },
+  {
+    "enunciado": "¿Qué es una ruta dinámica?",
+    "opciones": [
+      "Una ruta sin componentes",
+      "Una ruta con parámetros variables como /proyectos/:id",
+      "Una ruta que elimina datos",
+      "Una ruta de base de datos"
+    ],
+    "respuestaCorrecta": "Una ruta con parámetros variables como /proyectos/:id"
+  },
+  {
+    "enunciado": "¿Qué hace la redirección de rutas en Angular?",
+    "opciones": [
+      "Elimina rutas inválidas",
+      "Dirige automáticamente a una ruta específica",
+      "Crea bases de datos",
+      "Compila la aplicación"
+    ],
+    "respuestaCorrecta": "Dirige automáticamente a una ruta específica"
+  },
+  {
+    "enunciado": "¿Qué es una página 404 en Angular?",
+    "opciones": [
+      "Una página de inicio",
+      "Una vista para rutas no encontradas",
+      "Una base de datos",
+      "Un componente de API"
+    ],
+    "respuestaCorrecta": "Una vista para rutas no encontradas"
+  },
+  {
+    "enunciado": "¿Qué es Two-way Data Binding?",
+    "opciones": [
+      "Sincronización entre modelo y vista",
+      "Comunicación entre servidores",
+      "Un tipo de API",
+      "Un sistema de rutas"
+    ],
+    "respuestaCorrecta": "Sincronización entre modelo y vista"
+  },
+  {
+    "enunciado": "¿Qué es Angular CLI?",
+    "opciones": [
+      "Una base de datos",
+      "Una herramienta de línea de comandos para gestionar proyectos Angular",
+      "Un lenguaje de programación",
+      "Un navegador web"
+    ],
+    "respuestaCorrecta": "Una herramienta de línea de comandos para gestionar proyectos Angular"
+  },
+  {
+    "enunciado": "¿Qué comando crea un proyecto Angular?",
+    "opciones": [
+      "ng create app",
+      "ng new nombre-proyecto",
+      "npm start angular",
+      "ng build app"
+    ],
+    "respuestaCorrecta": "ng new nombre-proyecto"
+  },
+  {
+    "enunciado": "¿Qué comando genera un componente?",
+    "opciones": [
+      "ng generate component nombre",
+      "ng create component",
+      "npm generate component",
+      "angular add component"
+    ],
+    "respuestaCorrecta": "ng generate component nombre"
+  },
+  {
+    "enunciado": "¿Qué ventaja tiene el diseño modular en Angular?",
+    "opciones": [
+      "Mayor consumo de memoria",
+      "Menor seguridad",
+      "Escalabilidad y mantenibilidad",
+      "Menor rendimiento"
+    ],
+    "respuestaCorrecta": "Escalabilidad y mantenibilidad"
+  },
+  {
+    "enunciado": "¿Qué es un servicio en Angular?",
+    "opciones": [
+      "Un componente visual",
+      "Una clase para compartir lógica y datos",
+      "Un módulo de rutas",
+      "Un archivo HTML"
+    ],
+    "respuestaCorrecta": "Una clase para compartir lógica y datos"
+  },
+  {
+    "enunciado": "¿Qué es HTTPClient?",
+    "opciones": [
+      "Un módulo para manejar rutas",
+      "Un módulo para realizar solicitudes HTTP",
+      "Un sistema de diseño",
+      "Un tipo de componente"
+    ],
+    "respuestaCorrecta": "Un módulo para realizar solicitudes HTTP"
+  },
+  {
+    "enunciado": "¿Qué operación realiza GET?",
+    "opciones": [
+      "Crear datos",
+      "Obtener datos",
+      "Eliminar datos",
+      "Actualizar datos"
+    ],
+    "respuestaCorrecta": "Obtener datos"
+  },
+  {
+    "enunciado": "¿Qué operación realiza POST?",
+    "opciones": [
+      "Eliminar datos",
+      "Actualizar datos",
+      "Crear o enviar datos",
+      "Consultar datos"
+    ],
+    "respuestaCorrecta": "Crear o enviar datos"
+  },
+  {
+    "enunciado": "¿Qué operación realiza PUT?",
+    "opciones": [
+      "Actualizar datos",
+      "Eliminar datos",
+      "Crear rutas",
+      "Mostrar datos"
+    ],
+    "respuestaCorrecta": "Actualizar datos"
+  },
+  {
+    "enunciado": "¿Qué operación realiza DELETE?",
+    "opciones": [
+      "Crear datos",
+      "Eliminar datos",
+      "Consultar datos",
+      "Actualizar UI"
+    ],
+    "respuestaCorrecta": "Eliminar datos"
+  },
+  {
+    "enunciado": "¿Qué es una API?",
+    "opciones": [
+      "Un sistema de diseño",
+      "Un conjunto de reglas para comunicación entre sistemas",
+      "Un lenguaje de programación",
+      "Un framework frontend"
+    ],
+    "respuestaCorrecta": "Un conjunto de reglas para comunicación entre sistemas"
+  },
+  {
+    "enunciado": "¿Qué formato es común en APIs?",
+    "opciones": [
+      "JSON",
+      "MP3",
+      "EXE",
+      "JPG"
+    ],
+    "respuestaCorrecta": "JSON"
+  },
+  {
+    "enunciado": "¿Qué es inyección de dependencias?",
+    "opciones": [
+      "Un patrón para crear bases de datos",
+      "Un patrón para proporcionar servicios a componentes",
+      "Un sistema de rutas",
+      "Un lenguaje de programación"
+    ],
+    "respuestaCorrecta": "Un patrón para proporcionar servicios a componentes"
+  },
+  {
+    "enunciado": "¿Qué es la estructura modular en Angular?",
+    "opciones": [
+      "Organización del código en módulos reutilizables",
+      "Un tipo de base de datos",
+      "Un sistema operativo",
+      "Un componente UI"
+    ],
+    "respuestaCorrecta": "Organización del código en módulos reutilizables"
+  },
+  {
+    "enunciado": "¿Qué es una API RESTful?",
+    "opciones": [
+      "Una API que usa HTTP y recursos por URL",
+      "Una base de datos",
+      "Un lenguaje backend",
+      "Un sistema de diseño"
+    ],
+    "respuestaCorrecta": "Una API que usa HTTP y recursos por URL"
+  },
+  {
+    "enunciado": "¿Qué es la escalabilidad en Angular?",
+    "opciones": [
+      "Capacidad de aumentar funcionalidades sin afectar el sistema",
+      "Eliminar módulos",
+      "Reducir código",
+      "Compilar más rápido"
+    ],
+    "respuestaCorrecta": "Capacidad de aumentar funcionalidades sin afectar el sistema"
+  },
+  {
+    "enunciado": "¿Qué es mantenibilidad del código?",
+    "opciones": [
+      "Dificultad para modificar código",
+      "Facilidad para entender y modificar el código",
+      "Velocidad de internet",
+      "Tipo de base de datos"
+    ],
+    "respuestaCorrecta": "Facilidad para entender y modificar el código"
+  },
+  {
+    "enunciado": "¿Qué es una observación (Observable) en Angular?",
+    "opciones": [
+      "Un sistema de diseño",
+      "Un flujo de datos asíncrono",
+      "Un componente UI",
+      "Una base de datos"
+    ],
+    "respuestaCorrecta": "Un flujo de datos asíncrono"
+  },
+  {
+    "enunciado": "¿Qué herramienta se usa para desarrollo Angular?",
+    "opciones": [
+      "Angular CLI",
+      "Photoshop",
+      "Excel",
+      "Word"
+    ],
+    "respuestaCorrecta": "Angular CLI"
+  },
+  {
+    "enunciado": "¿Qué es Node.js en Angular?",
+    "opciones": [
+      "Un framework UI",
+      "Plataforma para ejecutar Angular",
+      "Un sistema de diseño",
+      "Una base de datos"
+    ],
+    "respuestaCorrecta": "Plataforma para ejecutar Angular"
+  },
+  {
+    "enunciado": "¿Qué es una API JSON?",
+    "opciones": [
+      "Una API que devuelve datos en formato JSON",
+      "Una base de datos relacional",
+      "Un sistema operativo",
+      "Un lenguaje de programación"
+    ],
+    "respuestaCorrecta": "Una API que devuelve datos en formato JSON"
+  },
+  {
+    "enunciado": "¿Qué es la interfaz de usuario (UI)?",
+    "opciones": [
+      "Código backend",
+      "Parte visual con la que interactúa el usuario",
+      "Base de datos",
+      "Servidor"
+    ],
+    "respuestaCorrecta": "Parte visual con la que interactúa el usuario"
+  },
+  {
+    "enunciado": "¿Qué es una API en Angular?",
+    "opciones": [
+      "Un sistema de rutas",
+      "Un servicio externo para obtener datos",
+      "Un componente HTML",
+      "Un módulo CSS"
+    ],
+    "respuestaCorrecta": "Un servicio externo para obtener datos"
+  },
+  {
+    "enunciado": "¿Qué permite Angular Router?",
+    "opciones": [
+      "Crear bases de datos",
+      "Navegación entre vistas",
+      "Diseñar interfaces",
+      "Compilar código"
+    ],
+    "respuestaCorrecta": "Navegación entre vistas"
+  },
+  {
+    "enunciado": "¿Qué es un endpoint?",
+    "opciones": [
+      "Un archivo CSS",
+      "Una URL de acceso a un recurso de API",
+      "Un componente Angular",
+      "Un sistema operativo"
+    ],
+    "respuestaCorrecta": "Una URL de acceso a un recurso de API"
+  },
+  {
+    "enunciado": "¿Qué es debugging?",
+    "opciones": [
+      "Diseñar UI",
+      "Encontrar y corregir errores en el código",
+      "Crear bases de datos",
+      "Compilar proyectos"
+    ],
+    "respuestaCorrecta": "Encontrar y corregir errores en el código"
+  },
+  {
+    "enunciado": "¿Qué es una dependencia en Angular?",
+    "opciones": [
+      "Un archivo HTML",
+      "Un servicio o librería que usa el sistema",
+      "Un estilo CSS",
+      "Un tipo de ruta"
+    ],
+    "respuestaCorrecta": "Un servicio o librería que usa el sistema"
+  },
+  {
+    "enunciado": "¿Qué es una aplicación SPA?",
+    "opciones": [
+      "Aplicación de una sola página",
+      "Aplicación con múltiples servidores",
+      "Base de datos en la nube",
+      "Sistema operativo móvil"
+    ],
+    "respuestaCorrecta": "Aplicación de una sola página"
+  },
+  {
+    "enunciado": "¿Qué es el HTML en Angular?",
+    "opciones": [
+      "Lenguaje de backend",
+      "Plantilla de vista del componente",
+      "Base de datos",
+      "API externa"
+    ],
+    "respuestaCorrecta": "Plantilla de vista del componente"
+  },
+  {
+    "enunciado": "¿Qué es CSS en Angular?",
+    "opciones": [
+      "Lenguaje de programación",
+      "Estilos de los componentes",
+      "Sistema de rutas",
+      "Base de datos"
+    ],
+    "respuestaCorrecta": "Estilos de los componentes"
+  },
+  {
+    "enunciado": "¿Qué es TypeScript en Angular?",
+    "opciones": [
+      "Base de datos",
+      "Lenguaje principal para lógica en Angular",
+      "Sistema operativo",
+      "Editor de texto"
+    ],
+    "respuestaCorrecta": "Lenguaje principal para lógica en Angular"
+  }
+]

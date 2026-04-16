@@ -1,0 +1,112 @@
+{
+  "proyecto": "Spring Boot MVC + Security + Thymeleaf + MySQL",
+  "orden_ejecucion": [
+    {
+      "paso": 1,
+      "nombre": "Crear proyecto en Spring Initializr",
+      "configuracion": {
+        "group": "com.demo",
+        "artifact": "demo",
+        "dependencias": [
+          "Spring Web",
+          "Spring Boot DevTools",
+          "Spring Security",
+          "Spring Data JPA",
+          "MySQL Driver",
+          "Spring Data JDBC",
+          "Thymeleaf"
+        ]
+      }
+    },
+    {
+      "paso": 2,
+      "nombre": "Configurar application.properties",
+      "archivo": "src/main/resources/application.properties",
+      "codigo": "spring.application.name=demo\nspring.datasource.url=jdbc:mysql://localhost:3306/demo_db\nspring.datasource.username=root\nspring.datasource.password=1234\nspring.jpa.hibernate.ddl-auto=create\nspring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect"
+    },
+    {
+      "paso": 3,
+      "nombre": "Crear base de datos MySQL",
+      "codigo_sql": "CREATE DATABASE demo_db;"
+    },
+    {
+      "paso": 4,
+      "nombre": "Crear paquetes",
+      "paquetes": [
+        "com.demo.model",
+        "com.demo.repository",
+        "com.demo.service",
+        "com.demo.controller",
+        "com.demo.config"
+      ]
+    },
+    {
+      "paso": 5,
+      "nombre": "Entidad Usuario",
+      "archivo": "model/Usuario.java",
+      "codigo": "package com.demo.model;\n\nimport jakarta.persistence.*;\nimport java.util.List;\n\n@Entity\npublic class Usuario {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    @Column(unique = true)\n    private String username;\n\n    private String password;\n\n    private String rol;\n\n    @OneToMany(mappedBy = \"usuario\", cascade = CascadeType.ALL)\n    private List<Producto> productos;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n\n    public String getUsername() { return username; }\n    public void setUsername(String username) { this.username = username; }\n\n    public String getPassword() { return password; }\n    public void setPassword(String password) { this.password = password; }\n\n    public String getRol() { return rol; }\n    public void setRol(String rol) { this.rol = rol; }\n\n    public List<Producto> getProductos() { return productos; }\n    public void setProductos(List<Producto> productos) { this.productos = productos; }\n}"
+    },
+    {
+      "paso": 6,
+      "nombre": "Entidad Producto",
+      "archivo": "model/Producto.java",
+      "codigo": "package com.demo.model;\n\nimport jakarta.persistence.*;\n\n@Entity\npublic class Producto {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    private String nombre;\n    private double precio;\n\n    @ManyToOne\n    @JoinColumn(name = \"usuario_id\")\n    private Usuario usuario;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n\n    public String getNombre() { return nombre; }\n    public void setNombre(String nombre) { this.nombre = nombre; }\n\n    public double getPrecio() { return precio; }\n    public void setPrecio(double precio) { this.precio = precio; }\n\n    public Usuario getUsuario() { return usuario; }\n    public void setUsuario(Usuario usuario) { this.usuario = usuario; }\n}"
+    },
+    {
+      "paso": 7,
+      "nombre": "Repositorio Usuario",
+      "archivo": "repository/UsuarioRepository.java",
+      "codigo": "package com.demo.repository;\n\nimport com.demo.model.Usuario;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface UsuarioRepository extends JpaRepository<Usuario, Long> {\n    Usuario findByUsername(String username);\n}"
+    },
+    {
+      "paso": 8,
+      "nombre": "Repositorio Producto",
+      "archivo": "repository/ProductoRepository.java",
+      "codigo": "package com.demo.repository;\n\nimport com.demo.model.Producto;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface ProductoRepository extends JpaRepository<Producto, Long> {\n}"
+    },
+    {
+      "paso": 9,
+      "nombre": "Security Config",
+      "archivo": "config/SecurityConfig.java",
+      "codigo": "package com.demo.config;\n\nimport org.springframework.context.annotation.Bean;\nimport org.springframework.context.annotation.Configuration;\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\n\n@Configuration\npublic class SecurityConfig {\n\n    @Bean\n    public BCryptPasswordEncoder passwordEncoder() {\n        return new BCryptPasswordEncoder();\n    }\n}"
+    },
+    {
+      "paso": 10,
+      "nombre": "Service Usuario",
+      "archivo": "service/UsuarioService.java",
+      "codigo": "package com.demo.service;\n\nimport com.demo.model.Usuario;\nimport com.demo.repository.UsuarioRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.security.crypto.password.PasswordEncoder;\nimport org.springframework.stereotype.Service;\n\n@Service\npublic class UsuarioService {\n\n    @Autowired\n    private UsuarioRepository repo;\n\n    @Autowired\n    private PasswordEncoder encoder;\n\n    public void registrar(Usuario u) {\n        u.setPassword(encoder.encode(u.getPassword()));\n        u.setRol(\"ROLE_USER\");\n        repo.save(u);\n    }\n\n    public Usuario buscar(String username) {\n        return repo.findByUsername(username);\n    }\n}"
+    },
+    {
+      "paso": 11,
+      "nombre": "Auth Controller",
+      "archivo": "controller/AuthController.java",
+      "codigo": "package com.demo.controller;\n\nimport com.demo.model.Usuario;\nimport com.demo.service.UsuarioService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Controller;\nimport org.springframework.ui.Model;\nimport org.springframework.web.bind.annotation.*;\n\n@Controller\npublic class AuthController {\n\n    @Autowired\n    private UsuarioService service;\n\n    @GetMapping(\"/registro\")\n    public String registroForm(Model model) {\n        model.addAttribute(\"usuario\", new Usuario());\n        return \"registro\";\n    }\n\n    @PostMapping(\"/registro\")\n    public String registrar(@ModelAttribute Usuario u) {\n        service.registrar(u);\n        return \"redirect:/login\";\n    }\n\n    @GetMapping(\"/login\")\n    public String login() {\n        return \"login\";\n    }\n}"
+    },
+    {
+      "paso": 12,
+      "nombre": "Producto Controller (CRUD)",
+      "archivo": "controller/ProductoController.java",
+      "codigo": "package com.demo.controller;\n\nimport com.demo.model.Producto;\nimport com.demo.repository.ProductoRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Controller;\nimport org.springframework.ui.Model;\nimport org.springframework.web.bind.annotation.*;\n\nimport java.util.List;\n\n@Controller\npublic class ProductoController {\n\n    @Autowired\n    private ProductoRepository repo;\n\n    @GetMapping(\"/productos\")\n    public String listar(Model model) {\n        List<Producto> lista = repo.findAll();\n        model.addAttribute(\"productos\", lista);\n        return \"productos\";\n    }\n\n    @GetMapping(\"/nuevo\")\n    public String nuevo(Model model) {\n        model.addAttribute(\"producto\", new Producto());\n        return \"form\";\n    }\n\n    @PostMapping(\"/guardar\")\n    public String guardar(@ModelAttribute Producto p) {\n        repo.save(p);\n        return \"redirect:/productos\";\n    }\n\n    @GetMapping(\"/editar/{id}\")\n    public String editar(@PathVariable Long id, Model model) {\n        Producto p = repo.findById(id).orElse(null);\n        model.addAttribute(\"producto\", p);\n        return \"form\";\n    }\n\n    @GetMapping(\"/eliminar/{id}\")\n    public String eliminar(@PathVariable Long id) {\n        repo.deleteById(id);\n        return \"redirect:/productos\";\n    }\n}"
+    },
+    {
+      "paso": 13,
+      "nombre": "Vistas Thymeleaf",
+      "archivos": {
+        "login.html": "<form method='post' action='/login'>Usuario:<input name='username'/><br>Pass:<input type='password' name='password'/><button>Login</button></form>",
+        "registro.html": "<form action='/registro' method='post'>Usuario:<input name='username'/><br>Password:<input type='password' name='password'/><button>Registrar</button></form>",
+        "productos.html": "<a href='/nuevo'>Nuevo</a><table><tr th:each='p : ${productos}'><td th:text='${p.nombre}'></td><td th:text='${p.precio}'></td></tr></table>",
+        "form.html": "<form action='/guardar' method='post'>Nombre:<input name='nombre'/><br>Precio:<input name='precio'/><button>Guardar</button></form>"
+      }
+    },
+    {
+      "paso": 14,
+      "nombre": "Ejecutar proyecto",
+      "acciones": [
+        "Run DemoApplication",
+        "Ir a http://localhost:8080/login",
+        "Registrar usuario",
+        "Probar CRUD"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Guía Proyecto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark bg-dark px-3 flex-wrap">
+    <span class="navbar-brand">Guía Spring Boot</span>
+
+    <div class="d-flex flex-wrap gap-2 mt-2 mt-md-0">
+
+        <!-- navegación general -->
+        <a href="/" class="btn btn-outline-light btn-sm">Inicio</a>
+
+        <!-- guías dinámicas -->
+        <a href="/guia?archivo=guia1.json" class="btn btn-outline-light btn-sm">Guía 1</a>
+        <a href="/guia?archivo=guia2.json" class="btn btn-outline-light btn-sm">Guía 2</a>
+        <a href="/guia?archivo=guia3.json" class="btn btn-outline-light btn-sm">Guía 3</a>
+
+    </div>
+</nav>
+
+<div class="container mt-4">
+
+    <div class="card shadow p-4">
+
+        <h2 class="text-center mb-4">Pasos del Proyecto</h2>
+
+        <!-- 🔥 protección contra null -->
+        <div th:if="${guia != null}">
+
+            <div th:each="p : ${guia.ordenEjecucion}" class="mb-3">
+
+                <div class="card border-primary">
+                    <div class="card-body">
+
+                        <h4>Paso <span th:text="${p.paso}"></span></h4>
+
+                        <h5 class="fw-bold" th:text="${p.nombre}"></h5>
+
+                        <p th:if="${p.archivo != null}">
+                            📁 <span th:text="${p.archivo}"></span>
+                        </p>
+
+                        <pre th:if="${p.codigo != null}"
+                             class="bg-dark text-white p-3 rounded"
+                             th:text="${p.codigo}">
+                        </pre>
+
+                        <pre th:if="${p.codigo_sql != null}"
+                             class="bg-secondary text-white p-2 rounded"
+                             th:text="${p.codigo_sql}">
+                        </pre>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- si falla -->
+        <div th:if="${guia == null}" class="alert alert-danger">
+            No se pudo cargar la guía (revisa el JSON o la ruta).
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

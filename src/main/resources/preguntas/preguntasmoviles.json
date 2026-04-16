@@ -1,0 +1,392 @@
+[
+  {
+    "enunciado": "¿Qué es un componente en React Native o Flutter?",
+    "opciones": [
+      "Una base de datos local",
+      "Una unidad reutilizable de la interfaz de usuario",
+      "Un protocolo de comunicación",
+      "Un sistema operativo móvil"
+    ],
+    "respuestaCorrecta": "Una unidad reutilizable de la interfaz de usuario"
+  },
+  {
+    "enunciado": "¿Cuál es la principal función del estado (state) en un componente?",
+    "opciones": [
+      "Almacenar datos que pueden cambiar y afectar la interfaz",
+      "Diseñar la interfaz gráfica",
+      "Conectar con APIs externas",
+      "Definir rutas de navegación"
+    ],
+    "respuestaCorrecta": "Almacenar datos que pueden cambiar y afectar la interfaz"
+  },
+  {
+    "enunciado": "¿Qué son las props en React Native o Flutter?",
+    "opciones": [
+      "Funciones del sistema operativo",
+      "Parámetros que reciben los componentes desde su padre",
+      "Bases de datos internas",
+      "Métodos de encriptación"
+    ],
+    "respuestaCorrecta": "Parámetros que reciben los componentes desde su padre"
+  },
+  {
+    "enunciado": "¿Qué provoca un cambio en el estado (state)?",
+    "opciones": [
+      "La eliminación de la aplicación",
+      "La re-renderización del componente",
+      "El cierre del servidor",
+      "La creación de una API"
+    ],
+    "respuestaCorrecta": "La re-renderización del componente"
+  },
+  {
+    "enunciado": "¿Cuál es el objetivo principal de los componentes de presentación?",
+    "opciones": [
+      "Manejar bases de datos",
+      "Gestionar lógica del servidor",
+      "Mostrar la interfaz sin manejar lógica compleja",
+      "Reemplazar APIs"
+    ],
+    "respuestaCorrecta": "Mostrar la interfaz sin manejar lógica compleja"
+  },
+  {
+    "enunciado": "¿Qué hacen los componentes contenedores?",
+    "opciones": [
+      "Solo muestran texto",
+      "Gestionan estado y lógica de la aplicación",
+      "Diseñan interfaces gráficas",
+      "Crean bases de datos"
+    ],
+    "respuestaCorrecta": "Gestionan estado y lógica de la aplicación"
+  },
+  {
+    "enunciado": "¿Cuál es una ventaja de los componentes funcionales?",
+    "opciones": [
+      "Mayor complejidad",
+      "Menor reutilización",
+      "Simplicidad y eficiencia",
+      "Uso exclusivo de bases de datos"
+    ],
+    "respuestaCorrecta": "Simplicidad y eficiencia"
+  },
+  {
+    "enunciado": "¿Qué es una API?",
+    "opciones": [
+      "Un sistema de diseño UI",
+      "Un conjunto de reglas para comunicación entre aplicaciones",
+      "Un lenguaje de programación",
+      "Un sistema operativo"
+    ],
+    "respuestaCorrecta": "Un conjunto de reglas para comunicación entre aplicaciones"
+  },
+  {
+    "enunciado": "¿Qué protocolo se utiliza para transferir datos en la web?",
+    "opciones": [
+      "FTP",
+      "HTTP",
+      "SMTP",
+      "SSH"
+    ],
+    "respuestaCorrecta": "HTTP"
+  },
+  {
+    "enunciado": "¿Qué formato es común en respuestas de APIs?",
+    "opciones": [
+      "XML únicamente",
+      "JSON",
+      "CSV",
+      "EXE"
+    ],
+    "respuestaCorrecta": "JSON"
+  },
+  {
+    "enunciado": "¿Qué hace el método HTTP GET?",
+    "opciones": [
+      "Elimina datos",
+      "Actualiza datos",
+      "Solicita datos del servidor",
+      "Crea usuarios"
+    ],
+    "respuestaCorrecta": "Solicita datos del servidor"
+  },
+  {
+    "enunciado": "¿Qué hace el método POST?",
+    "opciones": [
+      "Solicita datos",
+      "Elimina datos",
+      "Envía datos al servidor",
+      "Cierra sesión"
+    ],
+    "respuestaCorrecta": "Envía datos al servidor"
+  },
+  {
+    "enunciado": "¿Qué hace el método PUT?",
+    "opciones": [
+      "Actualiza datos existentes",
+      "Crea interfaces",
+      "Solicita información",
+      "Elimina bases de datos"
+    ],
+    "respuestaCorrecta": "Actualiza datos existentes"
+  },
+  {
+    "enunciado": "¿Qué hace el método DELETE?",
+    "opciones": [
+      "Crea datos",
+      "Elimina datos",
+      "Actualiza interfaz",
+      "Consulta API"
+    ],
+    "respuestaCorrecta": "Elimina datos"
+  },
+  {
+    "enunciado": "¿Qué es REST?",
+    "opciones": [
+      "Un lenguaje de programación",
+      "Una arquitectura para servicios web",
+      "Un sistema operativo",
+      "Una base de datos"
+    ],
+    "respuestaCorrecta": "Una arquitectura para servicios web"
+  },
+  {
+    "enunciado": "¿Qué caracteriza a una API RESTful?",
+    "opciones": [
+      "Uso de métodos HTTP y URLs para recursos",
+      "Uso exclusivo de XML",
+      "No usa internet",
+      "Solo funciona offline"
+    ],
+    "respuestaCorrecta": "Uso de métodos HTTP y URLs para recursos"
+  },
+  {
+    "enunciado": "¿Qué es GraphQL?",
+    "opciones": [
+      "Un sistema operativo",
+      "Un tipo de API que permite consultas específicas",
+      "Un lenguaje de estilos",
+      "Un navegador web"
+    ],
+    "respuestaCorrecta": "Un tipo de API que permite consultas específicas"
+  },
+  {
+    "enunciado": "¿Qué es SOAP?",
+    "opciones": [
+      "Un protocolo de API basado en XML",
+      "Un sistema de UI",
+      "Un lenguaje de programación",
+      "Un framework móvil"
+    ],
+    "respuestaCorrecta": "Un protocolo de API basado en XML"
+  },
+  {
+    "enunciado": "¿Qué herramienta se usa para probar APIs?",
+    "opciones": [
+      "Postman",
+      "Photoshop",
+      "Excel",
+      "Word"
+    ],
+    "respuestaCorrecta": "Postman"
+  },
+  {
+    "enunciado": "¿Qué es Firebase?",
+    "opciones": [
+      "Un editor de código",
+      "Una plataforma de desarrollo backend",
+      "Un lenguaje de programación",
+      "Un sistema operativo"
+    ],
+    "respuestaCorrecta": "Una plataforma de desarrollo backend"
+  },
+  {
+    "enunciado": "¿Qué es Firebase Authentication?",
+    "opciones": [
+      "Un sistema de diseño UI",
+      "Un servicio de autenticación de usuarios",
+      "Un sistema de bases de datos local",
+      "Un framework frontend"
+    ],
+    "respuestaCorrecta": "Un servicio de autenticación de usuarios"
+  },
+  {
+    "enunciado": "¿Qué permite Firebase Realtime Database?",
+    "opciones": [
+      "Guardar imágenes",
+      "Sincronizar datos en tiempo real",
+      "Crear interfaces",
+      "Compilar aplicaciones"
+    ],
+    "respuestaCorrecta": "Sincronizar datos en tiempo real"
+  },
+  {
+    "enunciado": "¿Qué es Firestore?",
+    "opciones": [
+      "Una base de datos NoSQL escalable",
+      "Un editor de texto",
+      "Un sistema operativo",
+      "Un lenguaje backend"
+    ],
+    "respuestaCorrecta": "Una base de datos NoSQL escalable"
+  },
+  {
+    "enunciado": "¿Qué es la autenticación de usuario?",
+    "opciones": [
+      "Crear interfaces",
+      "Verificar la identidad de un usuario",
+      "Diseñar bases de datos",
+      "Programar APIs"
+    ],
+    "respuestaCorrecta": "Verificar la identidad de un usuario"
+  },
+  {
+    "enunciado": "¿Qué método se usa comúnmente para login?",
+    "opciones": [
+      "GET",
+      "POST",
+      "DELETE",
+      "TRACE"
+    ],
+    "respuestaCorrecta": "POST"
+  },
+  {
+    "enunciado": "¿Qué tipo de autenticación usa correo y contraseña?",
+    "opciones": [
+      "Autenticación básica",
+      "Autenticación por hardware",
+      "Autenticación biométrica",
+      "Autenticación por token físico"
+    ],
+    "respuestaCorrecta": "Autenticación básica"
+  },
+  {
+    "enunciado": "¿Qué es JSON?",
+    "opciones": [
+      "Un formato de intercambio de datos",
+      "Un lenguaje de programación",
+      "Un sistema operativo",
+      "Un framework móvil"
+    ],
+    "respuestaCorrecta": "Un formato de intercambio de datos"
+  },
+  {
+    "enunciado": "¿Qué significa UI?",
+    "opciones": [
+      "Unidad Interna",
+      "User Interface (Interfaz de usuario)",
+      "Universal Integration",
+      "User Internet"
+    ],
+    "respuestaCorrecta": "User Interface (Interfaz de usuario)"
+  },
+  {
+    "enunciado": "¿Qué significa SDK?",
+    "opciones": [
+      "Software Development Kit",
+      "System Design Kernel",
+      "Simple Data Key",
+      "Service Deployment Kit"
+    ],
+    "respuestaCorrecta": "Software Development Kit"
+  },
+  {
+    "enunciado": "¿Qué hace React Native o Flutter principalmente?",
+    "opciones": [
+      "Crear videojuegos únicamente",
+      "Desarrollar aplicaciones móviles multiplataforma",
+      "Gestionar redes sociales",
+      "Crear sistemas operativos"
+    ],
+    "respuestaCorrecta": "Desarrollar aplicaciones móviles multiplataforma"
+  },
+  {
+    "enunciado": "¿Qué es el ciclo de vida de un componente?",
+    "opciones": [
+      "El tiempo de vida del dispositivo",
+      "Las etapas por las que pasa un componente desde su creación hasta su destrucción",
+      "El diseño de la interfaz",
+      "La conexión a internet"
+    ],
+    "respuestaCorrecta": "Las etapas por las que pasa un componente desde su creación hasta su destrucción"
+  },
+  {
+    "enunciado": "¿Qué es la modularidad en programación?",
+    "opciones": [
+      "Uso de una sola función",
+      "Dividir el código en partes reutilizables",
+      "Eliminar funciones",
+      "Crear bases de datos"
+    ],
+    "respuestaCorrecta": "Dividir el código en partes reutilizables"
+  },
+  {
+    "enunciado": "¿Qué permite la reutilización de componentes?",
+    "opciones": [
+      "Mayor consumo de memoria",
+      "Menor mantenimiento del código",
+      "Mayor eficiencia y organización",
+      "Menor seguridad"
+    ],
+    "respuestaCorrecta": "Mayor eficiencia y organización"
+  },
+  {
+    "enunciado": "¿Qué es una solicitud HTTP?",
+    "opciones": [
+      "Un archivo de imagen",
+      "Un mensaje enviado entre cliente y servidor",
+      "Un lenguaje de programación",
+      "Un sistema de diseño"
+    ],
+    "respuestaCorrecta": "Un mensaje enviado entre cliente y servidor"
+  },
+  {
+    "enunciado": "¿Qué herramienta se usa para escribir código móvil?",
+    "opciones": [
+      "Android Studio o VS Code",
+      "Photoshop",
+      "Excel",
+      "PowerPoint"
+    ],
+    "respuestaCorrecta": "Android Studio o VS Code"
+  },
+  {
+    "enunciado": "¿Qué hace la sincronización en tiempo real en Firebase?",
+    "opciones": [
+      "Borra datos automáticamente",
+      "Actualiza datos instantáneamente en todos los clientes",
+      "Cierra la aplicación",
+      "Convierte datos en imágenes"
+    ],
+    "respuestaCorrecta": "Actualiza datos instantáneamente en todos los clientes"
+  },
+  {
+    "enunciado": "¿Qué es la comunicación cliente-servidor?",
+    "opciones": [
+      "Interacción entre dos usuarios",
+      "Intercambio de datos entre una aplicación y un servidor",
+      "Diseño de interfaces",
+      "Creación de bases de datos locales"
+    ],
+    "respuestaCorrecta": "Intercambio de datos entre una aplicación y un servidor"
+  },
+  {
+    "enunciado": "¿Qué es una colección en Firestore?",
+    "opciones": [
+      "Un grupo de documentos",
+      "Un archivo de texto",
+      "Un sistema operativo",
+      "Una API REST"
+    ],
+    "respuestaCorrecta": "Un grupo de documentos"
+  },
+  {
+    "enunciado": "¿Qué es un documento en Firestore?",
+    "opciones": [
+      "Un registro de datos dentro de una colección",
+      "Un archivo del sistema",
+      "Un componente UI",
+      "Un lenguaje de programación"
+    ],
+    "respuestaCorrecta": "Un registro de datos dentro de una colección"
+  }
+]
