@@ -1,19 +1,17 @@
 package com.desarrollo.simuladorexa_app.model;
 
+import com.fasterxml.jackson.annotation.JsonAnySetter;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class Paso {
 
     private int paso;
     private String nombre;
 
-    private String archivo;
-    private String codigo;
-
-    // opcionales del JSON
-    private Object configuracion;
-    private String codigo_sql;
-    private Object paquetes;
-    private Object archivos;
-    private Object acciones;
+    // aquí se guarda TODO lo demás dinámicamente
+    private Map<String, Object> datos = new HashMap<>();
 
     public int getPaso() {
         return paso;
@@ -31,59 +29,13 @@ public class Paso {
         this.nombre = nombre;
     }
 
-    public String getArchivo() {
-        return archivo;
+    public Map<String, Object> getDatos() {
+        return datos;
     }
 
-    public void setArchivo(String archivo) {
-        this.archivo = archivo;
-    }
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public Object getConfiguracion() {
-        return configuracion;
-    }
-
-    public void setConfiguracion(Object configuracion) {
-        this.configuracion = configuracion;
-    }
-
-    public String getCodigo_sql() {
-        return codigo_sql;
-    }
-
-    public void setCodigo_sql(String codigo_sql) {
-        this.codigo_sql = codigo_sql;
-    }
-
-    public Object getPaquetes() {
-        return paquetes;
-    }
-
-    public void setPaquetes(Object paquetes) {
-        this.paquetes = paquetes;
-    }
-
-    public Object getArchivos() {
-        return archivos;
-    }
-
-    public void setArchivos(Object archivos) {
-        this.archivos = archivos;
-    }
-
-    public Object getAcciones() {
-        return acciones;
-    }
-
-    public void setAcciones(Object acciones) {
-        this.acciones = acciones;
+    // 🔥 clave: captura cualquier campo del JSON
+    @JsonAnySetter
+    public void agregarCampo(String key, Object value) {
+        datos.put(key, value);
     }
 }

@@ -1,0 +1,146 @@
+{
+  "proyecto": "Spring Boot EXAMEN (Login + CRUD + Categoria SIN roles)",
+
+  "orden_ejecucion": [
+
+    {
+      "paso": 1,
+      "nombre": "Crear proyecto en Spring Initializr",
+      "configuracion": {
+        "dependencias": [
+          "Spring Web",
+          "Spring Security",
+          "Spring Data JPA",
+          "MySQL Driver",
+          "Thymeleaf"
+        ]
+      }
+    },
+
+    {
+      "paso": 2,
+      "nombre": "Crear base de datos",
+      "codigo_sql": "CREATE DATABASE examen;"
+    },
+
+    {
+      "paso": 3,
+      "nombre": "Configurar application.properties",
+      "archivo": "src/main/resources/application.properties",
+      "codigo": "spring.datasource.url=jdbc:mysql://localhost:3306/examen\nspring.datasource.username=root\nspring.datasource.password=1234\nspring.jpa.hibernate.ddl-auto=update\nspring.jpa.database-platform=org.hibernate.dialect.MySQLDialect"
+    },
+
+    {
+      "paso": 4,
+      "nombre": "Crear paquetes",
+      "paquetes": [
+        "model",
+        "repository",
+        "service",
+        "controller",
+        "config"
+      ]
+    },
+
+    {
+      "paso": 5,
+      "nombre": "Entidad User",
+      "archivo": "model/User.java",
+      "codigo": "package com.demo.model;\n\nimport jakarta.persistence.*;\n\n@Entity\npublic class User {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    @Column(unique = true)\n    private String username;\n\n    private String password;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n\n    public String getUsername() { return username; }\n    public void setUsername(String username) { this.username = username; }\n\n    public String getPassword() { return password; }\n    public void setPassword(String password) { this.password = password; }\n}"
+    },
+
+    {
+      "paso": 6,
+      "nombre": "Entidad Category",
+      "archivo": "model/Category.java",
+      "codigo": "package com.demo.model;\n\nimport jakarta.persistence.*;\n\n@Entity\npublic class Category {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    private String name;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n\n    public String getName() { return name; }\n    public void setName(String name) { this.name = name; }\n}"
+    },
+
+    {
+      "paso": 7,
+      "nombre": "Entidad Product",
+      "archivo": "model/Product.java",
+      "codigo": "package com.demo.model;\n\nimport jakarta.persistence.*;\n\n@Entity\npublic class Product {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    private String name;\n    private double precio;\n    private int stock;\n    private String description;\n\n    @ManyToOne\n    @JoinColumn(name = \"category_id\")\n    private Category category;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n\n    public String getName() { return name; }\n    public void setName(String name) { this.name = name; }\n\n    public double getPrecio() { return precio; }\n    public void setPrecio(double precio) { this.precio = precio; }\n\n    public int getStock() { return stock; }\n    public void setStock(int stock) { this.stock = stock; }\n\n    public String getDescription() { return description; }\n    public void setDescription(String description) { this.description = description; }\n\n    public Category getCategory() { return category; }\n    public void setCategory(Category category) { this.category = category; }\n}"
+    },
+
+    {
+      "paso": 8,
+      "nombre": "Repositorios",
+      "archivos": [
+        {
+          "archivo": "repository/UserRepository.java",
+          "codigo": "package com.demo.repository;\n\nimport com.demo.model.User;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\nimport java.util.Optional;\n\npublic interface UserRepository extends JpaRepository<User, Long> {\n    Optional<User> findByUsername(String username);\n}"
+        },
+        {
+          "archivo": "repository/ProductRepository.java",
+          "codigo": "package com.demo.repository;\n\nimport com.demo.model.Product;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface ProductRepository extends JpaRepository<Product, Long> {}"
+        },
+        {
+          "archivo": "repository/CategoryRepository.java",
+          "codigo": "package com.demo.repository;\n\nimport com.demo.model.Category;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface CategoryRepository extends JpaRepository<Category, Long> {}"
+        }
+      ]
+    },
+
+    {
+      "paso": 9,
+      "nombre": "CategoryService",
+      "archivo": "service/CategoryService.java",
+      "codigo": "package com.demo.service;\n\nimport com.demo.model.Category;\nimport com.demo.repository.CategoryRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\n\n@Service\npublic class CategoryService {\n\n    @Autowired\n    CategoryRepository repo;\n\n    public List<Category> getAll() {\n        return repo.findAll();\n    }\n\n    public Category save(Category c) {\n        return repo.save(c);\n    }\n}"
+    },
+
+    {
+      "paso": 10,
+      "nombre": "UserService",
+      "archivo": "service/UserService.java",
+      "codigo": "package com.demo.service;\n\nimport com.demo.model.User;\nimport com.demo.repository.UserRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.security.crypto.password.PasswordEncoder;\nimport org.springframework.stereotype.Service;\n\n@Service\npublic class UserService {\n\n    @Autowired\n    UserRepository repo;\n\n    @Autowired\n    PasswordEncoder encoder;\n\n    public User save(User user) {\n        user.setPassword(encoder.encode(user.getPassword()));\n        return repo.save(user);\n    }\n}"
+    },
+
+    {
+      "paso": 11,
+      "nombre": "UserDetailsService",
+      "archivo": "service/UserDetailsServiceImpl.java",
+      "codigo": "package com.demo.service;\n\nimport com.demo.model.User;\nimport com.demo.repository.UserRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.security.core.userdetails.*;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\n\n@Service\npublic class UserDetailsServiceImpl implements UserDetailsService {\n\n    @Autowired\n    UserRepository repo;\n\n    @Override\n    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {\n        User user = repo.findByUsername(username)\n                .orElseThrow(() -> new UsernameNotFoundException(\"No existe\"));\n\n        return new org.springframework.security.core.userdetails.User(\n                user.getUsername(),\n                user.getPassword(),\n                List.of()\n        );\n    }\n}"
+    },
+
+    {
+      "paso": 12,
+      "nombre": "SecurityConfig",
+      "archivo": "config/SecurityConfig.java",
+      "codigo": "package com.demo.config;\n\nimport org.springframework.context.annotation.*;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\nimport org.springframework.security.crypto.password.PasswordEncoder;\n\n@Configuration\npublic class SecurityConfig {\n\n    @Bean\n    public PasswordEncoder passwordEncoder() {\n        return new BCryptPasswordEncoder();\n    }\n\n    @Bean\n    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {\n        http\n            .authorizeHttpRequests(auth -> auth\n                .requestMatchers(\"/login\", \"/register\").permitAll()\n                .anyRequest().authenticated()\n            )\n            .formLogin(form -> form\n                .loginPage(\"/login\")\n                .defaultSuccessUrl(\"/\", true)\n            )\n            .logout(logout -> logout\n                .logoutSuccessUrl(\"/login?logout\")\n            );\n\n        return http.build();\n    }\n}"
+    },
+
+    {
+      "paso": 13,
+      "nombre": "AuthController",
+      "archivo": "controller/AuthController.java",
+      "codigo": "package com.demo.controller;\n\nimport org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.GetMapping;\n\n@Controller\npublic class AuthController {\n\n    @GetMapping(\"/login\")\n    public String login() {\n        return \"login\";\n    }\n}"
+    },
+
+    {
+      "paso": 14,
+      "nombre": "UserController",
+      "archivo": "controller/UserController.java",
+      "codigo": "package com.demo.controller;\n\nimport com.demo.model.User;\nimport com.demo.service.UserService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Controller;\nimport org.springframework.ui.Model;\nimport org.springframework.web.bind.annotation.*;\n\n@Controller\npublic class UserController {\n\n    @Autowired\n    UserService service;\n\n    @GetMapping(\"/register\")\n    public String form(Model model) {\n        model.addAttribute(\"user\", new User());\n        return \"register\";\n    }\n\n    @PostMapping(\"/register\")\n    public String save(@ModelAttribute User user) {\n        service.save(user);\n        return \"redirect:/login\";\n    }\n}"
+    },
+
+    {
+      "paso": 15,
+      "nombre": "ProductController",
+      "archivo": "controller/ProductController.java",
+      "codigo": "package com.demo.controller;\n\nimport com.demo.model.Product;\nimport com.demo.service.CategoryService;\nimport com.demo.repository.ProductRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Controller;\nimport org.springframework.ui.Model;\nimport org.springframework.web.bind.annotation.*;\n\n@Controller\npublic class ProductController {\n\n    @Autowired\n    ProductRepository repo;\n\n    @Autowired\n    CategoryService categoryService;\n\n    @GetMapping(\"/\")\n    public String home(Model model) {\n        model.addAttribute(\"products\", repo.findAll());\n        return \"home\";\n    }\n\n    @GetMapping(\"/add\")\n    public String form(Model model) {\n        model.addAttribute(\"product\", new Product());\n        model.addAttribute(\"categories\", categoryService.getAll());\n        return \"form-product\";\n    }\n\n    @PostMapping(\"/add\")\n    public String save(@ModelAttribute Product product) {\n        repo.save(product);\n        return \"redirect:/\";\n    }\n\n    @GetMapping(\"/edit/{id}\")\n    public String edit(@PathVariable Long id, Model model) {\n        Product p = repo.findById(id).orElseThrow();\n        model.addAttribute(\"product\", p);\n        model.addAttribute(\"categories\", categoryService.getAll());\n        return \"form-product\";\n    }\n\n    @PostMapping(\"/delete/{id}\")\n    public String delete(@PathVariable Long id) {\n        repo.deleteById(id);\n        return \"redirect:/\";\n    }\n}"
+    },
+
+    {
+      "paso": 16,
+      "nombre": "Vistas HTML",
+      "archivos": {
+        "login.html": "<!DOCTYPE html><html><body><h2>Login</h2><form method='post' action='/login'>Usuario:<input name='username'/><br>Password:<input type='password' name='password'/><br><button>Ingresar</button></form><a href='/register'>Registrarse</a></body></html>",
+        "register.html": "<!DOCTYPE html><html><body><h2>Registro</h2><form method='post' action='/register'>Usuario:<input name='username'/><br>Password:<input type='password' name='password'/><br><button>Guardar</button></form><a href='/login'>Ir a login</a></body></html>",
+        "home.html": "<h1>Lista</h1><a href='/add'>Nuevo</a>",
+        "form-product.html": "<form method='post' action='/add'>Nombre:<input name='name'/><br><button>Guardar</button></form>"
+      }
+    }
+
+  ]
+}

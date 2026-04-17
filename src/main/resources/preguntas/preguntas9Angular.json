@@ -1,0 +1,202 @@
+[
+  {
+    "enunciado": "¿En qué archivo comúnmente defines las rutas de una aplicación Angular?",
+    "opciones": [
+      "router.config.ts",
+      "app.component.ts",
+      "main.ts",
+      "app-routing.module.ts"
+    ],
+    "respuestaCorrecta": "app-routing.module.ts"
+  },
+  {
+    "enunciado": "¿Cuál es la forma correcta de definir una ruta básica?",
+    "opciones": [
+      "{ path: 'home', view: HomeComponent }",
+      "{ path: 'home', component: HomeComponent }",
+      "{ route: 'home', component: HomeComponent }",
+      "{ path: 'home', standalone: HomeComponent }"
+    ],
+    "respuestaCorrecta": "{ path: 'home', component: HomeComponent }"
+  },
+  {
+    "enunciado": "¿Qué módulo de Angular es necesario para configurar rutas?",
+    "opciones": [
+      "HttpClientModule",
+      "RouterModule",
+      "FormsModule",
+      "CommonModule"
+    ],
+    "respuestaCorrecta": "RouterModule"
+  },
+  {
+    "enunciado": "¿Cuál es la función principal de event binding en Angular?",
+    "opciones": [
+      "Importar servicios en el componente",
+      "Escuchar y manejar eventos del DOM en la lógica del componente",
+      "Definir el valor inicial de un input",
+      "Establecer rutas dinámicas"
+    ],
+    "respuestaCorrecta": "Escuchar y manejar eventos del DOM en la lógica del componente"
+  },
+  {
+    "enunciado": "¿Cuál es la principal característica de un componente standalone?",
+    "opciones": [
+      "No necesita ser declarado en un módulo",
+      "Solo funciona con Angular Material",
+      "Solo puede ser usado en rutas hijas",
+      "Se utiliza únicamente para servicios HTTP"
+    ],
+    "respuestaCorrecta": "No necesita ser declarado en un módulo"
+  },
+  {
+    "enunciado": "¿Cómo se implementa correctamente un event binding en Angular?",
+    "opciones": [
+      "click=\"doSomething()\"",
+      "{{ click: doSomething() }}",
+      "(click)=\"doSomething()\"",
+      "click: \"doSomething()\""
+    ],
+    "respuestaCorrecta": "(click)=\"doSomething()\""
+  },
+  {
+    "enunciado": "¿Qué es la interpolación en Angular?",
+    "opciones": [
+      "Permite crear rutas dinámicas",
+      "Enlaza directamente un evento del DOM",
+      "Sirve para importar módulos",
+      "Inserta el valor de una variable en la vista HTML"
+    ],
+    "respuestaCorrecta": "Inserta el valor de una variable en la vista HTML"
+  },
+  {
+    "enunciado": "¿Cómo puedes redirigir de manera programática a otra ruta?",
+    "opciones": [
+      "this.router.navigate(['/home'])",
+      "this.route.to('/home')",
+      "router.go('/home')",
+      "navigate('/home')"
+    ],
+    "respuestaCorrecta": "this.router.navigate(['/home'])"
+  },
+  {
+    "enunciado": "¿Cuál es la sintaxis correcta de interpolación en Angular?",
+    "opciones": [
+      "{{ myVar }}",
+      "({{ myVar }})",
+      "${{ myVar }}",
+      "[[ myVar ]]"
+    ],
+    "respuestaCorrecta": "{{ myVar }}"
+  },
+  {
+    "enunciado": "¿Qué atributo es necesario en el decorador @Component para definir un componente standalone?",
+    "opciones": [
+      "modular: false",
+      "independent: true",
+      "singleton: true",
+      "standalone: true"
+    ],
+    "respuestaCorrecta": "standalone: true"
+  },
+  {
+    "enunciado": "¿Dónde se definen las rutas en Angular?",
+    "opciones": [
+      "app.module.ts",
+      "app.routes.ts",
+      "app.route-service.ts",
+      "app.config.ts"
+    ],
+    "respuestaCorrecta": "app.routes.ts"
+  },
+  {
+    "enunciado": "¿Qué directiva se utiliza para manejar formularios reactivos en Angular?",
+    "opciones": [
+      "ngForm",
+      "ngModel",
+      "formControl",
+      "formGroup"
+    ],
+    "respuestaCorrecta": "formGroup"
+  },
+  {
+    "enunciado": "¿Qué método se utiliza para navegar a una ruta programáticamente en Angular?",
+    "opciones": [
+      "navigate()",
+      "redirect()",
+      "goToRoute()",
+      "navigateTo()"
+    ],
+    "respuestaCorrecta": "navigate()"
+  },
+  {
+    "enunciado": "¿Qué tipo de guardián se utiliza para evitar que un usuario abandone una página sin guardar cambios?",
+    "opciones": [
+      "CanLoad",
+      "CanMatch",
+      "CanDeactivate",
+      "CanActivate"
+    ],
+    "respuestaCorrecta": "CanDeactivate"
+  },
+  {
+    "enunciado": "¿Qué método se utiliza para obtener un documento específico de Firestore?",
+    "opciones": [
+      "getDocs()",
+      "addDoc()",
+      "collectionData()",
+      "docData()"
+    ],
+    "respuestaCorrecta": "docData()"
+  },
+  {
+    "enunciado": "¿Qué es un componente en Angular?",
+    "opciones": [
+      "Un servicio para manejar datos.",
+      "Una clase decorada con @Component que controla una parte de la interfaz de usuario.",
+      "Un archivo de configuración para rutas.",
+      "Una función que maneja la lógica de negocio."
+    ],
+    "respuestaCorrecta": "Una clase decorada con @Component que controla una parte de la interfaz de usuario."
+  },
+  {
+    "enunciado": "¿Dónde se configuran los proveedores en Angular?",
+    "opciones": [
+      "app.providers.ts.",
+      "app.config.ts.",
+      "app.component.ts.",
+      "app.routes.ts."
+    ],
+    "respuestaCorrecta": "app.config.ts."
+  },
+  {
+    "enunciado": "¿Qué es Firebase en el contexto de Angular?",
+    "opciones": [
+      "Una librería para manejar formularios.",
+      "Una plataforma de desarrollo de aplicaciones móviles.",
+      "Un framework para crear componentes.",
+      "Un servicio de backend que proporciona autenticación, base de datos y almacenamiento."
+    ],
+    "respuestaCorrecta": "Un servicio de backend que proporciona autenticación, base de datos y almacenamiento."
+  },
+  {
+    "enunciado": "¿Qué método de Firebase se utiliza para autenticar un usuario con Google con Angular?",
+    "opciones": [
+      "signInWithPopup()",
+      "signInWithGoogle()",
+      "signOut()",
+      "signInWithEmailAndPassword()"
+    ],
+    "respuestaCorrecta": "signInWithPopup()"
+  },
+  {
+    "enunciado": "¿Cuál es el propósito de un servicio en Angular?",
+    "opciones": [
+      "Definir estilos CSS para los componentes.",
+      "Crear plantillas HTML.",
+      "Gestionar la lógica de negocio y compartir datos entre componentes.",
+      "Configurar las dependencias del proyecto."
+    ],
+    "respuestaCorrecta": "Gestionar la lógica de negocio y compartir datos entre componentes."
+  }
+]

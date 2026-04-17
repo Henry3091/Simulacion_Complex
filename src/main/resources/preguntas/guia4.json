@@ -1,0 +1,100 @@
+{
+  "proyecto": "React Native Expo + Firebase + CRUD Notas + API Peliculas",
+
+  "orden_ejecucion": [
+
+    {
+      "paso": 1,
+      "nombre": "Instalación del proyecto",
+      "crear_proyecto": "npx create-expo-app app-3",
+      "dependencias": [
+        "npm install firebase",
+        "npm install @react-navigation/native",
+        "npm install @react-navigation/stack",
+        "npm install @react-navigation/drawer",
+        "npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated",
+        "npx expo install react-dom react-native-web"
+      ]
+    },
+
+    {
+      "paso": 2,
+      "nombre": "Estructura del proyecto",
+      "firebase": ["Config.tsx"],
+      "navigations": ["MainNavigator.tsx"],
+      "screens": [
+        "LoginScreen.tsx",
+        "RegistroScreen.tsx",
+        "GuardarScreen.tsx",
+        "NotasScreen.tsx",
+        "ListaScreen.tsx",
+        "InformacionScreen.tsx"
+      ],
+      "components": ["Tarjeta.tsx", "Positivo.tsx"]
+    },
+
+    {
+      "paso": 3,
+      "nombre": "Archivo principal App",
+      "ruta": "App.tsx",
+      "codigo": "import { Navegador } from './navigations/MainNavigator';\n\nexport default function App() {\n  return <Navegador />;\n}"
+    },
+
+    {
+      "paso": 4,
+      "nombre": "Configuración Firebase",
+      "ruta": "firebase/Config.tsx",
+      "codigo": "import { initializeApp } from 'firebase/app';\nimport { getAuth } from 'firebase/auth';\nimport { getDatabase } from 'firebase/database';\n\nconst firebaseConfig = {\n  apiKey: \"TU_API_KEY\",\n  authDomain: \"TU_AUTH_DOMAIN\",\n  projectId: \"TU_PROJECT_ID\",\n  storageBucket: \"TU_BUCKET\",\n  messagingSenderId: \"TU_ID\",\n  appId: \"TU_APP_ID\"\n};\n\nconst app = initializeApp(firebaseConfig);\nexport const auth = getAuth(app);\nexport const db = getDatabase(app);"
+    },
+
+    {
+      "paso": 5,
+      "nombre": "Navegación principal",
+      "ruta": "navigations/MainNavigator.tsx",
+      "codigo": "import { createStackNavigator } from '@react-navigation/stack';\nimport { createDrawerNavigator } from '@react-navigation/drawer';\nimport { NavigationContainer } from '@react-navigation/native';\n\nimport LoginScreen from '../screens/LoginScreen';\nimport RegistroScreen from '../screens/RegistroScreen';\nimport GuardarScreen from '../screens/GuardarScreen';\nimport NotasScreen from '../screens/NotasScreen';\nimport ListaScreen from '../screens/ListaScreen';\nimport InformacionScreen from '../screens/InformacionScreen';\n\nconst Stack = createStackNavigator();\nconst Drawer = createDrawerNavigator();\n\nfunction DrawerNav() {\n  return (\n    <Drawer.Navigator>\n      <Drawer.Screen name=\"Guardar\" component={GuardarScreen} />\n      <Drawer.Screen name=\"Notas\" component={NotasScreen} />\n      <Drawer.Screen name=\"Peliculas\" component={ListaScreen} />\n      <Drawer.Screen name=\"Info\" component={InformacionScreen} />\n    </Drawer.Navigator>\n  );\n}\n\nexport function Navegador() {\n  return (\n    <NavigationContainer>\n      <Stack.Navigator>\n        <Stack.Screen name=\"Login\" component={LoginScreen} />\n        <Stack.Screen name=\"Registro\" component={RegistroScreen} />\n        <Stack.Screen name=\"Drawer\" component={DrawerNav} />\n      </Stack.Navigator>\n    </NavigationContainer>\n  );\n}"
+    },
+
+    {
+      "paso": 6,
+      "nombre": "Login Screen",
+      "ruta": "screens/LoginScreen.tsx",
+      "codigo": "import { View, Text, TextInput, Button } from 'react-native';\nimport { useState } from 'react';\nimport { signInWithEmailAndPassword } from 'firebase/auth';\nimport { auth } from '../firebase/Config';\n\nexport default function LoginScreen({ navigation }: any) {\n\n  const [correo, setcorreo] = useState('');\n  const [pass, setpass] = useState('');\n\n  function login() {\n    signInWithEmailAndPassword(auth, correo, pass)\n      .then(() => navigation.navigate('Drawer'))\n      .catch(e => alert(e.message));\n  }\n\n  return (\n    <View>\n      <Text>Login</Text>\n      <TextInput placeholder='Correo' onChangeText={setcorreo} />\n      <TextInput placeholder='Password' secureTextEntry onChangeText={setpass} />\n      <Button title='Login' onPress={login} />\n      <Button title='Registro' onPress={() => navigation.navigate('Registro')} />\n    </View>\n  );\n}"
+    },
+
+    {
+      "paso": 7,
+      "nombre": "Registro Screen",
+      "ruta": "screens/RegistroScreen.tsx",
+      "codigo": "import { View, Text, TextInput, Button } from 'react-native';\nimport { useState } from 'react';\nimport { createUserWithEmailAndPassword } from 'firebase/auth';\nimport { auth, db } from '../firebase/Config';\nimport { ref, set } from 'firebase/database';\n\nexport default function RegistroScreen({ navigation }: any) {\n\n  const [correo, setcorreo] = useState('');\n  const [pass, setpass] = useState('');\n\n  function registro() {\n    createUserWithEmailAndPassword(auth, correo, pass)\n      .then(user => {\n        set(ref(db, 'usuarios/' + user.user.uid), {\n          correo: correo\n        });\n        navigation.navigate('Login');\n      })\n      .catch(e => alert(e.message));\n  }\n\n  return (\n    <View>\n      <Text>Registro</Text>\n      <TextInput placeholder='Correo' onChangeText={setcorreo} />\n      <TextInput placeholder='Password' secureTextEntry onChangeText={setpass} />\n      <Button title='Registrar' onPress={registro} />\n    </View>\n  );\n}"
+    },
+
+    {
+      "paso": 8,
+      "nombre": "Guardar Nota",
+      "ruta": "screens/GuardarScreen.tsx",
+      "codigo": "import { View, Text, TextInput, Button } from 'react-native';\nimport { useState, useEffect } from 'react';\nimport { ref, set } from 'firebase/database';\nimport { auth, db } from '../firebase/Config';\nimport { onAuthStateChanged } from 'firebase/auth';\n\nexport default function GuardarScreen() {\n\n  const [titulo, setTitulo] = useState('');\n  const [id, setId] = useState('');\n\n  useEffect(() => {\n    onAuthStateChanged(auth, user => {\n      if (user) setId(user.uid);\n    });\n  }, []);\n\n  function guardar() {\n    set(ref(db, 'usuarios/' + id + '/notas/' + titulo), {\n      titulo\n    });\n    setTitulo('');\n  }\n\n  return (\n    <View>\n      <Text>Guardar Nota</Text>\n      <TextInput placeholder='Titulo' onChangeText={setTitulo} value={titulo} />\n      <Button title='Guardar' onPress={guardar} />\n    </View>\n  );\n}"
+    },
+
+    {
+      "paso": 9,
+      "nombre": "Lista de Notas",
+      "ruta": "screens/NotasScreen.tsx",
+      "codigo": "import { View, Text, FlatList } from 'react-native';\nimport { useState, useEffect } from 'react';\nimport { ref, onValue } from 'firebase/database';\nimport { auth, db } from '../firebase/Config';\nimport { onAuthStateChanged } from 'firebase/auth';\n\nexport default function NotasScreen() {\n\n  const [id, setId] = useState('');\n  const [notas, setNotas] = useState([]);\n\n  useEffect(() => {\n    onAuthStateChanged(auth, user => {\n      if (user) {\n        setId(user.uid);\n\n        const refNotas = ref(db, 'usuarios/' + user.uid + '/notas');\n        onValue(refNotas, snap => {\n          const data = snap.val() || {};\n          const lista = Object.keys(data).map(k => data[k]);\n          setNotas(lista);\n        });\n      }\n    });\n  }, []);\n\n  return (\n    <View>\n      <FlatList\n        data={notas}\n        renderItem={({ item }: any) => <Text>{item.titulo}</Text>}\n      />\n    </View>\n  );\n}"
+    },
+
+    {
+      "paso": 10,
+      "nombre": "Lista de Películas API",
+      "ruta": "screens/ListaScreen.tsx",
+      "codigo": "import { View, Text, FlatList } from 'react-native';\nimport { useEffect, useState } from 'react';\n\nexport default function ListaScreen() {\n\n  const [data, setData] = useState([]);\n\n  useEffect(() => {\n    fetch('https://jritsqmet.github.io/web-api/peliculas3.json')\n      .then(r => r.json())\n      .then(j => setData(j.peliculas));\n  }, []);\n\n  return (\n    <View>\n      <FlatList\n        data={data}\n        renderItem={({ item }: any) => <Text>{item.titulo}</Text>}\n      />\n    </View>\n  );\n}"
+    },
+
+    {
+      "paso": 11,
+      "nombre": "Información Usuario",
+      "ruta": "screens/InformacionScreen.tsx",
+      "codigo": "import { View, Text, Button } from 'react-native';\nimport { useState, useEffect } from 'react';\nimport { auth, db } from '../firebase/Config';\nimport { onAuthStateChanged, signOut } from 'firebase/auth';\nimport { ref, onValue } from 'firebase/database';\n\nexport default function InformacionScreen() {\n\n  const [user, setUser] = useState({});\n\n  useEffect(() => {\n    onAuthStateChanged(auth, u => {\n      if (u) {\n        const refUser = ref(db, 'usuarios/' + u.uid);\n        onValue(refUser, snap => setUser(snap.val()));\n      }\n    });\n  }, []);\n\n  return (\n    <View>\n      <Text>{user?.correo}</Text>\n      <Button title='Salir' onPress={() => signOut(auth)} />\n    </View>\n  );\n}"
+    }
+
+  ]
+}

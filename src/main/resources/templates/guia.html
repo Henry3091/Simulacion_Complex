@@ -2,7 +2,55 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Guía Proyecto</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        .code-container {
+            position: relative;
+        }
+
+        /* 🔥 botón invisible estilo ChatGPT */
+        .copy-btn {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+
+            font-size: 11px;
+            padding: 2px 6px;
+
+            background: transparent;
+            border: none;
+            color: #bbb;
+
+            opacity: 0;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        /* aparece solo al pasar el mouse */
+        .code-container:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .copy-btn:hover {
+            color: white;
+        }
+        /* 🔥 código estilo docs (claro, tipo Firebase) */
+pre {
+    background: #f6f8fa !important; /* gris pastel */
+    color: #1f2937 !important;      /* texto oscuro suave */
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 13px;
+}
+
+/* opcional: mejorar contraste */
+pre code {
+    color: inherit;
+}
+    </style>
+
 </head>
 
 <body>
@@ -11,15 +59,11 @@
     <span class="navbar-brand">Guía Spring Boot</span>
 
     <div class="d-flex flex-wrap gap-2 mt-2 mt-md-0">
-
-        <!-- navegación general -->
         <a href="/" class="btn btn-outline-light btn-sm">Inicio</a>
-
-        <!-- guías dinámicas -->
         <a href="/guia?archivo=guia1.json" class="btn btn-outline-light btn-sm">Guía 1</a>
         <a href="/guia?archivo=guia2.json" class="btn btn-outline-light btn-sm">Guía 2</a>
         <a href="/guia?archivo=guia3.json" class="btn btn-outline-light btn-sm">Guía 3</a>
-
+        <a href="/guia?archivo=guia4.json" class="btn btn-outline-light btn-sm">Guía 4</a>
     </div>
 </nav>
 
@@ -29,31 +73,70 @@
 
         <h2 class="text-center mb-4">Pasos del Proyecto</h2>
 
-        <!-- 🔥 protección contra null -->
         <div th:if="${guia != null}">
 
-            <div th:each="p : ${guia.ordenEjecucion}" class="mb-3">
+            <div th:each="p : ${guia.ordenEjecucion}" class="mb-4">
 
-                <div class="card border-primary">
+                <div class="card border-primary shadow-sm">
                     <div class="card-body">
 
-                        <h4>Paso <span th:text="${p.paso}"></span></h4>
+                        <h4 class="text-primary">
+                            Paso <span th:text="${p.paso}"></span>
+                        </h4>
 
-                        <h5 class="fw-bold" th:text="${p.nombre}"></h5>
+                        <h5 class="fw-bold mb-3" th:text="${p.nombre}"></h5>
 
-                        <p th:if="${p.archivo != null}">
-                            📁 <span th:text="${p.archivo}"></span>
-                        </p>
+                        <!-- CAMPOS DINÁMICOS -->
+                        <div th:each="entry : ${p.datos}" class="mb-3">
 
-                        <pre th:if="${p.codigo != null}"
-                             class="bg-dark text-white p-3 rounded"
-                             th:text="${p.codigo}">
-                        </pre>
+                            <div th:if="${entry.key != 'paso' and entry.key != 'nombre'}">
 
-                        <pre th:if="${p.codigo_sql != null}"
-                             class="bg-secondary text-white p-2 rounded"
-                             th:text="${p.codigo_sql}">
-                        </pre>
+                                <p class="fw-bold text-uppercase text-secondary"
+                                   th:text="${entry.key}">
+                                </p>
+
+                                <!-- LISTA -->
+                                <ul th:if="${entry.value instanceof T(java.util.List)}"
+                                    class="list-group mb-2">
+
+                                    <li class="list-group-item"
+                                        th:each="item : ${entry.value}"
+                                        th:text="${item}">
+                                    </li>
+
+                                </ul>
+
+                                <!-- OBJETO -->
+                                <div th:if="${entry.value instanceof T(java.util.Map)}"
+                                     class="bg-light p-3 rounded mb-2">
+
+                                    <div th:each="sub : ${entry.value}">
+                                        <b th:text="${sub.key}"></b>:
+                                        <span th:text="${sub.value}"></span>
+                                    </div>
+
+                                </div>
+
+                                <!-- CÓDIGO -->
+                                <div th:if="${!(entry.value instanceof T(java.util.List))
+                                              and !(entry.value instanceof T(java.util.Map))}"
+                                     class="code-container">
+
+                                    <!-- botón discreto -->
+                                    <button class="copy-btn"
+                                            onclick="copiarCodigo(this)">
+                                        copiar
+                                    </button>
+
+                                    <pre class="p-3 mb-0"
+                                         th:text="${entry.value}">
+</pre>
+
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
                 </div>
@@ -62,14 +145,25 @@
 
         </div>
 
-        <!-- si falla -->
         <div th:if="${guia == null}" class="alert alert-danger">
-            No se pudo cargar la guía (revisa el JSON o la ruta).
+            No se pudo cargar la guía.
         </div>
 
     </div>
 
 </div>
+
+<script>
+    function copiarCodigo(btn) {
+        const code = btn.parentElement.querySelector("pre").innerText;
+
+        navigator.clipboard.writeText(code).then(() => {
+            const old = btn.innerText;
+            btn.innerText = "copiado";
+            setTimeout(() => btn.innerText = old, 1200);
+        });
+    }
+</script>
 
 </body>
 </html>
