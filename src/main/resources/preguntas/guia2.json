@@ -48,7 +48,9 @@
     {
       "paso": 8,
       "nombre": "Crear procedimientos almacenados",
-      "codigo_sql": "DELIMITER //\nCREATE PROCEDURE total_reservas()\nBEGIN\nSELECT COUNT(*) FROM reserva;\nEND;//\n\nCREATE PROCEDURE insertar_turista(IN nom VARCHAR(100), IN mail VARCHAR(100))\nBEGIN\nINSERT INTO turista(nombre,email) VALUES(nom,mail);\nEND;//\n\nCREATE PROCEDURE obtener_experiencias()\nBEGIN\nSELECT * FROM experiencia;\nEND;//\n\nCREATE PROCEDURE eliminar_reserva(IN idr INT)\nBEGIN\nDELETE FROM reserva WHERE id = idr;\nEND;//\nDELIMITER ;"
+      "codigo_sql": "DELIMITER //\nCREATE PROCEDURE total_reservas()\nBEGIN\nSELECT COUNT(*) FROM reserva;\nEND;//\n\nCREATE PROCEDURE insertar_turista(IN nom VARCHAR(100), IN mail VARCHAR(100))\nBEGIN\nINSERT INTO turista(nombre,email) VALUES(nom,mail);\nEND;//\n\nCREATE PROCEDURE obtener_experiencias()\nBEGIN\nSELECT * FROM experiencia;\nEND;//\n\nCREATE PROCEDURE eliminar_reserva(IN idr INT)\nBEGIN\nDELETE FROM reserva WHERE id = idr;\nEND;//\nDELIMITER ;",
+
+      "defensa": "El modelo relacional en MySQL garantiza integridad y consistencia de los datos mediante claves primarias, foráneas y reglas de normalización. Su uso es ideal cuando se requiere estructura rígida, relaciones bien definidas y transacciones seguras (ACID), como en sistemas de reservas donde la confiabilidad de la información es crítica."
     },
 
     {
@@ -72,7 +74,9 @@
     {
       "paso": 12,
       "nombre": "Consultas con lookup",
-      "codigo": "db.reservas.aggregate([\n{\n $lookup:{\n   from:'experiencias',\n   localField:'experiencia_id',\n   foreignField:'_id',\n   as:'detalle'\n }\n}\n]);"
+      "codigo": "db.reservas.aggregate([\n{\n $lookup:{\n   from:'experiencias',\n   localField:'experiencia_id',\n   foreignField:'_id',\n   as:'detalle'\n }\n}\n]);",
+
+      "defensa": "El modelo NoSQL en MongoDB permite flexibilidad en la estructura de datos, ideal para información semiestructurada como experiencias con reservas y valoraciones embebidas. Su principal ventaja es la escalabilidad horizontal y la rapidez en consultas de documentos, lo que lo hace adecuado para sistemas dinámicos donde los datos pueden variar con el tiempo."
     }
 
   ]
