@@ -1,202 +1,102 @@
 [
   {
-    "enunciado": "La anotación @GetMapping(\"/add\") se usa para manejar solicitudes __________ en un controlador de Spring.",
+    "enunciado": "¿Qué componente en Spring Boot se encarga de contener la lógica de negocio de la aplicación?",
     "opciones": [
-      "GET",
-      "POST",
-      "PUT",
-      "DELETE"
+      "Servicio",
+      "Controlador",
+      "Repositorio",
+      "Vista"
     ],
-    "respuestaCorrecta": "GET"
+    "respuestaCorrecta": "Servicio"
   },
   {
-    "enunciado": "El método saveProduct(Product product) en ProductService permite __________ un producto en la base de datos.",
+    "enunciado": "¿Qué función cumple la anotación @Service dentro de Spring Boot?",
     "opciones": [
-      "guardar",
-      "eliminar",
-      "actualizar",
-      "consultar"
+      "Marcar una clase como entidad de base de datos",
+      "Indicar que contiene lógica de negocio",
+      "Identificar una interfaz de repositorio",
+      "Definir la vista de la aplicación"
     ],
-    "respuestaCorrecta": "guardar"
+    "respuestaCorrecta": "Indicar que contiene lógica de negocio"
   },
   {
-    "enunciado": "¿Qué significa CORS en el contexto de seguridad?",
+    "enunciado": "Procedimiento almacenado que a partir del número de cédula de un alumno me muestre su nombre y apellido, en caso de no existir el número de cédula me muestre un mensaje que diga que el alumno no está matriculado.",
     "opciones": [
-      "Sistema de encriptación de contraseñas",
-      "Restricción de acceso a recursos entre dominios",
-      "Un método de autenticación",
-      "Un tipo de sesión en Spring Security"
+      "DELIMITER $$\n\ncreate procedure info_alumno(cedula varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where num_cedula=cedula))\n\nthen select nombre, apellido from alumno where num_cedula=cedula;\n\nelseif(not exists(select * from alumno where num_cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$",
+      "DELIMITER $$\n\ncreate procedure info_alumno(num_cedula varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where num_cedula=cedula))\n\nthen select nombre, apellido from alumno where num_cedula=cedula;\n\nelseif(not exists(select * from alumno where num_cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$",
+      "DELIMITER $$\n\ncreate procedure info_alumno(nombre varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where num_cedula=cedula))\n\nthen select nombre, apellido from alumno where num_cedula=cedula;\n\nelseif(not exists(select * from alumno where num_cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$",
+      "DELIMITER $$\n\ncreate procedure info_alumno(num_cedula varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where cedula=cedula))\n\nthen select nombre, apellido from alumno where cedula=cedula;\n\nelseif(not exists(select * from alumno where cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$"
     ],
-    "respuestaCorrecta": "Restricción de acceso a recursos entre dominios"
+    "respuestaCorrecta": "DELIMITER $$\n\ncreate procedure info_alumno(num_cedula varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where num_cedula=cedula))\n\nthen select nombre, apellido from alumno where num_cedula=cedula;\n\nelseif(not exists(select * from alumno where num_cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$"
   },
   {
-    "enunciado": "¿Qué anotación se usa para aplicar restricciones de seguridad en métodos de Spring Security?",
+    "enunciado": "En aplicaciones desarrolladas con Angular, ¿qué representa Firebase?",
     "opciones": [
-      "@Autowired",
-      "@RestController",
-      "@Secured",
-      "@Entity"
+      "Un servicio de backend que proporciona autenticación, base de datos y almacenamiento.",
+      "Una plataforma de desarrollo de aplicaciones móviles.",
+      "Un framework para crear componentes.",
+      "Una librería para manejar formularios."
     ],
-    "respuestaCorrecta": "@Secured"
+    "respuestaCorrecta": "Un servicio de backend que proporciona autenticación, base de datos y almacenamiento."
   },
   {
-    "enunciado": "¿Qué anotación se usa para definir seguridad a nivel de método en Spring Security?",
+    "enunciado": "En Firestore, ¿qué método permite recuperar la información de un documento específico utilizando su identificador?",
     "opciones": [
-      "@PreAuthorize",
-      "@Component",
-      "@RequestMapping",
-      "@Service"
+      "getDocs()",
+      "collectionData()",
+      "docData()",
+      "queryDoc()"
     ],
-    "respuestaCorrecta": "@PreAuthorize"
+    "respuestaCorrecta": "docData()"
   },
   {
-    "enunciado": "¿Qué ataque se previene mediante la inclusión de tokens CSRF en formularios?",
+    "enunciado": "En el contexto de autenticación con Firebase, ¿qué información se requiere mínimamente para registrar un usuario con correo y contraseña?",
     "opciones": [
-      "Inyección SQL",
-      "CSRF (Cross-Site Request Forgery)",
-      "XSS (Cross-Site Scripting)",
-      "Ataques de denegación de servicio (DDoS)"
+      "Correo electrónico y contraseña",
+      "Nombre completo, teléfono y dirección",
+      "Token de dispositivo y ubicación GPS",
+      "Foto de perfil y fecha de nacimiento"
     ],
-    "respuestaCorrecta": "CSRF (Cross-Site Request Forgery)"
+    "respuestaCorrecta": "Correo electrónico y contraseña"
   },
   {
-    "enunciado": "¿Cuál es una característica clave de la gestión de sesiones en Spring Security?",
+    "enunciado": "Trigger que controla que la hora de inicio ingresada no sea posterior a la hora fin ingresada, caso contrario, solo se tomará en cuenta la mitad de la jornada(4 horas) como penalidad.",
     "opciones": [
-      "Permite múltiples sesiones simultáneas por usuario",
-      "Impide que los usuarios inicien sesión",
-      "Permite definir políticas como la expiración de sesión",
-      "No afecta el inicio de sesión de usuarios"
+      "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nBEFORE DELETE ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$",
+      "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nBEFORE UPDATE ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$",
+      "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nBEFORE INSERT ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$",
+      "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nINSERT BEFORE ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$"
     ],
-    "respuestaCorrecta": "Permite definir políticas como la expiración de sesión"
+    "respuestaCorrecta": "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nBEFORE INSERT ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$"
   },
   {
-    "enunciado": "En Spring, la anotación @Autowired se usa para la __________ automática de dependencias.",
+    "enunciado": "En las plantillas de Angular, ¿qué tipo de enlace se define utilizando paréntesis?",
     "opciones": [
-      "inyección",
-      "configuración",
-      "creación",
-      "validación"
+      "Property binding",
+      "Event binding",
+      "Two-way binding",
+      "String interpolation"
     ],
-    "respuestaCorrecta": "inyección"
+    "respuestaCorrecta": "Event binding"
   },
   {
-    "enunciado": "En Spring, la anotación @PostMapping indica que el método manejará solicitudes HTTP de tipo __________.",
+    "enunciado": "En los formularios reactivos de Angular, ¿para qué se utiliza principalmente la clase FormBuilder?",
     "opciones": [
-      "POST",
-      "GET",
-      "PUT",
-      "DELETE"
+      "Validar campos automáticamente.",
+      "Crear instancias de FormGroup y FormControl de manera declarativa.",
+      "Manejar el envío de datos a un backend.",
+      "Generar plantillas HTML para formularios."
     ],
-    "respuestaCorrecta": "POST"
+    "respuestaCorrecta": "Crear instancias de FormGroup y FormControl de manera declarativa."
   },
   {
-    "enunciado": "En la plantilla HTML, th:action=\"@{${product.id == null} ? '/add' : '/product/edit/'+${product.id}}\" se usa para definir la __________ del formulario.",
+    "enunciado": "¿Qué técnica se utiliza en JPA para evitar el problema conocido como N+1 queries?",
     "opciones": [
-      "acción",
-      "ruta",
-      "vista",
-      "configuración"
+      "Deshabilitar la paginación",
+      "Usar consultas nativas",
+      "Usar fetch join o @EntityGraph",
+      "Hacer la relación unidireccional"
     ],
-    "respuestaCorrecta": "acción"
-  },
-  {
-    "enunciado": "En ProductController, el método deleteProduct(Long id) se asocia con la anotación @PostMapping(\"/product/delete/{id}\") y se usa para __________ un producto.",
-    "opciones": [
-      "eliminar",
-      "guardar",
-      "consultar",
-      "editar"
-    ],
-    "respuestaCorrecta": "eliminar"
-  },
-  {
-    "enunciado": "¿Qué método de autenticación NO es soportado por Spring Security?",
-    "opciones": [
-      "Contraseñas",
-      "Autenticación basada en tokens",
-      "Identificación por huella dactilar",
-      "OAuth2"
-    ],
-    "respuestaCorrecta": "Identificación por huella dactilar"
-  },
-  {
-    "enunciado": "¿Cuál es el propósito principal de Spring Security en una aplicación Java?",
-    "opciones": [
-      "Proteger la interfaz de usuario",
-      "Implementar medidas de seguridad como autenticación y autorización",
-      "Gestionar la base de datos",
-      "Optimizar el rendimiento del código"
-    ],
-    "respuestaCorrecta": "Implementar medidas de seguridad como autenticación y autorización"
-  },
-  {
-    "enunciado": "¿Qué ataque ocurre cuando un atacante inyecta código malicioso en una página web?",
-    "opciones": [
-      "CSRF",
-      "XSS",
-      "Phishing",
-      "Spoofing"
-    ],
-    "respuestaCorrecta": "XSS"
-  },
-  {
-    "enunciado": "El atributo th:field=\"*{name}\" en el formulario HTML se usa para enlazar el campo __________ del objeto product.",
-    "opciones": [
-      "nombre",
-      "name",
-      "id",
-      "valor"
-    ],
-    "respuestaCorrecta": "nombre"
-  },
-  {
-    "enunciado": "¿Cómo se definen los permisos en Spring Security?",
-    "opciones": [
-      "A través de claves de encriptación",
-      "Mediante roles y permisos",
-      "Solo mediante autenticación de usuarios",
-      "Configurando archivos XML"
-    ],
-    "respuestaCorrecta": "Mediante roles y permisos"
-  },
-  {
-    "enunciado": "En Spring Security, authentication.getAuthorities() devuelve los __________ del usuario autenticado.",
-    "opciones": [
-      "roles",
-      "permisos",
-      "usuarios",
-      "tokens"
-    ],
-    "respuestaCorrecta": "roles"
-  },
-  {
-    "enunciado": "La anotación @Service indica que ProductService es un __________ de Spring.",
-    "opciones": [
-      "servicio",
-      "bean",
-      "controlador",
-      "repositorio"
-    ],
-    "respuestaCorrecta": "servicio"
-  },
-  {
-    "enunciado": "¿Cuál es la ventaja principal de Spring Security?",
-    "opciones": [
-      "No requiere configuración",
-      "Se integra fácilmente con otras tecnologías",
-      "Funciona solo con bases de datos SQL",
-      "No protege contra ataques de seguridad"
-    ],
-    "respuestaCorrecta": "Se integra fácilmente con otras tecnologías"
-  },
-  {
-    "enunciado": "En la vista HTML, la expresión th:text=\"${category.name}\" sirve para mostrar el __________ de la categoría.",
-    "opciones": [
-      "nombre",
-      "id",
-      "valor",
-      "tipo"
-    ],
-    "respuestaCorrecta": "nombre"
+    "respuestaCorrecta": "Usar fetch join o @EntityGraph"
   }
 ]

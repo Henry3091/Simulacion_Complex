@@ -1,202 +1,102 @@
 [
   {
-    "enunciado": "En Spring Boot, la anotación @__________ permite definir un controlador que maneja solicitudes HTTP y devuelve respuestas en formato JSON.",
+    "enunciado": "En un escenario donde una aplicación móvil debe funcionar con baja conectividad y sincronizar datos con Firebase, ¿qué patrón de diseño es más apropiado para garantizar consistencia de datos?",
     "opciones": [
-      "RestController",
-      "Controller",
-      "Service",
-      "Component"
+      "Sincronizar solo los datos de lectura, nunca los de escritura",
+      "Implementar un patrón de \"optimistic UI\" con cola de operaciones pendientes que se sincronicen al recuperar conexión, manejando conflictos con estrategias definidas",
+      "Deshabilitar todas las funciones de escritura cuando no hay internet",
+      "Ignorar las operaciones offline y requerir conexión constante"
     ],
-    "respuestaCorrecta": "RestController"
+    "respuestaCorrecta": "Implementar un patrón de \"optimistic UI\" con cola de operaciones pendientes que se sincronicen al recuperar conexión, manejando conflictos con estrategias definidas"
   },
   {
-    "enunciado": "¿Qué tipo de relación entre entidades en JPA se describe como \"uno a muchos (1:N)\"?",
+    "enunciado": "¿Qué clase de vista es más adecuada si se requiere proporcionar acceso a los usuarios de solo lectura a ciertos campos de una tabla sin permitirles realizar actualizaciones?",
     "opciones": [
-      "Cada entidad A está asociada con una única entidad B, y viceversa.",
-      "Una entidad A puede estar asociada con varias entidades B, pero cada entidad B está asociada solo a una entidad A.",
-      "Varias entidades A pueden estar asociadas a varias entidades B.",
-      "Ninguna de las anteriores."
+      "Vista materializada que almacena los resultados de la consulta.",
+      "Vista de actualización para permitir modificaciones solo en campos específicos.",
+      "Vista indexada que mejora la velocidad de las consultas.",
+      "Vista de seguridad que solo devuelve un subconjunto de columnas y filas."
     ],
-    "respuestaCorrecta": "Una entidad A puede estar asociada con varias entidades B, pero cada entidad B está asociada solo a una entidad A."
+    "respuestaCorrecta": "Vista de seguridad que solo devuelve un subconjunto de columnas y filas."
   },
   {
-    "enunciado": "En Spring Security, __________ es una interfaz que proporciona la información del usuario autenticado.",
+    "enunciado": "En el proceso de una solicitud dentro de MVC, ¿cuál es el orden correcto del flujo?",
     "opciones": [
-      "UserDetails",
-      "UserService",
-      "UserAuth",
-      "SecurityUser"
+      "Vista → Controlador → Modelo → Usuario",
+      "Usuario → Vista → Controlador → Modelo",
+      "Usuario → Controlador → Modelo → Vista → Usuario",
+      "Modelo → Controlador → Vista → Usuario"
     ],
-    "respuestaCorrecta": "UserDetails"
+    "respuestaCorrecta": "Usuario → Controlador → Modelo → Vista → Usuario"
   },
   {
-    "enunciado": "En JPA, la anotación @__________ se usa para marcar una clase como una entidad mapeada a una tabla de base de datos.",
+    "enunciado": "¿Qué condición describe correctamente la Tercera Forma Normal (3NF) respecto a las dependencias funcionales en una base de datos relacional?",
     "opciones": [
-      "Entity",
-      "Table",
-      "Column",
-      "Id"
+      "Una tabla está en 3NF si está en 2NF y todos los atributos no clave dependen directamente de la clave primaria, sin depender de otras columnas no clave.",
+      "Una tabla está en 3NF si todos los atributos de la tabla son clave primaria o clave foránea.",
+      "Una tabla está en 3NF si está en 2NF y no tiene dependencias parciales entre las columnas.",
+      "Una tabla está en 3NF si está en 1NF, no tiene dependencias transitivas y cada columna no clave depende funcionalmente de la clave primaria."
     ],
-    "respuestaCorrecta": "Entity"
+    "respuestaCorrecta": "Una tabla está en 3NF si está en 1NF, no tiene dependencias transitivas y cada columna no clave depende funcionalmente de la clave primaria."
   },
   {
-    "enunciado": "En Spring Data JPA, ¿qué anotación se usa para marcar una clase como entidad?",
+    "enunciado": "En Firestore, ¿qué método permite comprobar si un documento ya existe antes de intentar crearlo?",
     "opciones": [
-      "@Entity",
-      "@Repository",
-      "@Table",
-      "@Persistence"
+      "exists()",
+      "getDoc()",
+      "snapshot()",
+      "checkDoc()"
     ],
-    "respuestaCorrecta": "@Entity"
+    "respuestaCorrecta": "getDoc()"
   },
   {
-    "enunciado": "En el código proporcionado, ¿qué método del UserDetailsServiceImpl carga un usuario por su nombre de usuario?",
+    "enunciado": "Dado el siguiente script y tabla:\n\n\n\nSTART TRANSACTION;\n\nupdate autor set pais='Ecuador' where codigo='A100';\n\ninsert into autor(codigo, nombre, apellido, pais)\n\nvalues('Herman', 'Melville', 'USA');\n\n \n\n\n¿Qué cambios registrará la base de datos biblioteca?",
     "opciones": [
-      "findUserByUsername",
-      "loadUserByUsername",
-      "getUserDetails",
-      "authenticateUser"
+      "El script confirma la transacción – commit.",
+      "El script solo actualiza el país del autor – update.",
+      "El script solo inserta un nuevo autor – insert.",
+      "El script cancela la transacción – rollback."
     ],
-    "respuestaCorrecta": "loadUserByUsername"
+    "respuestaCorrecta": "El script confirma la transacción – commit."
   },
   {
-    "enunciado": "¿Cuál de los siguientes es un beneficio principal de Spring Data JPA?",
+    "enunciado": "¿Qué función de Firestore permite recuperar los datos de un documento específico?",
     "opciones": [
-      "Requiere que se escriba SQL manualmente para cada consulta.",
-      "Facilita la interacción con bases de datos mediante JPA sin necesidad de escribir SQL.",
-      "Solo se puede usar con bases de datos NoSQL.",
-      "No permite realizar operaciones CRUD en bases de datos."
+      "docData()",
+      "collectionData()",
+      "addDoc()",
+      "getDocs()"
     ],
-    "respuestaCorrecta": "Facilita la interacción con bases de datos mediante JPA sin necesidad de escribir SQL."
+    "respuestaCorrecta": "docData()"
   },
   {
-    "enunciado": "En JPA, ¿qué representa una entidad?",
+    "enunciado": "¿Qué la función del siguiente trigger?\n\n\nCREATE TABLE prestamo(\n\nid int not null auto_increment,\n\nnombre varchar(20) not null,\n\nFechaPrestamo date not null,\n\nFechaDevolucion date,\n\nestado varchar(15),\n\nCONSTRAINT pk_prestamo primary key(id)\n\n)engine=InnoDB;\n\n \n\nDELIMITER $$\n\nCREATE TRIGGER control_prestamo\n\nBEFORE INSERT ON prestamo\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.FechaDevolucion is null THEN SET new.estado = 'Pendiente';\n\nEND IF;\n\nEND $$",
     "opciones": [
-      "Una clase Java que se mapea a una tabla en la base de datos.",
-      "Un procedimiento almacenado dentro de la base de datos.",
-      "Un archivo de configuración XML en la aplicación.",
-      "Una tabla que almacena solo valores numéricos."
+      "Coloca la fecha de préstamo y la fecha de devolución siempre y cuando el estado sea ‘Pendiente’",
+      "Coloca ‘Pendiente’ en el campo estado de la tabla préstamo, cada vez que se ingrese un nuevo préstamo y la fecha de devolución sea nulo.",
+      "Coloca nulo en el campo estado de la tabla préstamo, cada vez que se actualice la fecha de devolución de un préstamo.",
+      "Coloca ‘Pendiente’ en el campo FechaDevolución de la tabla préstamo."
     ],
-    "respuestaCorrecta": "Una clase Java que se mapea a una tabla en la base de datos."
+    "respuestaCorrecta": "Coloca ‘Pendiente’ en el campo estado de la tabla préstamo, cada vez que se ingrese un nuevo préstamo y la fecha de devolución sea nulo."
   },
   {
-    "enunciado": "La arquitectura RESTful se basa en el protocolo __________ para la comunicación entre clientes y servidores.",
+    "enunciado": "¿Qué resultado se espera al usar $set en una operación de actualización en MongoDB?",
     "opciones": [
-      "HTTP",
-      "FTP",
-      "TCP",
-      "SMTP"
+      "Borrar un campo de todos los documentos coincidentes.",
+      "Reemplazar todo el documento por un nuevo documento.",
+      "Crear una nueva colección a partir de los documentos actualizados.",
+      "Añadir o modificar un campo específico en el documento."
     ],
-    "respuestaCorrecta": "HTTP"
+    "respuestaCorrecta": "Añadir o modificar un campo específico en el documento."
   },
   {
-    "enunciado": "En SecurityConfig, el método authenticationProvider() utiliza un objeto de tipo __________ para gestionar la autenticación.",
+    "enunciado": "¿Qué patrón de diseño suelen seguir los servicios en Angular para garantizar una única instancia compartida?",
     "opciones": [
-      "DaoAuthenticationProvider",
-      "AuthManager",
-      "SecurityProvider",
-      "UserProvider"
+      "Singleton",
+      "Factory",
+      "Observer",
+      "Decorator"
     ],
-    "respuestaCorrecta": "DaoAuthenticationProvider"
-  },
-  {
-    "enunciado": "La interfaz __________ de Spring Data JPA permite realizar operaciones CRUD sin necesidad de escribir consultas SQL.",
-    "opciones": [
-      "JpaRepository",
-      "CrudRepository",
-      "DataRepository",
-      "EntityManager"
-    ],
-    "respuestaCorrecta": "JpaRepository"
-  },
-  {
-    "enunciado": "¿Qué anotación permite definir un repositorio en Spring Data JPA?",
-    "opciones": [
-      "@Service",
-      "@Repository",
-      "@Entity",
-      "@PersistenceContext"
-    ],
-    "respuestaCorrecta": "@Repository"
-  },
-  {
-    "enunciado": "¿Qué es la persistencia de datos en aplicaciones Java?",
-    "opciones": [
-      "Un proceso para eliminar datos de una base de datos.",
-      "El almacenamiento temporal de datos en memoria.",
-      "El proceso de almacenar datos de manera permanente en una base de datos.",
-      "Un método para comprimir datos antes de almacenarlos."
-    ],
-    "respuestaCorrecta": "El proceso de almacenar datos de manera permanente en una base de datos."
-  },
-  {
-    "enunciado": "En la configuración de Spring Security, el método securityFilterChain() utiliza el objeto __________ para definir las reglas de acceso a los endpoints.",
-    "opciones": [
-      "HttpSecurity",
-      "WebSecurity",
-      "SecurityManager",
-      "FilterChain"
-    ],
-    "respuestaCorrecta": "HttpSecurity"
-  },
-  {
-    "enunciado": "En el código proporcionado, el método passwordEncoder() retorna una instancia de __________ para codificar contraseñas.",
-    "opciones": [
-      "BCryptPasswordEncoder",
-      "PasswordEncoder",
-      "MD5Encoder",
-      "ShaEncoder"
-    ],
-    "respuestaCorrecta": "BCryptPasswordEncoder"
-  },
-  {
-    "enunciado": "¿Qué método en SecurityConfig se encarga de definir las reglas de autorización para los endpoints?",
-    "opciones": [
-      "passwordEncoder()",
-      "securityFilterChain()",
-      "authenticationProvider()",
-      "authorizeRequests()"
-    ],
-    "respuestaCorrecta": "securityFilterChain()"
-  },
-  {
-    "enunciado": "En Spring Boot, la anotación @__________ se usa para definir una clase como un componente de servicio.",
-    "opciones": [
-      "Service",
-      "Component",
-      "Controller",
-      "Repository"
-    ],
-    "respuestaCorrecta": "Service"
-  },
-  {
-    "enunciado": "El método findByUsername(String username) en UserRepository retorna un objeto de tipo __________ para manejar la posible ausencia de un usuario.",
-    "opciones": [
-      "Optional",
-      "User",
-      "List<User>",
-      "String"
-    ],
-    "respuestaCorrecta": "Optional"
-  },
-  {
-    "enunciado": "¿Qué anotación se utiliza para habilitar la seguridad en Spring Boot?",
-    "opciones": [
-      "@EnableSecurity",
-      "@EnableWebSecurity",
-      "@SecurityConfiguration",
-      "@Secure"
-    ],
-    "respuestaCorrecta": "@EnableWebSecurity"
-  },
-  {
-    "enunciado": "¿Cuál es el propósito de los repositorios JPA en Spring Data?",
-    "opciones": [
-      "Administrar los archivos de configuración de la base de datos.",
-      "Permitir la ejecución automática de consultas y operaciones CRUD sin escribir SQL.",
-      "Configurar la conexión a bases de datos sin necesidad de controladores JDBC.",
-      "Eliminar automáticamente los datos después de cierto tiempo."
-    ],
-    "respuestaCorrecta": "Permitir la ejecución automática de consultas y operaciones CRUD sin escribir SQL."
+    "respuestaCorrecta": "Singleton"
   }
 ]

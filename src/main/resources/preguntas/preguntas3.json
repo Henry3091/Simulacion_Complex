@@ -1,202 +1,102 @@
 [
   {
-    "enunciado": "Spring Boot utiliza la inversión de __________ para gestionar los componentes de la aplicación.",
+    "enunciado": "¿Qué efecto tiene la siguiente consulta en MongoDB?\n\ndb.ventas.aggregate([ { $group: { _id: \"$cliente\", total: { $sum: \"$monto\" } } }])",
     "opciones": [
-      "control",
-      "dependencias",
-      "servicios",
-      "componentes"
+      "Agrupará las ventas por cliente y sumará el total de cada venta.",
+      "Ordenará las ventas por cliente y por monto de mayor a menor.",
+      "Creará un nuevo campo que contiene el mayor monto por cliente.",
+      "Agrupará las ventas por productos y calculará el promedio del monto."
     ],
-    "respuestaCorrecta": "control"
+    "respuestaCorrecta": "Agrupará las ventas por cliente y sumará el total de cada venta."
   },
   {
-    "enunciado": "Para definir una entidad en JPA, se usa la anotación __________.",
+    "enunciado": "En una colección de pedidos. ¿Qué hará la siguiente consulta con $lookup?\n\ndb.pedidos.aggregate([\n\n  {\n\n    $lookup: {\n\n      from: \"clientes\",\n\n      localField: \"clienteId\",\n\n      foreignField: \"_id\",\n\n      as: \"detallesCliente\"\n\n    }\n\n  }\n\n])",
     "opciones": [
-      "@Entity",
-      "@Table",
-      "@Column",
-      "@Id"
+      "Copiará todos los documentos de clientes y pedidos.",
+      "Filtrará los pedidos que no tengan un cliente asignado.",
+      "Unirá documentos de la colección pedidos con clientes donde los campos coincidan.",
+      "Borrará los documentos duplicados entre ambas colecciones."
     ],
-    "respuestaCorrecta": "@Entity"
+    "respuestaCorrecta": "Unirá documentos de la colección pedidos con clientes donde los campos coincidan."
   },
   {
-    "enunciado": "La especificación que permite la persistencia de datos en Java sin escribir SQL manualmente es __________.",
+    "enunciado": "¿Cómo se declara un evento dentro de una plantilla HTML en Angular?",
     "opciones": [
-      "JPA",
-      "Hibernate",
-      "JDBC",
-      "Spring Data"
+      "(click)",
+      "[click]",
+      "{{click}}",
+      "onClick"
     ],
-    "respuestaCorrecta": "JPA"
+    "respuestaCorrecta": "(click)"
   },
   {
-    "enunciado": "¿Qué herramienta se usa en Spring Boot para gestionar dependencias y compilación?",
+    "enunciado": "¿Qué método de generación de claves primarias corresponde a GenerationType.IDENTITY en JPA?",
     "opciones": [
-      "NetBeans",
-      "Eclipse",
-      "Maven/Gradle",
-      "JUnit"
+      "Secuencias de base de datos",
+      "UUID",
+      "Autoincremento en la base de datos",
+      "Valores aleatorios"
     ],
-    "respuestaCorrecta": "Maven/Gradle"
+    "respuestaCorrecta": "Autoincremento en la base de datos"
   },
   {
-    "enunciado": "En una aplicación Spring Boot, ¿qué componente es responsable de gestionar la lógica de negocio?",
+    "enunciado": "En Bootstrap, ¿qué efecto produce aplicar las clases d-flex flex-column a un contenedor?",
     "opciones": [
-      "Controller",
-      "Service",
-      "Repository",
-      "Entity"
+      "Alinea los elementos hijos en una fila horizontal con espacio entre ellos.",
+      "Organiza los elementos hijos en una columna vertical, uno debajo del otro.",
+      "Centra los elementos hijos tanto horizontal como verticalmente.",
+      "Aplica un diseño en cuadrícula (grid) con espaciado automático."
     ],
-    "respuestaCorrecta": "Service"
+    "respuestaCorrecta": "Organiza los elementos hijos en una columna vertical, uno debajo del otro."
   },
   {
-    "enunciado": "¿Cuál es la función principal de JPA (Java Persistence API)?",
+    "enunciado": "¿Qué asegura el manejo de sesiones dentro de Spring Security?",
     "opciones": [
-      "Proporcionar una interfaz gráfica para gestionar bases de datos.",
-      "Gestionar la persistencia de datos en Java mediante un modelo orientado a objetos.",
-      "Permitir la ejecución de scripts en la base de datos de forma automática.",
-      "Optimizar la velocidad de procesamiento de datos en Java."
+      "Que un usuario no pueda abrir múltiples sesiones simultáneamente",
+      "Que se eliminen automáticamente las tablas",
+      "Que se reduzca el tiempo de compilación",
+      "Que se desactiven los controladores"
     ],
-    "respuestaCorrecta": "Gestionar la persistencia de datos en Java mediante un modelo orientado a objetos."
+    "respuestaCorrecta": "Que un usuario no pueda abrir múltiples sesiones simultáneamente"
   },
   {
-    "enunciado": "¿Cuál es el propósito de un Repository en Spring Data JPA?",
+    "enunciado": "¿Qué posibilidad ofrece utilizar repositorios personalizados en Spring Data JPA?",
     "opciones": [
-      "Actuar como intermediario entre el Controller y la base de datos para realizar operaciones de persistencia.",
-      "Gestionar la lógica de negocio de la aplicación.",
-      "Servir como una interfaz gráfica para gestionar bases de datos.",
-      "Controlar las solicitudes HTTP en una aplicación."
+      "Definir consultas complejas sin depender de JPQL",
+      "Evitar la seguridad de datos",
+      "Eliminar la lógica de negocio",
+      "Reducir entidades"
     ],
-    "respuestaCorrecta": "Actuar como intermediario entre el Controller y la base de datos para realizar operaciones de persistencia."
+    "respuestaCorrecta": "Definir consultas complejas sin depender de JPQL"
   },
   {
-    "enunciado": "Los microservicios se comunican entre sí mediante APIs de tipo __________.",
+    "enunciado": "¿En qué archivo de un proyecto Angular se suelen declarar las rutas de la aplicación?",
     "opciones": [
-      "REST",
-      "RESTful",
-      "SOAP",
-      "GraphQL"
+      "app.config.ts",
+      "app.module.ts",
+      "app.routes.ts",
+      "app.route-service.ts"
     ],
-    "respuestaCorrecta": "RESTful"
+    "respuestaCorrecta": "app.routes.ts"
   },
   {
-    "enunciado": "¿Cuál es la principal ventaja de la Inyección de Dependencias (DI) en Spring?",
+    "enunciado": "¿Qué combinación de sentencias SQL usarías para crear un usuario, otorgarle acceso a la base de datos, y luego quitarle privilegios específicos sin eliminar al usuario?",
     "opciones": [
-      "Permite acoplar fuertemente los componentes del sistema.",
-      "Elimina la necesidad de declarar variables en Java.",
-      "Facilita el desacoplamiento y modularidad de las aplicaciones.",
-      "Reemplaza completamente el uso de interfaces en Java."
+      "CREATE USER, DROP USER, COMMIT",
+      "GRANT, REVOKE, COMMIT",
+      "CREATE USER, DROP USER, REVOKE",
+      "CREATE USER, GRANT, REVOKE"
     ],
-    "respuestaCorrecta": "Facilita el desacoplamiento y modularidad de las aplicaciones."
+    "respuestaCorrecta": "CREATE USER, GRANT, REVOKE"
   },
   {
-    "enunciado": "¿Cómo se define una entidad en JPA?",
+    "enunciado": "¿De qué manera se pueden manejar excepciones de forma global en Spring Boot?",
     "opciones": [
-      "Usando la anotación @Table",
-      "Usando la anotación @Entity",
-      "Usando la anotación @Column",
-      "Usando la anotación @Autowired"
+      "Usando @ControllerAdvice",
+      "Con @Entity",
+      "Creando un repositorio",
+      "Usando FetchType.LAZY"
     ],
-    "respuestaCorrecta": "Usando la anotación @Entity"
-  },
-  {
-    "enunciado": "Para realizar consultas a la base de datos sin escribir SQL manualmente en Spring Boot, se utiliza la interfaz __________.",
-    "opciones": [
-      "Repository",
-      "JpaRepository",
-      "CrudRepository",
-      "EntityManager"
-    ],
-    "respuestaCorrecta": "Repository"
-  },
-  {
-    "enunciado": "¿Cuál de las siguientes opciones es una característica de Spring Data JPA?",
-    "opciones": [
-      "Permite definir consultas SQL manualmente en los controladores.",
-      "Facilita la interacción con bases de datos mediante repositorios sin necesidad de escribir SQL manual.",
-      "Solo funciona con bases de datos NoSQL.",
-      "Requiere el uso obligatorio de Hibernate."
-    ],
-    "respuestaCorrecta": "Facilita la interacción con bases de datos mediante repositorios sin necesidad de escribir SQL manual."
-  },
-  {
-    "enunciado": "Un Service en Spring Boot se anota con __________.",
-    "opciones": [
-      "@Service",
-      "@Component",
-      "@Controller",
-      "@Repository"
-    ],
-    "respuestaCorrecta": "@Service"
-  },
-  {
-    "enunciado": "¿Qué anotación se usa para indicar que una clase es un componente de servicio en Spring Boot?",
-    "opciones": [
-      "@Service",
-      "@RestController",
-      "@Repository",
-      "@Configuration"
-    ],
-    "respuestaCorrecta": "@Service"
-  },
-  {
-    "enunciado": "¿Qué anotación se utiliza en Spring Boot para definir un controlador REST?",
-    "opciones": [
-      "@Service",
-      "@Repository",
-      "@Component",
-      "@RestController"
-    ],
-    "respuestaCorrecta": "@RestController"
-  },
-  {
-    "enunciado": "En Spring Boot, la anotación utilizada para inyectar dependencias es __________.",
-    "opciones": [
-      "@Autowired",
-      "@Inject",
-      "@Bean",
-      "@Component"
-    ],
-    "respuestaCorrecta": "@Autowired"
-  },
-  {
-    "enunciado": "En Spring Boot, el componente responsable de manejar las solicitudes HTTP es el __________.",
-    "opciones": [
-      "Controller",
-      "Service",
-      "Repository",
-      "Entity"
-    ],
-    "respuestaCorrecta": "controlador"
-  },
-  {
-    "enunciado": "En una relación @ManyToMany de JPA, la anotación utilizada para definir la tabla intermedia es __________.",
-    "opciones": [
-      "@JoinTable",
-      "@ManyToMany",
-      "@JoinColumn",
-      "@Table"
-    ],
-    "respuestaCorrecta": "@JoinTable"
-  },
-  {
-    "enunciado": "La herramienta utilizada en Spring Boot para gestionar dependencias de manera automática es __________.",
-    "opciones": [
-      "Maven",
-      "Gradle",
-      "Maven/Gradle",
-      "Ant"
-    ],
-    "respuestaCorrecta": "Maven"
-  },
-  {
-    "enunciado": "¿Cuál de las siguientes afirmaciones describe mejor a Spring Boot?",
-    "opciones": [
-      "Es un framework para el desarrollo de aplicaciones en Python.",
-      "Es una extensión de Spring que facilita la configuración y el desarrollo de aplicaciones Java.",
-      "Es un framework exclusivo para desarrollo web en JavaScript.",
-      "Es una librería para manejo de bases de datos relacionales en Java."
-    ],
-    "respuestaCorrecta": "Es una extensión de Spring que facilita la configuración y el desarrollo de aplicaciones Java."
+    "respuestaCorrecta": "Usando @ControllerAdvice"
   }
 ]
