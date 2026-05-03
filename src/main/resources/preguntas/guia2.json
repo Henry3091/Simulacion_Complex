@@ -1,83 +1,303 @@
-{
-  "proyecto": "EcoRuta Experiencias - MySQL + MongoDB",
-
-  "orden_ejecucion": [
-
-    {
-      "paso": 1,
-      "nombre": "Crear base de datos MySQL",
-      "codigo_sql": "CREATE DATABASE ecoruta;\nUSE ecoruta;"
-    },
-
-    {
-      "paso": 2,
-      "nombre": "Crear tablas (modelo físico)",
-      "codigo_sql": "CREATE TABLE turista (\n id INT AUTO_INCREMENT PRIMARY KEY,\n nombre VARCHAR(100),\n email VARCHAR(100) UNIQUE\n);\n\nCREATE TABLE experiencia (\n id INT AUTO_INCREMENT PRIMARY KEY,\n nombre VARCHAR(100),\n ubicacion VARCHAR(100),\n costo DECIMAL(10,2)\n);\n\nCREATE TABLE guia (\n id INT AUTO_INCREMENT PRIMARY KEY,\n nombre VARCHAR(100),\n especialidad VARCHAR(100)\n);\n\nCREATE TABLE reserva (\n id INT AUTO_INCREMENT PRIMARY KEY,\n fecha DATE,\n participantes INT,\n estado VARCHAR(50),\n turista_id INT,\n experiencia_id INT,\n FOREIGN KEY (turista_id) REFERENCES turista(id),\n FOREIGN KEY (experiencia_id) REFERENCES experiencia(id)\n);\n\nCREATE TABLE pago (\n id INT AUTO_INCREMENT PRIMARY KEY,\n monto DECIMAL(10,2),\n metodo VARCHAR(50),\n estado VARCHAR(50),\n reserva_id INT,\n FOREIGN KEY (reserva_id) REFERENCES reserva(id)\n);\n\nCREATE TABLE valoracion (\n id INT AUTO_INCREMENT PRIMARY KEY,\n comentario TEXT,\n puntuacion INT,\n turista_id INT,\n experiencia_id INT,\n FOREIGN KEY (turista_id) REFERENCES turista(id),\n FOREIGN KEY (experiencia_id) REFERENCES experiencia(id)\n);"
-    },
-
-    {
-      "paso": 3,
-      "nombre": "Insertar datos (mínimo 5 por tabla)",
-      "codigo_sql": "INSERT INTO turista (nombre,email) VALUES\n('Ana','ana@mail.com'),\n('Luis','luis@mail.com'),\n('Pedro','pedro@mail.com'),\n('Maria','maria@mail.com'),\n('Jose','jose@mail.com');\n\nINSERT INTO experiencia (nombre,ubicacion,costo) VALUES\n('Caminata','Quito',20),\n('Camping','Cotopaxi',50),\n('Artesania','Otavalo',30),\n('Agricultura','Loja',25),\n('Tour','Baños',40);"
-    },
-
-    {
-      "paso": 4,
-      "nombre": "Crear roles y usuarios",
-      "codigo_sql": "CREATE ROLE admin;\nCREATE ROLE cliente;\n\nGRANT ALL PRIVILEGES ON ecoruta.* TO admin;\nGRANT SELECT, INSERT ON ecoruta.* TO cliente;\n\nCREATE USER 'admin1'@'localhost' IDENTIFIED BY '1234';\nCREATE USER 'user1'@'localhost' IDENTIFIED BY '1234';\n\nGRANT admin TO 'admin1'@'localhost';\nGRANT cliente TO 'user1'@'localhost';"
-    },
-
-    {
-      "paso": 5,
-      "nombre": "Crear vistas",
-      "codigo_sql": "CREATE VIEW vista_reservas AS\nSELECT t.nombre, e.nombre AS experiencia, r.fecha\nFROM reserva r\nJOIN turista t ON r.turista_id = t.id\nJOIN experiencia e ON r.experiencia_id = e.id;\n\nCREATE VIEW vista_pagos AS\nSELECT p.monto, p.metodo, r.id\nFROM pago p\nJOIN reserva r ON p.reserva_id = r.id;\n\nCREATE VIEW vista_valoraciones AS\nSELECT v.comentario, v.puntuacion, t.nombre\nFROM valoracion v\nJOIN turista t ON v.turista_id = t.id;\n\nCREATE VIEW vista_turistas AS SELECT * FROM turista;\nCREATE VIEW vista_experiencias AS SELECT * FROM experiencia;"
-    },
-
-    {
-      "paso": 6,
-      "nombre": "Crear índices",
-      "codigo_sql": "CREATE INDEX idx_email ON turista(email);\nCREATE INDEX idx_nombre_exp ON experiencia(nombre);"
-    },
-
-    {
-      "paso": 7,
-      "nombre": "Crear triggers",
-      "codigo_sql": "DELIMITER //\nCREATE TRIGGER before_insert_reserva\nBEFORE INSERT ON reserva\nFOR EACH ROW\nBEGIN\nIF NEW.participantes <= 0 THEN\nSIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='Participantes inválidos';\nEND IF;\nEND;//\n\nCREATE TRIGGER after_insert_reserva\nAFTER INSERT ON reserva\nFOR EACH ROW\nBEGIN\nINSERT INTO valoracion(comentario,puntuacion,turista_id,experiencia_id)\nVALUES('Pendiente',0,NEW.turista_id,NEW.experiencia_id);\nEND;//\n\nCREATE TRIGGER before_insert_pago\nBEFORE INSERT ON pago\nFOR EACH ROW\nBEGIN\nSET NEW.monto = NEW.monto * 1.12;\nEND;//\n\nCREATE TRIGGER before_delete_turista\nBEFORE DELETE ON turista\nFOR EACH ROW\nBEGIN\nSIGNAL SQLSTATE '45000' SET MESSAGE_TEXT='No se puede eliminar';\nEND;//\nDELIMITER ;"
-    },
-
-    {
-      "paso": 8,
-      "nombre": "Crear procedimientos almacenados",
-      "codigo_sql": "DELIMITER //\nCREATE PROCEDURE total_reservas()\nBEGIN\nSELECT COUNT(*) FROM reserva;\nEND;//\n\nCREATE PROCEDURE insertar_turista(IN nom VARCHAR(100), IN mail VARCHAR(100))\nBEGIN\nINSERT INTO turista(nombre,email) VALUES(nom,mail);\nEND;//\n\nCREATE PROCEDURE obtener_experiencias()\nBEGIN\nSELECT * FROM experiencia;\nEND;//\n\nCREATE PROCEDURE eliminar_reserva(IN idr INT)\nBEGIN\nDELETE FROM reserva WHERE id = idr;\nEND;//\nDELIMITER ;",
-
-      "defensa": "El modelo relacional en MySQL garantiza integridad y consistencia de los datos mediante claves primarias, foráneas y reglas de normalización. Su uso es ideal cuando se requiere estructura rígida, relaciones bien definidas y transacciones seguras (ACID), como en sistemas de reservas donde la confiabilidad de la información es crítica."
-    },
-
-    {
-      "paso": 9,
-      "nombre": "Implementación MongoDB - Crear colección",
-      "codigo": "use ecoruta;"
-    },
-
-    {
-      "paso": 10,
-      "nombre": "Insertar documentos",
-      "codigo": "db.experiencias.insertMany([\n{\n nombre:'Caminata',\n ubicacion:'Quito',\n costo:20,\n reservas:[{turista:'Ana', participantes:2}],\n valoraciones:[{comentario:'Excelente', puntuacion:5}]\n},\n{\n nombre:'Camping',\n ubicacion:'Cotopaxi',\n costo:50,\n reservas:[{turista:'Luis', participantes:3}],\n valoraciones:[{comentario:'Bueno', puntuacion:4}]\n},\n{\n nombre:'Tour',\n ubicacion:'Baños',\n costo:40\n}\n]);"
-    },
-
-    {
-      "paso": 11,
-      "nombre": "Consultas simples MongoDB",
-      "codigo": "db.experiencias.find();\ndb.experiencias.find({ubicacion:'Quito'});\ndb.experiencias.find({costo:{$gt:30}});\ndb.experiencias.find({'reservas.participantes':{$gt:2}});\ndb.experiencias.find({nombre:/Cam/});"
-    },
-
-    {
-      "paso": 12,
-      "nombre": "Consultas con lookup",
-      "codigo": "db.reservas.aggregate([\n{\n $lookup:{\n   from:'experiencias',\n   localField:'experiencia_id',\n   foreignField:'_id',\n   as:'detalle'\n }\n}\n]);",
-
-      "defensa": "El modelo NoSQL en MongoDB permite flexibilidad en la estructura de datos, ideal para información semiestructurada como experiencias con reservas y valoraciones embebidas. Su principal ventaja es la escalabilidad horizontal y la rapidez en consultas de documentos, lo que lo hace adecuado para sistemas dinámicos donde los datos pueden variar con el tiempo."
-    }
-
-  ]
-}
+[
+  {
+    "paso": 1,
+    "nombre": "Crear estados useState para registro",
+    "archivo": "RegistroScreen.tsx",
+    "importacion": "import React, { useState } from 'react';",
+    "codigo": [
+      "const [correo, setCorreo] = useState('');",
+      "const [nick, setNick] = useState('');",
+      "const [edad, setEdad] = useState(0);",
+      "const [contrasena, setContrasena] = useState('');"
+    ]
+  },
+  {
+    "paso": 2,
+    "nombre": "Inputs del formulario",
+    "archivo": "RegistroScreen.tsx",
+    "codigo": [
+      "<TextInput placeholder='Ingresa correo' onChangeText={setCorreo} />",
+      "<TextInput placeholder='Ingresa nick' onChangeText={setNick} />",
+      "<TextInput placeholder='Ingresa edad' keyboardType='numeric' onChangeText={(texto)=>setEdad(+texto)} />",
+      "<TextInput placeholder='Ingresa contraseña' secureTextEntry={true} onChangeText={setContrasena} />"
+    ]
+  },
+  {
+    "paso": 3,
+    "nombre": "Crear funcion registro",
+    "archivo": "RegistroScreen.tsx",
+    "codigo": [
+      "function registro(){",
+      "}"
+    ]
+  },
+  {
+    "paso": 4,
+    "nombre": "Firebase Authentication registro usuario",
+    "archivo": "RegistroScreen.tsx",
+    "detalle": "Copiar createUserWithEmailAndPassword de la libreria",
+    "cambios": [
+      "email por correo",
+      "password por contrasena"
+    ]
+  },
+  {
+    "paso": 5,
+    "nombre": "Usar navigation en pantalla registro",
+    "archivo": "RegistroScreen.tsx",
+    "codigo": [
+      "export default function RegistroScreen({ navigation }: any)"
+    ]
+  },
+  {
+    "paso": 6,
+    "nombre": "Ir a Login despues de registrar",
+    "archivo": "RegistroScreen.tsx",
+    "codigo": [
+      "navigation.navigate('Login');"
+    ]
+  },
+  {
+    "paso": 7,
+    "nombre": "Mostrar errores",
+    "archivo": "RegistroScreen.tsx",
+    "codigo": [
+      "alert(errorMessage);"
+    ]
+  },
+  {
+    "paso": 8,
+    "nombre": "Guardar usuario en Realtime Database",
+    "archivo": "RegistroScreen.tsx",
+    "funcion": "guardarUsuario",
+    "codigo": [
+      "function guardarUsuario(uid:string){",
+      "set(ref(db,'usuarios/' + uid),{",
+      "correo: correo,",
+      "avatar: nick,",
+      "edad: edad",
+      "});",
+      "}"
+    ]
+  },
+  {
+    "paso": 9,
+    "nombre": "Obtener uid y guardar usuario",
+    "archivo": "RegistroScreen.tsx",
+    "codigo": [
+      "const user = userCredential.user;",
+      "guardarUsuario(user.uid);"
+    ]
+  },
+  {
+    "paso": 10,
+    "nombre": "Cambiar pantalla inicial",
+    "archivo": "MainNavigation.tsx",
+    "codigo": [
+      "<Stack.Navigator initialRouteName='Drawer'>"
+    ]
+  },
+  {
+    "paso": 11,
+    "nombre": "Consumir API peliculas",
+    "archivo": "ListaScreen.tsx",
+    "codigo": [
+      "const [peliculas, setPeliculas] = useState([]);",
+      "const apiPeliculas = async()=>{",
+      "const resp = await fetch('URL_API');",
+      "const json = await resp.json();",
+      "setPeliculas(json);",
+      "}"
+    ]
+  },
+  {
+    "paso": 12,
+    "nombre": "Ejecutar API al cargar",
+    "archivo": "ListaScreen.tsx",
+    "codigo": [
+      "useEffect(()=>{",
+      "apiPeliculas();",
+      "},[]);"
+    ]
+  },
+  {
+    "paso": 13,
+    "nombre": "Mostrar peliculas con FlatList",
+    "archivo": "ListaScreen.tsx",
+    "codigo": [
+      "<FlatList",
+      "data={peliculas}",
+      "renderItem={({item})=><Tarjeta datos={item} />}",
+      "/>"
+    ]
+  },
+  {
+    "paso": 14,
+    "nombre": "Crear componente Tarjeta",
+    "archivo": "components/Tarjeta.tsx",
+    "codigo": [
+      "export default function Tarjeta({datos}:any){",
+      "return(",
+      "<View>",
+      "<Text>{datos.titulo}</Text>",
+      "</View>",
+      ");",
+      "}"
+    ]
+  },
+  {
+    "paso": 15,
+    "nombre": "Mostrar imagen pelicula",
+    "archivo": "Tarjeta.tsx",
+    "codigo": [
+      "<Image source={{uri:datos.imagen}} style={styles.img} />"
+    ]
+  },
+  {
+    "paso": 16,
+    "nombre": "Usar TouchableOpacity",
+    "archivo": "Tarjeta.tsx",
+    "codigo": [
+      "<TouchableOpacity style={styles.container}>",
+      "</TouchableOpacity>"
+    ]
+  },
+  {
+    "paso": 17,
+    "nombre": "Crear modal",
+    "archivo": "Tarjeta.tsx",
+    "codigo": [
+      "const [ocultar,setOcultar] = useState(false);",
+      "<Modal visible={ocultar}>",
+      "</Modal>"
+    ]
+  },
+  {
+    "paso": 18,
+    "nombre": "Abrir y cerrar modal",
+    "archivo": "Tarjeta.tsx",
+    "codigo": [
+      "<TouchableOpacity onPress={()=>setOcultar(true)}>",
+      "<Button title='Cerrar' onPress={()=>setOcultar(false)} />"
+    ]
+  },
+  {
+    "paso": 19,
+    "nombre": "Comentarios con Switch",
+    "archivo": "Tarjeta.tsx",
+    "codigo": [
+      "const [positivo,setPositivo] = useState(false);",
+      "<Switch value={positivo} onValueChange={()=>setPositivo(!positivo)} />"
+    ]
+  },
+  {
+    "paso": 20,
+    "nombre": "Mostrar comentarios segun estado",
+    "archivo": "Tarjeta.tsx",
+    "codigo": [
+      "positivo ? <Text>Comentarios positivos</Text> : <Text>Comentarios negativos</Text>"
+    ]
+  },
+  {
+    "paso": 21,
+    "nombre": "Componente Positivo",
+    "archivo": "components/Positivo.tsx",
+    "codigo": [
+      "export default function Positivo({comentarios}:any){",
+      "<FlatList",
+      "data={comentarios}",
+      "renderItem={({item})=><Text>{item.opinion}</Text>}",
+      "/>",
+      "}"
+    ]
+  },
+  {
+    "paso": 22,
+    "nombre": "Crear pantalla Informacion",
+    "archivo": "screens/InformacionScreen.tsx",
+    "detalle": "Nueva pantalla"
+  },
+  {
+    "paso": 23,
+    "nombre": "Agregar ruta navegacion",
+    "archivo": "MainNavigator.tsx",
+    "codigo": [
+      "<Drawer.Screen name='Informacion' component={InformacionScreen} />"
+    ]
+  },
+  {
+    "paso": 24,
+    "nombre": "Leer usuario autenticado",
+    "archivo": "PerfilScreen.tsx",
+    "codigo": [
+      "useEffect(()=>{",
+      "leerUsuario();",
+      "},[]);"
+    ]
+  },
+  {
+    "paso": 25,
+    "nombre": "Leer datos usuario desde Firebase",
+    "archivo": "PerfilScreen.tsx",
+    "codigo": [
+      "function getUsuario(uid:string){",
+      "const starCountRef = ref(db,'usuarios/' + uid);",
+      "onValue(starCountRef,(snapshot)=>{",
+      "const data = snapshot.val();",
+      "setUsuario(data);",
+      "});",
+      "}"
+    ]
+  },
+  {
+    "paso": 26,
+    "nombre": "Mostrar datos usuario",
+    "archivo": "PerfilScreen.tsx",
+    "codigo": [
+      "<Text>Nombre: {usuario.nombre}</Text>",
+      "<Text>Edad: {usuario.edad}</Text>"
+    ]
+  },
+  {
+    "paso": 27,
+    "nombre": "Cerrar sesion",
+    "archivo": "PerfilScreen.tsx",
+    "codigo": [
+      "<Button title='Cerrar' onPress={cerrarSesion} />"
+    ]
+  },
+  {
+    "paso": 28,
+    "nombre": "Pantalla Guardar notas",
+    "archivo": "GuardarScreen.tsx",
+    "codigo": [
+      "<TextInput placeholder='Titulo' />",
+      "<TextInput placeholder='Descripcion' />",
+      "<TextInput placeholder='Fecha' />",
+      "<Button title='Guardar' />"
+    ]
+  },
+  {
+    "paso": 29,
+    "nombre": "Guardar notas con push",
+    "archivo": "GuardarScreen.tsx",
+    "codigo": [
+      "const referencia = ref(db,'usuarios/' + uid + '/notas');",
+      "push(referencia,{",
+      "titulo: titulo,",
+      "descripcion: descripcion,",
+      "fecha: fecha",
+      "});"
+    ]
+  },
+  {
+    "paso": 30,
+    "nombre": "Limpiar inputs despues de guardar",
+    "archivo": "GuardarScreen.tsx",
+    "codigo": [
+      "setTitulo('');",
+      "setDescripcion('');",
+      "setFecha('');"
+    ]
+  }
+]

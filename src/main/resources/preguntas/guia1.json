@@ -1,184 +1,178 @@
 {
-  "proyecto": "Complexivo App - Spring Boot + Security + Thymeleaf + MySQL",
   "orden_ejecucion": [
-
     {
       "paso": 1,
-      "nombre": "Crear proyecto en Spring Initializr",
-      "configuracion": {
-        "group": "com.desarrollo",
-        "artifact": "complexivo-app",
-        "dependencias": [
-          "Spring Web",
-          "Spring Boot DevTools",
-          "Spring Security",
-          "Spring Data JPA",
-          "MySQL Driver",
-          "Thymeleaf"
-        ]
-      }
+      "nombre": "Crear proyecto",
+      "comando": "npx create-expo-app -t",
+      "entrar": "cd nombreProyecto"
     },
-
     {
       "paso": 2,
-      "nombre": "Configurar application.properties",
-      "archivo": "src/main/resources/application.properties",
-      "codigo": "spring.application.name=complexivo-app\nspring.datasource.url=jdbc:mysql://localhost:3306/complexivo\nspring.datasource.username=root\nspring.datasource.password=mio123*\nspring.jpa.hibernate.ddl-auto=update\nspring.jpa.database-platform=org.hibernate.dialect.MySQLDialect"
+      "nombre": "Verificar extensiones",
+      "extensiones": [
+        "ES7",
+        "ErrorLens",
+        "Material Icon Theme"
+      ]
     },
-
     {
       "paso": 3,
-      "nombre": "Crear base de datos MySQL",
-      "codigo_sql": "CREATE DATABASE complexivo;"
+      "nombre": "Crear carpeta Screens",
+      "archivos": [
+        "GuardarScreen.tsx",
+        "ListaScreen.tsx",
+        "LoginScreen.tsx",
+        "NotasScreen.tsx",
+        "RegistroScreen.tsx"
+      ],
+      "nota": "En cada una poner rnfs"
     },
-
     {
       "paso": 4,
-      "nombre": "Crear paquetes",
-      "paquetes": [
-        "config",
-        "controllers",
-        "models",
-        "repository",
-        "services"
-      ]
+      "nombre": "Crear carpeta Navegador",
+      "archivos": [
+        "MainNavigator.tsx"
+      ],
+      "nota": "También poner rnfs"
     },
-
     {
       "paso": 5,
-      "nombre": "Crear entidades",
-      "descripcion": "User, Role, Product, Category con sus relaciones",
-      "detalle": [
-        "User -> ManyToMany con Role",
-        "Product -> ManyToOne con Category",
-        "Category -> OneToMany con Product"
+      "nombre": "Instalar navegación",
+      "navegadores": [
+        "Stack",
+        "Drawer"
       ]
     },
-
     {
       "paso": 6,
-      "nombre": "Crear repositorios",
-      "interfaces": [
-        "UserRepository",
-        "RoleRepository",
-        "ProductRepository",
-        "CategoryRepository"
-      ]
+      "nombre": "Configurar Stack",
+      "accion": "Ir a React Navigation, Stack Usage, Dynamic y copiar código en MainNavigator.tsx"
     },
-
     {
       "paso": 7,
-      "nombre": "Crear servicios base",
-      "servicios": [
-        "UserService",
-        "ProductService",
-        "CategoryService"
-      ]
+      "nombre": "Configurar Drawer",
+      "accion": "Ir a Drawer Usage, Dynamic y copiar código en MainNavigator.tsx debajo del Stack"
     },
-
     {
       "paso": 8,
-      "nombre": "Implementar UserDetailsService",
-      "archivo": "UserDetailsServiceImpl.java",
-      "funcion": "Cargar usuario desde base de datos con roles",
-      "nota": "Convierte roles a SimpleGrantedAuthority"
+      "nombre": "Cargar Drawer dentro de Stack",
+      "codigo": "<Stack.Screen name='Drawer' component={MyDrawer} />"
     },
-
     {
       "paso": 9,
-      "nombre": "Configurar Security",
-      "archivo": "SecurityConfig.java",
-      "funcionalidades": [
-        "Login personalizado /login",
-        "Acceso público a /login y /register",
-        "Ruta / protegida con roles USER y ADMIN",
-        "Logout en /logout",
-        "Password encriptado con BCrypt",
-        "Autenticación con UserDetailsServiceImpl"
-      ]
+      "nombre": "Función pública Navegador",
+      "codigo": "export function Navegador(){ return(<NavigationContainer><MyStack/></NavigationContainer>) }"
     },
-
     {
       "paso": 10,
-      "nombre": "Controlador de autenticación",
-      "archivo": "AuthController.java",
-      "funcionalidades": [
-        "Mostrar login",
-        "Evitar login si ya está autenticado",
-        "Cerrar sesión manual"
-      ]
+      "nombre": "Modificar App.tsx",
+      "codigo": "<Navegador />"
     },
-
     {
       "paso": 11,
-      "nombre": "Controlador de usuario",
-      "archivo": "UserController.java",
-      "funcionalidades": [
-        "Registro de usuario",
-        "Asignación automática de ROLE_USER",
-        "Validación de usuario duplicado"
+      "nombre": "Configurar Firebase",
+      "acciones": [
+        "Ir a Authentication",
+        "Habilitar correo electrónico / contraseña",
+        "Guardar",
+        "Ir a Usuarios",
+        "Ir a Configuración General",
+        "Crear proyecto web"
       ]
     },
-
     {
       "paso": 12,
-      "nombre": "Controlador de productos",
-      "archivo": "ProductController.java",
-      "funcionalidades": [
-        "Listar productos en /",
-        "Agregar producto",
-        "Editar producto",
-        "Eliminar producto",
-        "Mostrar categorías en formulario",
-        "Obtener rol del usuario autenticado"
-      ]
+      "nombre": "Instalar Firebase",
+      "comando": "npm install firebase"
     },
-
     {
       "paso": 13,
-      "nombre": "Crear vistas Thymeleaf",
+      "nombre": "Crear carpeta firebase",
       "archivos": [
-        "auth/login.html",
-        "auth/register.html",
-        "product/home.html",
-        "product/add-product.html"
+        "config.tsx"
       ],
-      "nota": "Usar Bootstrap para diseño"
+      "nota": "Pegar la clave de configuración"
     },
-
     {
       "paso": 14,
-      "nombre": "IMPORTANTE - CSRF",
-      "descripcion": "Spring Security ya lo maneja automáticamente en Thymeleaf",
-      "nota": "No necesitas agregar input hidden manual porque Thymeleaf lo incluye en th:action"
+      "nombre": "Exportar dependencias Firebase",
+      "codigo": [
+        "export const auth = getAuth(app);",
+        "export const db = getDatabase(app);"
+      ]
     },
-
     {
       "paso": 15,
-      "nombre": "Flujo de ejecución",
-      "acciones": [
-        "Ejecutar aplicación",
-        "Ir a /register",
-        "Crear usuario",
-        "Ir a /login",
-        "Iniciar sesión",
-        "Acceder a /",
-        "Agregar productos",
-        "Editar y eliminar productos"
+      "nombre": "Diseñar LoginScreen",
+      "componentes": [
+        "<TextInput placeholder='Ingresar correo' />",
+        "<TextInput placeholder='Ingresar contraseña' />",
+        "<Button title='Login' />"
       ]
     },
-
     {
       "paso": 16,
-      "nombre": "Reglas importantes",
-      "reglas": [
-        "Los roles deben tener formato ROLE_USER o ROLE_ADMIN",
-        "Las contraseñas deben guardarse encriptadas",
-        "No se puede acceder a / sin login",
-        "Solo usuarios autenticados ven productos",
-        "Las relaciones deben estar bien definidas en entidades"
+      "nombre": "Crear estados",
+      "codigo": [
+        "const [correo, setCorreo] = useState('');",
+        "const [contrasena, setContrasena] = useState('');"
+      ]
+    },
+    {
+      "paso": 17,
+      "nombre": "Asignar onChangeText",
+      "codigo": [
+        "onChangeText={setCorreo}",
+        "onChangeText={setContrasena}"
+      ]
+    },
+    {
+      "paso": 18,
+      "nombre": "Crear función login",
+      "codigo": "function login(){}"
+    },
+    {
+      "paso": 19,
+      "nombre": "Asignar botón login",
+      "codigo": "<Button title='Login' onPress={login} />"
+    },
+    {
+      "paso": 20,
+      "nombre": "Usar Firebase Auth",
+      "accion": "Copiar código de Authentication Web y reemplazar email por correo, password por contrasena"
+    },
+    {
+      "paso": 21,
+      "nombre": "Recibir navigation",
+      "codigo": "export default function LoginScreen({navigation}:any)"
+    },
+    {
+      "paso": 22,
+      "nombre": "Navegar al Drawer",
+      "codigo": "navigation.navigate('Drawer');"
+    },
+    {
+      "paso": 23,
+      "nombre": "Mostrar error",
+      "codigo": "alert(errorMessage);"
+    },
+    {
+      "paso": 24,
+      "nombre": "Ver usuario",
+      "codigo": "console.log(user);",
+      "nota": "Dato importante UID"
+    },
+    {
+      "paso": 25,
+      "nombre": "Botón ir a registro",
+      "codigo": "<Button title='Ir a registro' onPress={() => navigation.navigate('Registro')} />"
+    },
+    {
+      "paso": 26,
+      "nombre": "Diseñar RegistroScreen",
+      "componentes": [
+        "4 TextInput"
       ]
     }
-
   ]
 }

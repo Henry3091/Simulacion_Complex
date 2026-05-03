@@ -1,145 +1,99 @@
 {
-  "proyecto": "Spring Boot EXAMEN (Login + CRUD + Categoria SIN roles)",
+  "proyecto": "React Native Expo + Firebase + CRUD Notas + API Peliculas",
 
   "orden_ejecucion": [
 
     {
       "paso": 1,
-      "nombre": "Crear proyecto en Spring Initializr",
-      "configuracion": {
-        "dependencias": [
-          "Spring Web",
-          "Spring Security",
-          "Spring Data JPA",
-          "MySQL Driver",
-          "Thymeleaf"
-        ]
-      }
+      "nombre": "Instalación del proyecto",
+      "crear_proyecto": "npx create-expo-app -t",
+      "dependencias": [
+        "npm install firebase",
+        "npm install @react-navigation/native",
+        "npm install @react-navigation/stack",
+        "npm install @react-navigation/drawer",
+        "npx expo install react-native-screens react-native-safe-area-context react-native-gesture-handler react-native-reanimated",
+        "npx expo install react-dom react-native-web"
+      ]
     },
 
     {
       "paso": 2,
-      "nombre": "Crear base de datos",
-      "codigo_sql": "CREATE DATABASE examen;"
+      "nombre": "Estructura del proyecto",
+      "firebase": ["Config.tsx"],
+      "navigations": ["MainNavigator.tsx"],
+      "screens": [
+        "LoginScreen.tsx",
+        "RegistroScreen.tsx",
+        "GuardarScreen.tsx",
+        "NotasScreen.tsx",
+        "ListaScreen.tsx",
+        "InformacionScreen.tsx"
+      ],
+      "components": ["Tarjeta.tsx", "Positivo.tsx"]
     },
 
     {
       "paso": 3,
-      "nombre": "Configurar application.properties",
-      "archivo": "src/main/resources/application.properties",
-      "codigo": "spring.datasource.url=jdbc:mysql://localhost:3306/examen\nspring.datasource.username=root\nspring.datasource.password=1234\nspring.jpa.hibernate.ddl-auto=update\nspring.jpa.database-platform=org.hibernate.dialect.MySQLDialect"
+      "nombre": "Archivo principal App",
+      "ruta": "App.tsx",
+      "codigo": "import { Navegador } from './navigations/MainNavigator';\n\nexport default function App() {\n  return <Navegador />;\n}"
     },
 
     {
       "paso": 4,
-      "nombre": "Crear paquetes",
-      "paquetes": [
-        "model",
-        "repository",
-        "service",
-        "controller",
-        "config"
-      ]
+      "nombre": "Configuración Firebase",
+      "ruta": "firebase/config.tsx",
+      "codigo": "import { initializeApp } from 'firebase/app';\nimport { getAuth } from 'firebase/auth';\nimport { getDatabase } from 'firebase/database';\n\nconst firebaseConfig = {\n  apiKey: 'TU_API_KEY',\n  authDomain: 'TU_AUTH_DOMAIN',\n  projectId: 'TU_PROJECT_ID',\n  storageBucket: 'TU_BUCKET',\n  messagingSenderId: 'TU_ID',\n  appId: 'TU_APP_ID'\n};\n\nconst app = initializeApp(firebaseConfig);\nexport const auth = getAuth(app);\nexport const db = getDatabase(app);"
     },
 
     {
       "paso": 5,
-      "nombre": "Entidad User",
-      "archivo": "model/User.java",
-      "codigo": "package com.demo.model;\n\nimport jakarta.persistence.*;\n\n@Entity\npublic class User {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    @Column(unique = true)\n    private String username;\n\n    private String password;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n\n    public String getUsername() { return username; }\n    public void setUsername(String username) { this.username = username; }\n\n    public String getPassword() { return password; }\n    public void setPassword(String password) { this.password = password; }\n}"
+      "nombre": "Navegación principal",
+      "ruta": "navigations/MainNavigator.tsx",
+      "codigo": "import { createStackNavigator } from '@react-navigation/stack';\nimport LoginScreen from '../screens/LoginScreen';\nimport RegistroScreen from '../screens/RegistroScreen';\nimport { createDrawerNavigator } from '@react-navigation/drawer';\nimport GuardarScreen from '../screens/GuardarScreen';\nimport ListaScreen from '../screens/ListaScreen';\nimport NotasScreen from '../screens/NotasScreen';\nimport { NavigationContainer } from '@react-navigation/native';\nimport InformacionScreen from '../screens/InformacionScreen';\n\nconst Stack = createStackNavigator();\nconst Drawer = createDrawerNavigator();\n\nfunction MyStack() {\n  return (\n    <Stack.Navigator initialRouteName='Login'>\n      <Stack.Screen name='Login' component={LoginScreen} />\n      <Stack.Screen name='Registro' component={RegistroScreen} />\n      <Stack.Screen name='Drawer' component={MyDrawer} />\n    </Stack.Navigator>\n  );\n}\n\nfunction MyDrawer() {\n  return (\n    <Drawer.Navigator initialRouteName='Guardar'>\n      <Drawer.Screen name='Guardar' component={GuardarScreen} />\n      <Drawer.Screen name='Peliculas' component={ListaScreen} />\n      <Drawer.Screen name='Notas' component={NotasScreen} />\n      <Drawer.Screen name='Informacion' component={InformacionScreen} />\n    </Drawer.Navigator>\n  );\n}\n\nexport function Navegador() {\n  return (\n    <NavigationContainer>\n      <MyStack />\n    </NavigationContainer>\n  );\n}"
     },
 
     {
       "paso": 6,
-      "nombre": "Entidad Category",
-      "archivo": "model/Category.java",
-      "codigo": "package com.demo.model;\n\nimport jakarta.persistence.*;\n\n@Entity\npublic class Category {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    private String name;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n\n    public String getName() { return name; }\n    public void setName(String name) { this.name = name; }\n}"
+      "nombre": "Login Screen",
+      "ruta": "screens/LoginScreen.tsx",
+      "codigo": "import { Button, Text, TextInput, View } from 'react-native';\nimport React, { useState } from 'react';\nimport { signInWithEmailAndPassword } from 'firebase/auth';\nimport { auth } from '../firebase/config';\n\nexport default function LoginScreen({ navigation }: any) {\n  const [correo, setcorreo] = useState(' ');\n  const [contrasenia, setcontrasenia] = useState(' ');\n\n  function login() {\n    signInWithEmailAndPassword(auth, correo, contrasenia)\n      .then(() => {\n        navigation.navigate('Drawer');\n      })\n      .catch((error) => {\n        alert(error.message);\n      });\n  }\n\n  return (\n    <View>\n      <Text>LoginScreen</Text>\n      <TextInput placeholder='Ingresar correo' onChangeText={setcorreo} />\n      <TextInput placeholder='Ingresar contraseña' onChangeText={setcontrasenia} />\n      <Button title='login' onPress={login} />\n      <Button title='ir a registro' onPress={() => navigation.navigate('Registro')} />\n    </View>\n  );\n}"
     },
 
     {
       "paso": 7,
-      "nombre": "Entidad Product",
-      "archivo": "model/Product.java",
-      "codigo": "package com.demo.model;\n\nimport jakarta.persistence.*;\n\n@Entity\npublic class Product {\n\n    @Id\n    @GeneratedValue(strategy = GenerationType.IDENTITY)\n    private Long id;\n\n    private String name;\n    private double precio;\n    private int stock;\n    private String description;\n\n    @ManyToOne\n    @JoinColumn(name = \"category_id\")\n    private Category category;\n\n    public Long getId() { return id; }\n    public void setId(Long id) { this.id = id; }\n\n    public String getName() { return name; }\n    public void setName(String name) { this.name = name; }\n\n    public double getPrecio() { return precio; }\n    public void setPrecio(double precio) { this.precio = precio; }\n\n    public int getStock() { return stock; }\n    public void setStock(int stock) { this.stock = stock; }\n\n    public String getDescription() { return description; }\n    public void setDescription(String description) { this.description = description; }\n\n    public Category getCategory() { return category; }\n    public void setCategory(Category category) { this.category = category; }\n}"
+      "nombre": "Registro Screen",
+      "ruta": "screens/RegistroScreen.tsx",
+      "codigo": "import { Button, Text, TextInput, View } from 'react-native';\nimport React, { useState } from 'react';\nimport { createUserWithEmailAndPassword } from 'firebase/auth';\nimport { auth, db } from '../firebase/config';\nimport { ref, set } from 'firebase/database';\n\nexport default function RegistroScreen({ navigation }: any) {\n  const [correo, setcorreo] = useState(' ');\n  const [nick, setnick] = useState(' ');\n  const [edad, setedad] = useState(0);\n  const [contrasenia, setcontrasenia] = useState(' ');\n\n  function registro() {\n    createUserWithEmailAndPassword(auth, correo, contrasenia)\n      .then((userCredential) => {\n        guardarUsuario(userCredential.user.uid);\n        navigation.navigate('Login');\n      })\n      .catch((error) => {\n        alert(error.message);\n      });\n  }\n\n  function guardarUsuario(uid: string) {\n    set(ref(db, 'usuarios/' + uid), {\n      correo: correo,\n      avatar: nick,\n      edad: edad\n    });\n  }\n\n  return (\n    <View>\n      <Text>RegistroScreen</Text>\n      <TextInput placeholder='Ingresa correo' onChangeText={setcorreo} />\n      <TextInput placeholder='Ingresa nick' onChangeText={setnick} />\n      <TextInput placeholder='Ingresa edad' onChangeText={(texto) => setedad(+texto)} keyboardType='numeric' />\n      <TextInput placeholder='Ingresa contrasenia' onChangeText={setcontrasenia} secureTextEntry />\n      <Button title='registrar' onPress={registro} />\n    </View>\n  );\n}"
     },
 
     {
       "paso": 8,
-      "nombre": "Repositorios",
-      "archivos": [
-        {
-          "archivo": "repository/UserRepository.java",
-          "codigo": "package com.demo.repository;\n\nimport com.demo.model.User;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\nimport java.util.Optional;\n\npublic interface UserRepository extends JpaRepository<User, Long> {\n    Optional<User> findByUsername(String username);\n}"
-        },
-        {
-          "archivo": "repository/ProductRepository.java",
-          "codigo": "package com.demo.repository;\n\nimport com.demo.model.Product;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface ProductRepository extends JpaRepository<Product, Long> {}"
-        },
-        {
-          "archivo": "repository/CategoryRepository.java",
-          "codigo": "package com.demo.repository;\n\nimport com.demo.model.Category;\nimport org.springframework.data.jpa.repository.JpaRepository;\n\npublic interface CategoryRepository extends JpaRepository<Category, Long> {}"
-        }
-      ]
+      "nombre": "Guardar Nota",
+      "ruta": "screens/GuardarScreen.tsx",
+      "codigo": "import { Button, Text, TextInput, View } from 'react-native';\nimport React, { useEffect, useState } from 'react';\nimport { ref, set } from 'firebase/database';\nimport { auth, db } from '../firebase/config';\nimport { onAuthStateChanged } from 'firebase/auth';\n\nexport default function GuardarScreen() {\n  const [titulo, settitulo] = useState('');\n  const [descripcion, setdescripcion] = useState('');\n  const [fecha, setfecha] = useState('');\n  const [id, setid] = useState('');\n\n  function guardarNota() {\n    set(ref(db, 'usuarios/' + id + '/notas/' + titulo), {\n      titulo,\n      descripcion,\n      fecha\n    });\n    settitulo('');\n    setdescripcion('');\n    setfecha('');\n  }\n\n  function leerUID() {\n    onAuthStateChanged(auth, (user) => {\n      if (user) {\n        setid(user.uid);\n      }\n    });\n  }\n\n  useEffect(() => {\n    leerUID();\n  }, []);\n\n  return (\n    <View>\n      <Text>GuardarScreen</Text>\n      <TextInput placeholder='Ingresa Titulo' onChangeText={settitulo} value={titulo} />\n      <TextInput placeholder='Ingresa descripcion' onChangeText={setdescripcion} value={descripcion} />\n      <TextInput placeholder='Ingresa fecha' onChangeText={setfecha} value={fecha} />\n      <Button title='guardar' onPress={guardarNota} />\n    </View>\n  );\n}"
     },
 
     {
       "paso": 9,
-      "nombre": "CategoryService",
-      "archivo": "service/CategoryService.java",
-      "codigo": "package com.demo.service;\n\nimport com.demo.model.Category;\nimport com.demo.repository.CategoryRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\n\n@Service\npublic class CategoryService {\n\n    @Autowired\n    CategoryRepository repo;\n\n    public List<Category> getAll() {\n        return repo.findAll();\n    }\n\n    public Category save(Category c) {\n        return repo.save(c);\n    }\n}"
+      "nombre": "Lista de Notas",
+      "ruta": "screens/NotasScreen.tsx",
+      "codigo": "import { FlatList, Text, View } from 'react-native';\nimport React, { useEffect, useState } from 'react';\nimport { auth, db } from '../firebase/config';\nimport { onAuthStateChanged } from 'firebase/auth';\nimport { ref, onValue } from 'firebase/database';\n\nexport default function NotasScreen() {\n  const [id, setid] = useState('');\n  const [notas, setnotas] = useState([]);\n\n  function leer() {\n    const starCountRef = ref(db, 'usuarios/' + id + '/notas/');\n    onValue(starCountRef, (snapshot) => {\n      const data = snapshot.val();\n      let notasTemporales: any = Object.keys(data).map(ide => ({ ide, ...data[ide] }));\n      setnotas(notasTemporales);\n    });\n  }\n\n  function leerUID() {\n    onAuthStateChanged(auth, (user) => {\n      if (user) {\n        setid(user.uid);\n      }\n    });\n  }\n\n  useEffect(() => {\n    leerUID();\n    leer();\n  }, []);\n\n  return (\n    <View>\n      <Text>NotasScreen</Text>\n      <FlatList\n        data={notas}\n        renderItem={({ item }: any) => (\n          <View>\n            <Text>{item.descripcion}</Text>\n          </View>\n        )}\n      />\n    </View>\n  );\n}"
     },
 
     {
       "paso": 10,
-      "nombre": "UserService",
-      "archivo": "service/UserService.java",
-      "codigo": "package com.demo.service;\n\nimport com.demo.model.User;\nimport com.demo.repository.UserRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.security.crypto.password.PasswordEncoder;\nimport org.springframework.stereotype.Service;\n\n@Service\npublic class UserService {\n\n    @Autowired\n    UserRepository repo;\n\n    @Autowired\n    PasswordEncoder encoder;\n\n    public User save(User user) {\n        user.setPassword(encoder.encode(user.getPassword()));\n        return repo.save(user);\n    }\n}"
+      "nombre": "Lista de Películas API",
+      "ruta": "screens/ListaScreen.tsx",
+      "codigo": "import { FlatList, Text, View } from 'react-native';\nimport React, { useEffect, useState } from 'react';\nimport Tarjeta from '../components/Tarjeta';\n\nexport default function ListaScreen() {\n  const [peliculas, setpeliculas] = useState([]);\n  const API_PELICULAS = 'https://jritsqmet.github.io/web-api/peliculas3.json';\n\n  async function leerPeliculas() {\n    const resp = await fetch(API_PELICULAS);\n    const json = await resp.json();\n    setpeliculas(json.peliculas);\n  }\n\n  useEffect(() => {\n    leerPeliculas();\n  }, []);\n\n  return (\n    <View>\n      <Text>ListaScreen</Text>\n      <FlatList data={peliculas} renderItem={({ item }: any) => <Tarjeta datos={item} />} />\n    </View>\n  );\n}"
     },
 
     {
       "paso": 11,
-      "nombre": "UserDetailsService",
-      "archivo": "service/UserDetailsServiceImpl.java",
-      "codigo": "package com.demo.service;\n\nimport com.demo.model.User;\nimport com.demo.repository.UserRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.security.core.userdetails.*;\nimport org.springframework.stereotype.Service;\n\nimport java.util.List;\n\n@Service\npublic class UserDetailsServiceImpl implements UserDetailsService {\n\n    @Autowired\n    UserRepository repo;\n\n    @Override\n    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {\n        User user = repo.findByUsername(username)\n                .orElseThrow(() -> new UsernameNotFoundException(\"No existe\"));\n\n        return new org.springframework.security.core.userdetails.User(\n                user.getUsername(),\n                user.getPassword(),\n                List.of()\n        );\n    }\n}"
-    },
-
-    {
-      "paso": 12,
-      "nombre": "SecurityConfig",
-      "archivo": "config/SecurityConfig.java",
-      "codigo": "package com.demo.config;\n\nimport org.springframework.context.annotation.*;\nimport org.springframework.security.config.annotation.web.builders.HttpSecurity;\nimport org.springframework.security.web.SecurityFilterChain;\nimport org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;\nimport org.springframework.security.crypto.password.PasswordEncoder;\n\n@Configuration\npublic class SecurityConfig {\n\n    @Bean\n    public PasswordEncoder passwordEncoder() {\n        return new BCryptPasswordEncoder();\n    }\n\n    @Bean\n    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {\n        http\n            .authorizeHttpRequests(auth -> auth\n                .requestMatchers(\"/login\", \"/register\").permitAll()\n                .anyRequest().authenticated()\n            )\n            .formLogin(form -> form\n                .loginPage(\"/login\")\n                .defaultSuccessUrl(\"/\", true)\n            )\n            .logout(logout -> logout\n                .logoutSuccessUrl(\"/login?logout\")\n            );\n\n        return http.build();\n    }\n}"
-    },
-
-    {
-      "paso": 13,
-      "nombre": "AuthController",
-      "archivo": "controller/AuthController.java",
-      "codigo": "package com.demo.controller;\n\nimport org.springframework.stereotype.Controller;\nimport org.springframework.web.bind.annotation.GetMapping;\n\n@Controller\npublic class AuthController {\n\n    @GetMapping(\"/login\")\n    public String login() {\n        return \"login\";\n    }\n}"
-    },
-
-    {
-      "paso": 14,
-      "nombre": "UserController",
-      "archivo": "controller/UserController.java",
-      "codigo": "package com.demo.controller;\n\nimport com.demo.model.User;\nimport com.demo.service.UserService;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Controller;\nimport org.springframework.ui.Model;\nimport org.springframework.web.bind.annotation.*;\n\n@Controller\npublic class UserController {\n\n    @Autowired\n    UserService service;\n\n    @GetMapping(\"/register\")\n    public String form(Model model) {\n        model.addAttribute(\"user\", new User());\n        return \"register\";\n    }\n\n    @PostMapping(\"/register\")\n    public String save(@ModelAttribute User user) {\n        service.save(user);\n        return \"redirect:/login\";\n    }\n}"
-    },
-
-    {
-      "paso": 15,
-      "nombre": "ProductController",
-      "archivo": "controller/ProductController.java",
-      "codigo": "package com.demo.controller;\n\nimport com.demo.model.Product;\nimport com.demo.service.CategoryService;\nimport com.demo.repository.ProductRepository;\nimport org.springframework.beans.factory.annotation.Autowired;\nimport org.springframework.stereotype.Controller;\nimport org.springframework.ui.Model;\nimport org.springframework.web.bind.annotation.*;\n\n@Controller\npublic class ProductController {\n\n    @Autowired\n    ProductRepository repo;\n\n    @Autowired\n    CategoryService categoryService;\n\n    @GetMapping(\"/\")\n    public String home(Model model) {\n        model.addAttribute(\"products\", repo.findAll());\n        return \"home\";\n    }\n\n    @GetMapping(\"/add\")\n    public String form(Model model) {\n        model.addAttribute(\"product\", new Product());\n        model.addAttribute(\"categories\", categoryService.getAll());\n        return \"form-product\";\n    }\n\n    @PostMapping(\"/add\")\n    public String save(@ModelAttribute Product product) {\n        repo.save(product);\n        return \"redirect:/\";\n    }\n\n    @GetMapping(\"/edit/{id}\")\n    public String edit(@PathVariable Long id, Model model) {\n        Product p = repo.findById(id).orElseThrow();\n        model.addAttribute(\"product\", p);\n        model.addAttribute(\"categories\", categoryService.getAll());\n        return \"form-product\";\n    }\n\n    @PostMapping(\"/delete/{id}\")\n    public String delete(@PathVariable Long id) {\n        repo.deleteById(id);\n        return \"redirect:/\";\n    }\n}"
-    },
-
-    {
-      "paso": 16,
-      "nombre": "Vistas HTML",
-      "archivos": {
-        "login.html": "<!DOCTYPE html><html><body><h2>Login</h2><form method='post' action='/login'>Usuario:<input name='username'/><br>Password:<input type='password' name='password'/><br><button>Ingresar</button></form><a href='/register'>Registrarse</a></body></html>",
-        "register.html": "<!DOCTYPE html><html><body><h2>Registro</h2><form method='post' action='/register'>Usuario:<input name='username'/><br>Password:<input type='password' name='password'/><br><button>Guardar</button></form><a href='/login'>Ir a login</a></body></html>",
-        "home.html": "<h1>Lista</h1><a href='/add'>Nuevo</a>",
-        "form-product.html": "<form method='post' action='/add'>Nombre:<input name='name'/><br><button>Guardar</button></form>"
-      }
+      "nombre": "Información Usuario",
+      "ruta": "screens/InformacionScreen.tsx",
+      "codigo": "import { Button, Text, View } from 'react-native';\nimport React, { useEffect, useState } from 'react';\nimport { onAuthStateChanged, signOut } from 'firebase/auth';\nimport { auth, db } from '../firebase/config';\nimport { onValue, ref } from 'firebase/database';\n\nexport default function InformacionScreen() {\n  const [usuario, setusuario] = useState({ avatar: '', edad: 0 });\n\n  function leerUsuario() {\n    onAuthStateChanged(auth, (user) => {\n      if (user) {\n        getusuario(user.uid);\n      }\n    });\n  }\n\n  function getusuario(uid: string) {\n    const starCountRef = ref(db, 'usuarios/' + uid);\n    onValue(starCountRef, (snapshot) => {\n      const data = snapshot.val();\n      setusuario(data);\n    });\n  }\n\n  function cerrarSesion() {\n    signOut(auth);\n  }\n\n  useEffect(() => {\n    leerUsuario();\n  }, []);\n\n  return (\n    <View>\n      <Text>InformacionScreen</Text>\n      <Text>NOMBRE: {usuario.avatar}</Text>\n      <Text>edad: {usuario.edad}</Text>\n      <Button title='cerrar' onPress={cerrarSesion} />\n    </View>\n  );\n}"
     }
 
   ]
