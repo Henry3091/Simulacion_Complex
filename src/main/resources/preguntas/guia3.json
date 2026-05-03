@@ -94,7 +94,16 @@
       "nombre": "Información Usuario",
       "ruta": "screens/InformacionScreen.tsx",
       "codigo": "import { Button, Text, View } from 'react-native';\nimport React, { useEffect, useState } from 'react';\nimport { onAuthStateChanged, signOut } from 'firebase/auth';\nimport { auth, db } from '../firebase/config';\nimport { onValue, ref } from 'firebase/database';\n\nexport default function InformacionScreen() {\n  const [usuario, setusuario] = useState({ avatar: '', edad: 0 });\n\n  function leerUsuario() {\n    onAuthStateChanged(auth, (user) => {\n      if (user) {\n        getusuario(user.uid);\n      }\n    });\n  }\n\n  function getusuario(uid: string) {\n    const starCountRef = ref(db, 'usuarios/' + uid);\n    onValue(starCountRef, (snapshot) => {\n      const data = snapshot.val();\n      setusuario(data);\n    });\n  }\n\n  function cerrarSesion() {\n    signOut(auth);\n  }\n\n  useEffect(() => {\n    leerUsuario();\n  }, []);\n\n  return (\n    <View>\n      <Text>InformacionScreen</Text>\n      <Text>NOMBRE: {usuario.avatar}</Text>\n      <Text>edad: {usuario.edad}</Text>\n      <Button title='cerrar' onPress={cerrarSesion} />\n    </View>\n  );\n}"
-    }
-
+    },
+     {
+          "paso": 12,
+          "ruta": "components/Positivo.tsx",
+          "codigo": "import { FlatList, StyleSheet, Text, View } from 'react-native';\nimport React from 'react';\n\nexport default function Positivo({ comentarios }: any) {\n  return (\n    <View>\n      <FlatList\n        data={comentarios}\n        renderItem={({ item }) => (\n          <Text>* {item.opinion}</Text>\n        )}\n      />\n    </View>\n  );\n}\n\nconst styles = StyleSheet.create({});"
+        },
+        {
+          "paso": 14,
+          "ruta": "components/Tarjeta.tsx",
+          "codigo": "import { Button, FlatList, Image, Modal, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native';\nimport React, { useState } from 'react';\nimport Positivo from './Positivo';\n\nexport default function Tarjeta({ datos }: any) {\n  const [ocultar, setocultar] = useState(false);\n  const [positivo, setpositivo] = useState(false);\n\n  return (\n    <TouchableOpacity style={styles.container} onPress={() => setocultar(true)}>\n      <Text>Pelicula : {datos.titulo}</Text>\n      <Image source={{ uri: datos.imagen }} style={styles.img} />\n\n      <Modal visible={ocultar}>\n        <Text>Pelicula : {datos.titulo}</Text>\n        <Image source={{ uri: datos.imagen }} style={styles.img} />\n\n        <Text>Comentario {'\\n\\n\\n\\n'}</Text>\n\n        <View style={{ flexDirection: 'row' }}>\n          <Text>Positivos</Text>\n          <Switch value={positivo} onValueChange={() => setpositivo(!positivo)} />\n          <Text>Negativos</Text>\n        </View>\n\n        {positivo ? (\n          <Positivo comentarios={datos.opiniones.opiniones_positivas.detalles} />\n        ) : (\n          <FlatList\n            data={datos.opiniones.opiniones_negativas.detalles}\n            renderItem={({ item }) => <Text>{item.opinion}</Text>}\n          />\n        )}\n\n        <Button title='cerrar' onPress={() => setocultar(false)} />\n      </Modal>\n    </TouchableOpacity>\n  );\n}\n\nconst styles = StyleSheet.create({\n  container: {\n    margin: 5,\n    backgroundColor: '#86c2c0'\n  },\n  img: {\n    width: 150,\n    height: 250,\n    resizeMode: 'contain'\n  }\n});"
+        }
   ]
 }
