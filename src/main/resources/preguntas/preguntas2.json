@@ -1,102 +1,252 @@
 [
   {
-    "enunciado": "En un escenario donde una aplicación móvil debe funcionar con baja conectividad y sincronizar datos con Firebase, ¿qué patrón de diseño es más apropiado para garantizar consistencia de datos?",
+    "enunciado": "¿Cuál es el propósito principal de una Constitución?",
     "opciones": [
-      "Sincronizar solo los datos de lectura, nunca los de escritura",
-      "Implementar un patrón de \"optimistic UI\" con cola de operaciones pendientes que se sincronicen al recuperar conexión, manejando conflictos con estrategias definidas",
-      "Deshabilitar todas las funciones de escritura cuando no hay internet",
-      "Ignorar las operaciones offline y requerir conexión constante"
+      "Regular únicamente la economía",
+      "Establecer las normas fundamentales del Estado",
+      "Administrar empresas públicas",
+      "Controlar los medios de comunicación"
     ],
-    "respuestaCorrecta": "Implementar un patrón de \"optimistic UI\" con cola de operaciones pendientes que se sincronicen al recuperar conexión, manejando conflictos con estrategias definidas"
+    "respuestaCorrecta": "Establecer las normas fundamentales del Estado"
   },
   {
-    "enunciado": "¿Qué clase de vista es más adecuada si se requiere proporcionar acceso a los usuarios de solo lectura a ciertos campos de una tabla sin permitirles realizar actualizaciones?",
+    "enunciado": "¿Qué función del Estado tiene la responsabilidad de crear leyes?",
     "opciones": [
-      "Vista materializada que almacena los resultados de la consulta.",
-      "Vista de actualización para permitir modificaciones solo en campos específicos.",
-      "Vista indexada que mejora la velocidad de las consultas.",
-      "Vista de seguridad que solo devuelve un subconjunto de columnas y filas."
+      "Ejecutiva",
+      "Judicial",
+      "Legislativa",
+      "Electoral"
     ],
-    "respuestaCorrecta": "Vista de seguridad que solo devuelve un subconjunto de columnas y filas."
+    "respuestaCorrecta": "Legislativa"
   },
   {
-    "enunciado": "En el proceso de una solicitud dentro de MVC, ¿cuál es el orden correcto del flujo?",
+    "enunciado": "¿Cuál es un sinónimo de 'equidad'?",
     "opciones": [
-      "Vista → Controlador → Modelo → Usuario",
-      "Usuario → Vista → Controlador → Modelo",
-      "Usuario → Controlador → Modelo → Vista → Usuario",
-      "Modelo → Controlador → Vista → Usuario"
+      "Injusticia",
+      "Igualdad",
+      "Desorden",
+      "Arbitrariedad"
     ],
-    "respuestaCorrecta": "Usuario → Controlador → Modelo → Vista → Usuario"
+    "respuestaCorrecta": "Igualdad"
   },
   {
-    "enunciado": "¿Qué condición describe correctamente la Tercera Forma Normal (3NF) respecto a las dependencias funcionales en una base de datos relacional?",
+    "enunciado": "Si todos los jueces son abogados y Ana es jueza, entonces:",
     "opciones": [
-      "Una tabla está en 3NF si está en 2NF y todos los atributos no clave dependen directamente de la clave primaria, sin depender de otras columnas no clave.",
-      "Una tabla está en 3NF si todos los atributos de la tabla son clave primaria o clave foránea.",
-      "Una tabla está en 3NF si está en 2NF y no tiene dependencias parciales entre las columnas.",
-      "Una tabla está en 3NF si está en 1NF, no tiene dependencias transitivas y cada columna no clave depende funcionalmente de la clave primaria."
+      "Ana no es abogada",
+      "Ana es abogada",
+      "Todos los abogados son jueces",
+      "No se puede determinar"
     ],
-    "respuestaCorrecta": "Una tabla está en 3NF si está en 1NF, no tiene dependencias transitivas y cada columna no clave depende funcionalmente de la clave primaria."
+    "respuestaCorrecta": "Ana es abogada"
   },
   {
-    "enunciado": "En Firestore, ¿qué método permite comprobar si un documento ya existe antes de intentar crearlo?",
+    "enunciado": "¿Qué derecho protege la libre manifestación de ideas?",
     "opciones": [
-      "exists()",
-      "getDoc()",
-      "snapshot()",
-      "checkDoc()"
+      "Derecho al trabajo",
+      "Derecho a la propiedad",
+      "Libertad de expresión",
+      "Derecho al voto"
     ],
-    "respuestaCorrecta": "getDoc()"
+    "respuestaCorrecta": "Libertad de expresión"
   },
   {
-    "enunciado": "Dado el siguiente script y tabla:\n\n\n\nSTART TRANSACTION;\n\nupdate autor set pais='Ecuador' where codigo='A100';\n\ninsert into autor(codigo, nombre, apellido, pais)\n\nvalues('Herman', 'Melville', 'USA');\n\n \n\n\n¿Qué cambios registrará la base de datos biblioteca?",
+    "enunciado": "¿Qué es la idea principal de un texto?",
     "opciones": [
-      "El script confirma la transacción – commit.",
-      "El script solo actualiza el país del autor – update.",
-      "El script solo inserta un nuevo autor – insert.",
-      "El script cancela la transacción – rollback."
+      "El mensaje central",
+      "La última oración",
+      "La opinión del lector",
+      "El título únicamente"
     ],
-    "respuestaCorrecta": "El script confirma la transacción – commit."
+    "respuestaCorrecta": "El mensaje central"
   },
   {
-    "enunciado": "¿Qué función de Firestore permite recuperar los datos de un documento específico?",
+    "enunciado": "¿Qué significa igualdad ante la ley?",
     "opciones": [
-      "docData()",
-      "collectionData()",
-      "addDoc()",
-      "getDocs()"
+      "Las leyes favorecen a ciertos grupos",
+      "Todos reciben el mismo trato jurídico",
+      "Solo aplica a ciudadanos",
+      "Los jueces están exentos"
     ],
-    "respuestaCorrecta": "docData()"
+    "respuestaCorrecta": "Todos reciben el mismo trato jurídico"
   },
   {
-    "enunciado": "¿Qué la función del siguiente trigger?\n\n\nCREATE TABLE prestamo(\n\nid int not null auto_increment,\n\nnombre varchar(20) not null,\n\nFechaPrestamo date not null,\n\nFechaDevolucion date,\n\nestado varchar(15),\n\nCONSTRAINT pk_prestamo primary key(id)\n\n)engine=InnoDB;\n\n \n\nDELIMITER $$\n\nCREATE TRIGGER control_prestamo\n\nBEFORE INSERT ON prestamo\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.FechaDevolucion is null THEN SET new.estado = 'Pendiente';\n\nEND IF;\n\nEND $$",
+    "enunciado": "Juez es a tribunal como profesor es a:",
     "opciones": [
-      "Coloca la fecha de préstamo y la fecha de devolución siempre y cuando el estado sea ‘Pendiente’",
-      "Coloca ‘Pendiente’ en el campo estado de la tabla préstamo, cada vez que se ingrese un nuevo préstamo y la fecha de devolución sea nulo.",
-      "Coloca nulo en el campo estado de la tabla préstamo, cada vez que se actualice la fecha de devolución de un préstamo.",
-      "Coloca ‘Pendiente’ en el campo FechaDevolución de la tabla préstamo."
+      "Hospital",
+      "Escuela",
+      "Empresa",
+      "Banco"
     ],
-    "respuestaCorrecta": "Coloca ‘Pendiente’ en el campo estado de la tabla préstamo, cada vez que se ingrese un nuevo préstamo y la fecha de devolución sea nulo."
+    "respuestaCorrecta": "Escuela"
   },
   {
-    "enunciado": "¿Qué resultado se espera al usar $set en una operación de actualización en MongoDB?",
+    "enunciado": "¿Cuál es un deber ciudadano?",
     "opciones": [
-      "Borrar un campo de todos los documentos coincidentes.",
-      "Reemplazar todo el documento por un nuevo documento.",
-      "Crear una nueva colección a partir de los documentos actualizados.",
-      "Añadir o modificar un campo específico en el documento."
+      "Incumplir normas",
+      "Respetar las leyes",
+      "Discriminar",
+      "Evadir impuestos"
     ],
-    "respuestaCorrecta": "Añadir o modificar un campo específico en el documento."
+    "respuestaCorrecta": "Respetar las leyes"
   },
   {
-    "enunciado": "¿Qué patrón de diseño suelen seguir los servicios en Angular para garantizar una única instancia compartida?",
+    "enunciado": "Si un artículo cuesta $100 y tiene un descuento del 20%, ¿cuánto se paga?",
     "opciones": [
-      "Singleton",
-      "Factory",
-      "Observer",
-      "Decorator"
+      "$70",
+      "$75",
+      "$80",
+      "$90"
     ],
-    "respuestaCorrecta": "Singleton"
+    "respuestaCorrecta": "$80"
+  },
+  {
+    "enunciado": "¿Qué rama del derecho regula delitos y sanciones?",
+    "opciones": [
+      "Derecho Civil",
+      "Derecho Laboral",
+      "Derecho Penal",
+      "Derecho Mercantil"
+    ],
+    "respuestaCorrecta": "Derecho Penal"
+  },
+  {
+    "enunciado": "¿Cuál es la finalidad principal del Derecho?",
+    "opciones": [
+      "Generar conflictos",
+      "Regular la convivencia social",
+      "Eliminar instituciones",
+      "Favorecer sectores específicos"
+    ],
+    "respuestaCorrecta": "Regular la convivencia social"
+  },
+  {
+    "enunciado": "¿Cuál palabra está correctamente escrita?",
+    "opciones": [
+      "Exepción",
+      "Excepción",
+      "Eccepción",
+      "Exepción"
+    ],
+    "respuestaCorrecta": "Excepción"
+  },
+  {
+    "enunciado": "¿Qué valor es esencial en un juez?",
+    "opciones": [
+      "Favoritismo",
+      "Corrupción",
+      "Imparcialidad",
+      "Discriminación"
+    ],
+    "respuestaCorrecta": "Imparcialidad"
+  },
+  {
+    "enunciado": "Si 8 personas realizan una tarea en 12 días, ¿cuántos días tardarán 16 personas?",
+    "opciones": [
+      "24",
+      "18",
+      "12",
+      "6"
+    ],
+    "respuestaCorrecta": "6"
+  },
+  {
+    "enunciado": "¿Cuál es un derecho constitucional?",
+    "opciones": [
+      "Acceso a la educación",
+      "Incumplir contratos",
+      "Desobedecer sentencias",
+      "Evadir impuestos"
+    ],
+    "respuestaCorrecta": "Acceso a la educación"
+  },
+  {
+    "enunciado": "¿Qué figura literaria compara usando 'como'?",
+    "opciones": [
+      "Hipérbole",
+      "Símil",
+      "Ironía",
+      "Metonimia"
+    ],
+    "respuestaCorrecta": "Símil"
+  },
+  {
+    "enunciado": "¿Cuál es el objetivo de la argumentación jurídica?",
+    "opciones": [
+      "Persuadir con fundamentos legales",
+      "Memorizar leyes",
+      "Ignorar pruebas",
+      "Evitar debates"
+    ],
+    "respuestaCorrecta": "Persuadir con fundamentos legales"
+  },
+  {
+    "enunciado": "¿Qué institución administra justicia en Ecuador?",
+    "opciones": [
+      "Asamblea Nacional",
+      "Función Judicial",
+      "Consejo Nacional Electoral",
+      "Municipios"
+    ],
+    "respuestaCorrecta": "Función Judicial"
+  },
+  {
+    "enunciado": "Todos los contratos son acuerdos. Algunos acuerdos son escritos. Entonces:",
+    "opciones": [
+      "Todos los acuerdos son contratos",
+      "Algunos contratos podrían ser escritos",
+      "Ningún acuerdo es escrito",
+      "Todos los contratos son verbales"
+    ],
+    "respuestaCorrecta": "Algunos contratos podrían ser escritos"
+  },
+  {
+    "enunciado": "¿Cuál es el antónimo de 'legal'?",
+    "opciones": [
+      "Jurídico",
+      "Normativo",
+      "Ilícito",
+      "Válido"
+    ],
+    "respuestaCorrecta": "Ilícito"
+  },
+  {
+    "enunciado": "¿Qué significa democracia?",
+    "opciones": [
+      "Gobierno de una sola persona",
+      "Gobierno del pueblo",
+      "Gobierno militar",
+      "Gobierno hereditario"
+    ],
+    "respuestaCorrecta": "Gobierno del pueblo"
+  },
+  {
+    "enunciado": "¿Cuántos grados suman los ángulos internos de un triángulo?",
+    "opciones": [
+      "90",
+      "180",
+      "270",
+      "360"
+    ],
+    "respuestaCorrecta": "180"
+  },
+  {
+    "enunciado": "¿Qué palabra completa la serie? Ley, norma, regla, ...",
+    "opciones": [
+      "Caos",
+      "Orden",
+      "Desobediencia",
+      "Anarquía"
+    ],
+    "respuestaCorrecta": "Orden"
+  },
+  {
+    "enunciado": "¿Cuál es el objetivo principal de los derechos humanos?",
+    "opciones": [
+      "Garantizar la dignidad de las personas",
+      "Favorecer gobiernos",
+      "Regular empresas",
+      "Limitar la educación"
+    ],
+    "respuestaCorrecta": "Garantizar la dignidad de las personas"
   }
 ]

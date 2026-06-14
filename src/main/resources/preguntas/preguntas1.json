@@ -1,102 +1,202 @@
 [
   {
-    "enunciado": "¿Qué resultado se obtendrá con esta operación de actualización en MongoDB?\n\ndb.empleados.updateMany(\n\n  { departamento: \"Ventas\" },\n\n  { $inc: { salario: 1000 } }\n\n)",
+    "enunciado": "¿Cuál es el principal beneficio de la Programación Orientada a Objetos (POO)?",
     "opciones": [
-      "Aumentará el salario de todos los empleados en 1000 solo si están en el departamento de \"Ventas\".",
-      "Reducirá el salario de todos los empleados en 1000.",
-      "Reemplazará el valor de salario por 1000 para los empleados del departamento de \"Ventas\".",
-      "Ignorará la operación si el valor salario no existe en el documento."
+      "Permite organizar el código mediante clases y objetos reutilizables",
+      "Elimina la necesidad de usar bases de datos",
+      "Hace que el código se ejecute más rápido automáticamente",
+      "Evita completamente los errores de programación"
     ],
-    "respuestaCorrecta": "Aumentará el salario de todos los empleados en 1000 solo si están en el departamento de \"Ventas\"."
+    "respuestaCorrecta": "Permite organizar el código mediante clases y objetos reutilizables"
   },
   {
-    "enunciado": "¿Qué ventaja principal aporta la inyección de dependencias (DI) en Spring?",
+    "enunciado": "¿Qué principio de POO permite que una clase herede atributos y métodos de otra?",
     "opciones": [
-      "Reducir el acoplamiento entre clases",
-      "Mejorar el diseño de vistas",
-      "Reemplazar la base de datos",
-      "Hacer consultas SQL más rápidas"
+      "Polimorfismo",
+      "Encapsulamiento",
+      "Herencia",
+      "Abstracción"
     ],
-    "respuestaCorrecta": "Reducir el acoplamiento entre clases"
+    "respuestaCorrecta": "Herencia"
   },
   {
-    "enunciado": "¿Qué método HTTP se utiliza para solicitar datos desde un servidor?",
+    "enunciado": "¿Qué palabra clave se utiliza en Java para crear un objeto?",
     "opciones": [
+      "create",
+      "new",
+      "object",
+      "instance"
+    ],
+    "respuestaCorrecta": "new"
+  },
+  {
+    "enunciado": "¿Qué colección de Java permite almacenar elementos sin duplicados?",
+    "opciones": [
+      "List",
+      "ArrayList",
+      "Set",
+      "Vector"
+    ],
+    "respuestaCorrecta": "Set"
+  },
+  {
+    "enunciado": "¿Cuál es la finalidad de una API REST?",
+    "opciones": [
+      "Permitir la comunicación entre aplicaciones mediante HTTP",
+      "Crear interfaces gráficas",
+      "Administrar memoria RAM",
+      "Compilar código fuente"
+    ],
+    "respuestaCorrecta": "Permitir la comunicación entre aplicaciones mediante HTTP"
+  },
+  {
+    "enunciado": "¿Qué código HTTP indica que una solicitud fue procesada correctamente?",
+    "opciones": [
+      "404",
+      "500",
+      "200",
+      "301"
+    ],
+    "respuestaCorrecta": "200"
+  },
+  {
+    "enunciado": "¿Qué anotación de Spring Boot se utiliza para definir un controlador REST?",
+    "opciones": [
+      "@Controller",
+      "@Service",
+      "@RestController",
+      "@Repository"
+    ],
+    "respuestaCorrecta": "@RestController"
+  },
+  {
+    "enunciado": "¿Qué anotación se utiliza para inyectar dependencias en Spring?",
+    "opciones": [
+      "@Autowired",
+      "@Injectable",
+      "@Dependency",
+      "@BeanConfig"
+    ],
+    "respuestaCorrecta": "@Autowired"
+  },
+  {
+    "enunciado": "¿Qué método HTTP se utiliza generalmente para crear un nuevo recurso?",
+    "opciones": [
+      "GET",
       "DELETE",
+      "POST",
+      "PUT"
+    ],
+    "respuestaCorrecta": "POST"
+  },
+  {
+    "enunciado": "¿Qué método HTTP se utiliza para actualizar un recurso existente?",
+    "opciones": [
       "PUT",
       "GET",
-      "POST"
+      "POST",
+      "OPTIONS"
     ],
-    "respuestaCorrecta": "GET"
+    "respuestaCorrecta": "PUT"
   },
   {
-    "enunciado": "En AngularFire, ¿qué función se utiliza para redirigir automáticamente a otra ruta cuando un usuario no está autenticado?",
+    "enunciado": "¿Qué sentencia SQL permite recuperar información de una tabla?",
     "opciones": [
-      "redirectUnauthorizedTo()",
-      "redirectTo()",
-      "navigate()",
-      "goTo()"
+      "INSERT",
+      "UPDATE",
+      "SELECT",
+      "DELETE"
     ],
-    "respuestaCorrecta": "redirectUnauthorizedTo()"
+    "respuestaCorrecta": "SELECT"
   },
   {
-    "enunciado": "En una base de datos NoSQL, ¿Cuál de los siguientes ejemplos representa correctamente la flexibilidad del esquema en bases de datos basadas en documentos?",
+    "enunciado": "¿Qué cláusula SQL se utiliza para filtrar resultados?",
     "opciones": [
-      "Cada documento debe seguir una estructura rígida, similar a una tabla relacional.",
-      "La base de datos requiere que todas las colecciones tengan el mismo esquema.",
-      "Todos los documentos deben estar formateados como columnas en lugar de filas.",
-      "Un documento puede tener un conjunto de campos diferente a otro documento en la misma colección."
+      "GROUP BY",
+      "ORDER BY",
+      "WHERE",
+      "HAVING"
     ],
-    "respuestaCorrecta": "Un documento puede tener un conjunto de campos diferente a otro documento en la misma colección."
+    "respuestaCorrecta": "WHERE"
   },
   {
-    "enunciado": "¿Qué formato de datos utilizan generalmente las respuestas de las APIs?",
+    "enunciado": "¿Qué es una clave primaria (Primary Key)?",
     "opciones": [
+      "Un campo que identifica de manera única cada registro",
+      "Un campo opcional",
+      "Una tabla secundaria",
+      "Una vista de base de datos"
+    ],
+    "respuestaCorrecta": "Un campo que identifica de manera única cada registro"
+  },
+  {
+    "enunciado": "¿Qué comando de Git se utiliza para descargar cambios del repositorio remoto?",
+    "opciones": [
+      "git push",
+      "git clone",
+      "git pull",
+      "git commit"
+    ],
+    "respuestaCorrecta": "git pull"
+  },
+  {
+    "enunciado": "¿Qué comando de Git registra cambios en el historial local?",
+    "opciones": [
+      "git commit",
+      "git push",
+      "git fetch",
+      "git merge"
+    ],
+    "respuestaCorrecta": "git commit"
+  },
+  {
+    "enunciado": "¿Cuál es la función principal de Firebase Authentication?",
+    "opciones": [
+      "Gestionar la autenticación de usuarios",
+      "Crear gráficos",
+      "Administrar servidores Linux",
+      "Compilar aplicaciones móviles"
+    ],
+    "respuestaCorrecta": "Gestionar la autenticación de usuarios"
+  },
+  {
+    "enunciado": "¿Qué formato de intercambio de datos es ampliamente utilizado en APIs REST?",
+    "opciones": [
+      "TXT",
       "JSON",
-      "XML exclusivamente",
-      "CSV",
-      "HTML"
+      "PDF",
+      "DOCX"
     ],
     "respuestaCorrecta": "JSON"
   },
   {
-    "enunciado": "En Angular, ¿en qué lugar se realiza normalmente la inyección de servicios dentro de un componente?",
+    "enunciado": "¿Qué hook de React se utiliza para manejar estado en componentes funcionales?",
     "opciones": [
-      "En los componentes",
-      "En el decorador de los componentes",
-      "En el constructor del componente",
-      "Solo se puede inyectar con inject"
+      "useRef",
+      "useContext",
+      "useState",
+      "useMemo"
     ],
-    "respuestaCorrecta": "En el constructor del componente"
+    "respuestaCorrecta": "useState"
   },
   {
-    "enunciado": "¿Qué tipo de funcionalidades ofrece Spring Actuator dentro de una aplicación Spring Boot?",
+    "enunciado": "¿Qué comando se utiliza para instalar dependencias definidas en package.json?",
     "opciones": [
-      "Mejor seguridad",
-      "Métricas y monitoreo",
-      "Optimización de SQL",
-      "Reducción de memoria"
+      "npm install",
+      "npm build",
+      "npm run",
+      "npm start"
     ],
-    "respuestaCorrecta": "Métricas y monitoreo"
+    "respuestaCorrecta": "npm install"
   },
   {
-    "enunciado": "¿Qué funcionalidad de Spring Data JPA permite generar consultas basándose en el nombre del método?",
+    "enunciado": "¿Qué estructura de datos funciona bajo el principio FIFO (First In, First Out)?",
     "opciones": [
-      "Query by Name",
-      "Derived Queries",
-      "JPQL Statements",
-      "Native SQL"
+      "Pila",
+      "Cola",
+      "Árbol",
+      "HashMap"
     ],
-    "respuestaCorrecta": "Derived Queries"
-  },
-  {
-    "enunciado": "En Spring Data JPA, ¿qué interfaz se utiliza para que un repositorio disponga de operaciones CRUD básicas?",
-    "opciones": [
-      "CrudRepository",
-      "JpaRepository",
-      "PagingRepository",
-      "DataRepository"
-    ],
-    "respuestaCorrecta": "CrudRepository"
+    "respuestaCorrecta": "Cola"
   }
 ]

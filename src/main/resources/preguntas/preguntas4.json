@@ -1,102 +1,357 @@
 [
   {
-    "enunciado": "¿Qué componente en Spring Boot se encarga de contener la lógica de negocio de la aplicación?",
-    "opciones": [
-      "Servicio",
-      "Controlador",
-      "Repositorio",
-      "Vista"
-    ],
-    "respuestaCorrecta": "Servicio"
+    "enunciado": "¿Cuál es el sinónimo de 'veredicto'?",
+    "opciones": ["Opinión", "Sentencia", "Debate", "Consulta"],
+    "respuestaCorrecta": "Sentencia"
   },
   {
-    "enunciado": "¿Qué función cumple la anotación @Service dentro de Spring Boot?",
-    "opciones": [
-      "Marcar una clase como entidad de base de datos",
-      "Indicar que contiene lógica de negocio",
-      "Identificar una interfaz de repositorio",
-      "Definir la vista de la aplicación"
-    ],
-    "respuestaCorrecta": "Indicar que contiene lógica de negocio"
+    "enunciado": "¿Qué principio establece que nadie está por encima de la ley?",
+    "opciones": ["Legalidad", "Supremacía constitucional", "Igualdad ante la ley", "Solidaridad"],
+    "respuestaCorrecta": "Igualdad ante la ley"
   },
   {
-    "enunciado": "Procedimiento almacenado que a partir del número de cédula de un alumno me muestre su nombre y apellido, en caso de no existir el número de cédula me muestre un mensaje que diga que el alumno no está matriculado.",
-    "opciones": [
-      "DELIMITER $$\n\ncreate procedure info_alumno(cedula varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where num_cedula=cedula))\n\nthen select nombre, apellido from alumno where num_cedula=cedula;\n\nelseif(not exists(select * from alumno where num_cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$",
-      "DELIMITER $$\n\ncreate procedure info_alumno(num_cedula varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where num_cedula=cedula))\n\nthen select nombre, apellido from alumno where num_cedula=cedula;\n\nelseif(not exists(select * from alumno where num_cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$",
-      "DELIMITER $$\n\ncreate procedure info_alumno(nombre varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where num_cedula=cedula))\n\nthen select nombre, apellido from alumno where num_cedula=cedula;\n\nelseif(not exists(select * from alumno where num_cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$",
-      "DELIMITER $$\n\ncreate procedure info_alumno(num_cedula varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where cedula=cedula))\n\nthen select nombre, apellido from alumno where cedula=cedula;\n\nelseif(not exists(select * from alumno where cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$"
-    ],
-    "respuestaCorrecta": "DELIMITER $$\n\ncreate procedure info_alumno(num_cedula varchar(10))\n\nBEGIN\n\nif(exists(select * from alumno where num_cedula=cedula))\n\nthen select nombre, apellido from alumno where num_cedula=cedula;\n\nelseif(not exists(select * from alumno where num_cedula=cedula))\n\nthen select 'El alumno no está matriculado' as 'Observación';\n\nend if;\n\nEND $$"
+    "enunciado": "¿Qué número continúa la serie? 3, 6, 12, 24, ...",
+    "opciones": ["36", "42", "48", "50"],
+    "respuestaCorrecta": "48"
   },
   {
-    "enunciado": "En aplicaciones desarrolladas con Angular, ¿qué representa Firebase?",
-    "opciones": [
-      "Un servicio de backend que proporciona autenticación, base de datos y almacenamiento.",
-      "Una plataforma de desarrollo de aplicaciones móviles.",
-      "Un framework para crear componentes.",
-      "Una librería para manejar formularios."
-    ],
-    "respuestaCorrecta": "Un servicio de backend que proporciona autenticación, base de datos y almacenamiento."
+    "enunciado": "¿Cuál es el antónimo de 'culpable'?",
+    "opciones": ["Procesado", "Inocente", "Acusado", "Responsable"],
+    "respuestaCorrecta": "Inocente"
   },
   {
-    "enunciado": "En Firestore, ¿qué método permite recuperar la información de un documento específico utilizando su identificador?",
+    "enunciado": "¿Qué es un delito?",
     "opciones": [
-      "getDocs()",
-      "collectionData()",
-      "docData()",
-      "queryDoc()"
+      "Una conducta prohibida por la ley",
+      "Una opinión personal",
+      "Un acuerdo verbal",
+      "Una recomendación"
     ],
-    "respuestaCorrecta": "docData()"
+    "respuestaCorrecta": "Una conducta prohibida por la ley"
   },
   {
-    "enunciado": "En el contexto de autenticación con Firebase, ¿qué información se requiere mínimamente para registrar un usuario con correo y contraseña?",
-    "opciones": [
-      "Correo electrónico y contraseña",
-      "Nombre completo, teléfono y dirección",
-      "Token de dispositivo y ubicación GPS",
-      "Foto de perfil y fecha de nacimiento"
-    ],
-    "respuestaCorrecta": "Correo electrónico y contraseña"
+    "enunciado": "Si 4 cuadernos cuestan $12, ¿cuánto cuestan 10 cuadernos?",
+    "opciones": ["$24", "$28", "$30", "$32"],
+    "respuestaCorrecta": "$30"
   },
   {
-    "enunciado": "Trigger que controla que la hora de inicio ingresada no sea posterior a la hora fin ingresada, caso contrario, solo se tomará en cuenta la mitad de la jornada(4 horas) como penalidad.",
-    "opciones": [
-      "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nBEFORE DELETE ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$",
-      "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nBEFORE UPDATE ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$",
-      "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nBEFORE INSERT ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$",
-      "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nINSERT BEFORE ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$"
-    ],
-    "respuestaCorrecta": "DELIMITER $$\n\nCREATE TRIGGER control_hora\n\nBEFORE INSERT ON control_produccion\n\nFOR EACH ROW\n\nBEGIN\n\nIF new.horaInicio > new.horaFin THEN SET new.horaFin = new.horaInicio + time('4:00:00');\n\nEND IF;\n\nEND $$"
+    "enunciado": "¿Cuál palabra está correctamente escrita?",
+    "opciones": ["Juridico", "Jurídico", "Juridiko", "Júridico"],
+    "respuestaCorrecta": "Jurídico"
   },
   {
-    "enunciado": "En las plantillas de Angular, ¿qué tipo de enlace se define utilizando paréntesis?",
-    "opciones": [
-      "Property binding",
-      "Event binding",
-      "Two-way binding",
-      "String interpolation"
-    ],
-    "respuestaCorrecta": "Event binding"
+    "enunciado": "¿Qué poder del Estado administra justicia?",
+    "opciones": ["Ejecutivo", "Legislativo", "Judicial", "Electoral"],
+    "respuestaCorrecta": "Judicial"
   },
   {
-    "enunciado": "En los formularios reactivos de Angular, ¿para qué se utiliza principalmente la clase FormBuilder?",
+    "enunciado": "Todos los fiscales son abogados. Pedro es fiscal. Entonces:",
     "opciones": [
-      "Validar campos automáticamente.",
-      "Crear instancias de FormGroup y FormControl de manera declarativa.",
-      "Manejar el envío de datos a un backend.",
-      "Generar plantillas HTML para formularios."
+      "Pedro no es abogado",
+      "Pedro es abogado",
+      "Todos los abogados son fiscales",
+      "No se puede concluir"
     ],
-    "respuestaCorrecta": "Crear instancias de FormGroup y FormControl de manera declarativa."
+    "respuestaCorrecta": "Pedro es abogado"
   },
   {
-    "enunciado": "¿Qué técnica se utiliza en JPA para evitar el problema conocido como N+1 queries?",
+    "enunciado": "¿Qué significa democracia representativa?",
     "opciones": [
-      "Deshabilitar la paginación",
-      "Usar consultas nativas",
-      "Usar fetch join o @EntityGraph",
-      "Hacer la relación unidireccional"
+      "Gobierno militar",
+      "Gobierno mediante representantes elegidos",
+      "Gobierno hereditario",
+      "Gobierno religioso"
     ],
-    "respuestaCorrecta": "Usar fetch join o @EntityGraph"
+    "respuestaCorrecta": "Gobierno mediante representantes elegidos"
+  },
+  {
+    "enunciado": "¿Cuál es el resultado de 18 + 27?",
+    "opciones": ["43", "44", "45", "46"],
+    "respuestaCorrecta": "45"
+  },
+  {
+    "enunciado": "¿Qué es la libertad?",
+    "opciones": [
+      "Hacer cualquier cosa sin límites",
+      "Actuar respetando los derechos propios y ajenos",
+      "Ignorar las leyes",
+      "Desobedecer autoridades"
+    ],
+    "respuestaCorrecta": "Actuar respetando los derechos propios y ajenos"
+  },
+  {
+    "enunciado": "¿Cuál es el plural de 'constitución'?",
+    "opciones": ["Constituciónes", "Constituciones", "Constitucíones", "Constitucions"],
+    "respuestaCorrecta": "Constituciones"
+  },
+  {
+    "enunciado": "¿Qué institución protege derechos humanos en Ecuador?",
+    "opciones": ["Defensoría del Pueblo", "Municipio", "Registro Civil", "Banco Central"],
+    "respuestaCorrecta": "Defensoría del Pueblo"
+  },
+  {
+    "enunciado": "¿Cuál es el resultado de 9 × 8?",
+    "opciones": ["70", "71", "72", "73"],
+    "respuestaCorrecta": "72"
+  },
+  {
+    "enunciado": "¿Qué es la Constitución?",
+    "opciones": [
+      "La norma suprema de un Estado",
+      "Un reglamento municipal",
+      "Una sentencia judicial",
+      "Un contrato privado"
+    ],
+    "respuestaCorrecta": "La norma suprema de un Estado"
+  },
+  {
+    "enunciado": "¿Qué palabra completa la analogía? Ley es a norma como juez es a:",
+    "opciones": ["Tribunal", "Escuela", "Empresa", "Banco"],
+    "respuestaCorrecta": "Tribunal"
+  },
+  {
+    "enunciado": "¿Qué significa imparcialidad?",
+    "opciones": [
+      "Favorecer a una parte",
+      "Actuar sin preferencias indebidas",
+      "Ignorar pruebas",
+      "Evitar decisiones"
+    ],
+    "respuestaCorrecta": "Actuar sin preferencias indebidas"
+  },
+  {
+    "enunciado": "¿Cuánto es el 25% de 200?",
+    "opciones": ["25", "40", "50", "60"],
+    "respuestaCorrecta": "50"
+  },
+  {
+    "enunciado": "¿Qué es una obligación?",
+    "opciones": [
+      "Un derecho opcional",
+      "Un deber exigible",
+      "Una sugerencia",
+      "Un beneficio"
+    ],
+    "respuestaCorrecta": "Un deber exigible"
+  },
+  {
+    "enunciado": "¿Cuál es el antónimo de 'justicia'?",
+    "opciones": ["Equidad", "Legalidad", "Injusticia", "Norma"],
+    "respuestaCorrecta": "Injusticia"
+  },
+  {
+    "enunciado": "¿Qué número sigue? 5, 10, 20, 40, ...",
+    "opciones": ["60", "70", "80", "90"],
+    "respuestaCorrecta": "80"
+  },
+  {
+    "enunciado": "¿Qué significa sufragio?",
+    "opciones": [
+      "Derecho a votar",
+      "Derecho a estudiar",
+      "Derecho a trabajar",
+      "Derecho a contratar"
+    ],
+    "respuestaCorrecta": "Derecho a votar"
+  },
+  {
+    "enunciado": "¿Cuál es el resultado de 144 ÷ 12?",
+    "opciones": ["10", "11", "12", "13"],
+    "respuestaCorrecta": "12"
+  },
+  {
+    "enunciado": "¿Qué es la ciudadanía activa?",
+    "opciones": [
+      "Participar responsablemente en la sociedad",
+      "No votar nunca",
+      "Ignorar problemas públicos",
+      "Solo pagar impuestos"
+    ],
+    "respuestaCorrecta": "Participar responsablemente en la sociedad"
+  },
+  {
+    "enunciado": "¿Cuál es un valor democrático?",
+    "opciones": ["Tolerancia", "Autoritarismo", "Discriminación", "Corrupción"],
+    "respuestaCorrecta": "Tolerancia"
+  },
+  {
+    "enunciado": "¿Qué palabra está correctamente escrita?",
+    "opciones": ["Ciudadanía", "Siudadanía", "Ciudadaniaa", "Ciudaddanía"],
+    "respuestaCorrecta": "Ciudadanía"
+  },
+  {
+    "enunciado": "¿Qué es un contrato?",
+    "opciones": [
+      "Acuerdo con efectos jurídicos",
+      "Una opinión",
+      "Una sentencia",
+      "Una ley"
+    ],
+    "respuestaCorrecta": "Acuerdo con efectos jurídicos"
+  },
+  {
+    "enunciado": "Si 6 obreros hacen una obra en 20 días, ¿cuántos días tardarán 12 obreros?",
+    "opciones": ["5", "10", "15", "20"],
+    "respuestaCorrecta": "10"
+  },
+  {
+    "enunciado": "¿Qué institución dirige la Función Ejecutiva en Ecuador?",
+    "opciones": [
+      "Presidencia de la República",
+      "Asamblea Nacional",
+      "Corte Nacional",
+      "Fiscalía"
+    ],
+    "respuestaCorrecta": "Presidencia de la República"
+  },
+  {
+    "enunciado": "¿Cuál es el sinónimo de 'norma'?",
+    "opciones": ["Regla", "Conflicto", "Problema", "Debate"],
+    "respuestaCorrecta": "Regla"
+  },
+  {
+    "enunciado": "¿Qué es el bien común?",
+    "opciones": [
+      "Beneficio colectivo de la sociedad",
+      "Interés de una sola persona",
+      "Beneficio empresarial",
+      "Interés político"
+    ],
+    "respuestaCorrecta": "Beneficio colectivo de la sociedad"
+  },
+  {
+    "enunciado": "¿Cuál es el resultado de 35 + 48?",
+    "opciones": ["81", "82", "83", "84"],
+    "respuestaCorrecta": "83"
+  },
+  {
+    "enunciado": "¿Qué es la responsabilidad ciudadana?",
+    "opciones": [
+      "Cumplir derechos y deberes",
+      "Ignorar normas",
+      "Evitar participación",
+      "Delegar obligaciones"
+    ],
+    "respuestaCorrecta": "Cumplir derechos y deberes"
+  },
+  {
+    "enunciado": "¿Qué significa pluralismo?",
+    "opciones": [
+      "Respeto a la diversidad de ideas",
+      "Pensamiento único",
+      "Autoridad absoluta",
+      "Censura"
+    ],
+    "respuestaCorrecta": "Respeto a la diversidad de ideas"
+  },
+  {
+    "enunciado": "¿Cuál es el resultado de 11 × 11?",
+    "opciones": ["111", "120", "121", "131"],
+    "respuestaCorrecta": "121"
+  },
+  {
+    "enunciado": "¿Qué es una sentencia judicial?",
+    "opciones": [
+      "Decisión emitida por un juez",
+      "Una ley",
+      "Un contrato",
+      "Un reglamento"
+    ],
+    "respuestaCorrecta": "Decisión emitida por un juez"
+  },
+  {
+    "enunciado": "¿Cuál es el antónimo de 'público'?",
+    "opciones": ["Social", "Privado", "Común", "General"],
+    "respuestaCorrecta": "Privado"
+  },
+  {
+    "enunciado": "¿Qué número sigue? 1, 4, 9, 16, 25, ...",
+    "opciones": ["30", "35", "36", "49"],
+    "respuestaCorrecta": "36"
+  },
+  {
+    "enunciado": "¿Qué significa Estado de Derecho?",
+    "opciones": [
+      "Gobierno sometido a la ley",
+      "Gobierno militar",
+      "Gobierno sin normas",
+      "Gobierno hereditario"
+    ],
+    "respuestaCorrecta": "Gobierno sometido a la ley"
+  },
+  {
+    "enunciado": "¿Cuál es el resultado de 250 - 75?",
+    "opciones": ["165", "170", "175", "180"],
+    "respuestaCorrecta": "175"
+  },
+  {
+    "enunciado": "¿Qué es la participación ciudadana?",
+    "opciones": [
+      "Intervención de las personas en asuntos públicos",
+      "Solo votar cada cuatro años",
+      "Pagar impuestos",
+      "Trabajar en el gobierno"
+    ],
+    "respuestaCorrecta": "Intervención de las personas en asuntos públicos"
+  },
+  {
+    "enunciado": "¿Cuál palabra está correctamente escrita?",
+    "opciones": ["Democracia", "Democrácia", "Democracia", "Democrasia"],
+    "respuestaCorrecta": "Democracia"
+  },
+  {
+    "enunciado": "¿Qué significa legalidad?",
+    "opciones": [
+      "Actuar conforme a la ley",
+      "Ignorar normas",
+      "Aplicar castigos",
+      "Modificar leyes"
+    ],
+    "respuestaCorrecta": "Actuar conforme a la ley"
+  },
+  {
+    "enunciado": "¿Cuánto es el 50% de 90?",
+    "opciones": ["40", "45", "50", "55"],
+    "respuestaCorrecta": "45"
+  },
+  {
+    "enunciado": "¿Qué es la justicia social?",
+    "opciones": [
+      "Búsqueda de igualdad de oportunidades",
+      "Favorecer grupos privilegiados",
+      "Eliminar derechos",
+      "Restringir libertades"
+    ],
+    "respuestaCorrecta": "Búsqueda de igualdad de oportunidades"
+  },
+  {
+    "enunciado": "¿Cuál es el sinónimo de 'derecho' en sentido jurídico?",
+    "opciones": ["Facultad", "Castigo", "Delito", "Prohibición"],
+    "respuestaCorrecta": "Facultad"
+  },
+  {
+    "enunciado": "¿Qué número continúa la serie? 100, 90, 80, 70, ...",
+    "opciones": ["65", "60", "55", "50"],
+    "respuestaCorrecta": "60"
+  },
+  {
+    "enunciado": "¿Qué es la dignidad humana?",
+    "opciones": [
+      "Valor inherente de toda persona",
+      "Un privilegio",
+      "Un beneficio económico",
+      "Una sanción"
+    ],
+    "respuestaCorrecta": "Valor inherente de toda persona"
+  },
+  {
+    "enunciado": "¿Cuál es el principal objetivo de estudiar Derecho?",
+    "opciones": [
+      "Comprender y aplicar normas para la convivencia social",
+      "Administrar empresas",
+      "Construir edificios",
+      "Diseñar programas informáticos"
+    ],
+    "respuestaCorrecta": "Comprender y aplicar normas para la convivencia social"
   }
 ]

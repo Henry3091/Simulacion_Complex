@@ -1,102 +1,252 @@
 [
   {
-    "enunciado": "¿Qué efecto tiene la siguiente consulta en MongoDB?\n\ndb.ventas.aggregate([ { $group: { _id: \"$cliente\", total: { $sum: \"$monto\" } } }])",
+    "enunciado": "¿Cuál es el sinónimo de 'argumentar'?",
     "opciones": [
-      "Agrupará las ventas por cliente y sumará el total de cada venta.",
-      "Ordenará las ventas por cliente y por monto de mayor a menor.",
-      "Creará un nuevo campo que contiene el mayor monto por cliente.",
-      "Agrupará las ventas por productos y calculará el promedio del monto."
+      "Callar",
+      "Razonar",
+      "Ignorar",
+      "Observar"
     ],
-    "respuestaCorrecta": "Agrupará las ventas por cliente y sumará el total de cada venta."
+    "respuestaCorrecta": "Razonar"
   },
   {
-    "enunciado": "En una colección de pedidos. ¿Qué hará la siguiente consulta con $lookup?\n\ndb.pedidos.aggregate([\n\n  {\n\n    $lookup: {\n\n      from: \"clientes\",\n\n      localField: \"clienteId\",\n\n      foreignField: \"_id\",\n\n      as: \"detallesCliente\"\n\n    }\n\n  }\n\n])",
+    "enunciado": "¿Qué derecho protege a una persona contra detenciones arbitrarias?",
     "opciones": [
-      "Copiará todos los documentos de clientes y pedidos.",
-      "Filtrará los pedidos que no tengan un cliente asignado.",
-      "Unirá documentos de la colección pedidos con clientes donde los campos coincidan.",
-      "Borrará los documentos duplicados entre ambas colecciones."
+      "Debido proceso",
+      "Derecho al ocio",
+      "Derecho al voto",
+      "Derecho comercial"
     ],
-    "respuestaCorrecta": "Unirá documentos de la colección pedidos con clientes donde los campos coincidan."
+    "respuestaCorrecta": "Debido proceso"
   },
   {
-    "enunciado": "¿Cómo se declara un evento dentro de una plantilla HTML en Angular?",
+    "enunciado": "Si un libro cuesta $24 y compras 3, ¿cuánto pagas?",
     "opciones": [
-      "(click)",
-      "[click]",
-      "{{click}}",
-      "onClick"
+      "$68",
+      "$70",
+      "$72",
+      "$74"
     ],
-    "respuestaCorrecta": "(click)"
+    "respuestaCorrecta": "$72"
   },
   {
-    "enunciado": "¿Qué método de generación de claves primarias corresponde a GenerationType.IDENTITY en JPA?",
+    "enunciado": "¿Cuál es el antónimo de 'objetivo'?",
     "opciones": [
-      "Secuencias de base de datos",
-      "UUID",
-      "Autoincremento en la base de datos",
-      "Valores aleatorios"
+      "Imparcial",
+      "Subjetivo",
+      "Exacto",
+      "Neutral"
     ],
-    "respuestaCorrecta": "Autoincremento en la base de datos"
+    "respuestaCorrecta": "Subjetivo"
   },
   {
-    "enunciado": "En Bootstrap, ¿qué efecto produce aplicar las clases d-flex flex-column a un contenedor?",
+    "enunciado": "¿Qué significa la presunción de inocencia?",
     "opciones": [
-      "Alinea los elementos hijos en una fila horizontal con espacio entre ellos.",
-      "Organiza los elementos hijos en una columna vertical, uno debajo del otro.",
-      "Centra los elementos hijos tanto horizontal como verticalmente.",
-      "Aplica un diseño en cuadrícula (grid) con espaciado automático."
+      "Toda persona es inocente hasta que se demuestre lo contrario",
+      "Toda persona es culpable",
+      "Solo aplica a menores",
+      "Solo aplica a funcionarios"
     ],
-    "respuestaCorrecta": "Organiza los elementos hijos en una columna vertical, uno debajo del otro."
+    "respuestaCorrecta": "Toda persona es inocente hasta que se demuestre lo contrario"
   },
   {
-    "enunciado": "¿Qué asegura el manejo de sesiones dentro de Spring Security?",
+    "enunciado": "¿Cuál es el resultado de 15 × 4?",
     "opciones": [
-      "Que un usuario no pueda abrir múltiples sesiones simultáneamente",
-      "Que se eliminen automáticamente las tablas",
-      "Que se reduzca el tiempo de compilación",
-      "Que se desactiven los controladores"
+      "45",
+      "50",
+      "60",
+      "75"
     ],
-    "respuestaCorrecta": "Que un usuario no pueda abrir múltiples sesiones simultáneamente"
+    "respuestaCorrecta": "60"
   },
   {
-    "enunciado": "¿Qué posibilidad ofrece utilizar repositorios personalizados en Spring Data JPA?",
+    "enunciado": "¿Qué palabra está correctamente escrita?",
     "opciones": [
-      "Definir consultas complejas sin depender de JPQL",
-      "Evitar la seguridad de datos",
-      "Eliminar la lógica de negocio",
-      "Reducir entidades"
+      "Constitusión",
+      "Constitucion",
+      "Constitución",
+      "Consttitución"
     ],
-    "respuestaCorrecta": "Definir consultas complejas sin depender de JPQL"
+    "respuestaCorrecta": "Constitución"
   },
   {
-    "enunciado": "¿En qué archivo de un proyecto Angular se suelen declarar las rutas de la aplicación?",
+    "enunciado": "¿Qué función cumple un abogado?",
     "opciones": [
-      "app.config.ts",
-      "app.module.ts",
-      "app.routes.ts",
-      "app.route-service.ts"
+      "Representar y asesorar jurídicamente",
+      "Crear leyes por sí solo",
+      "Dictar sentencias",
+      "Dirigir elecciones"
     ],
-    "respuestaCorrecta": "app.routes.ts"
+    "respuestaCorrecta": "Representar y asesorar jurídicamente"
   },
   {
-    "enunciado": "¿Qué combinación de sentencias SQL usarías para crear un usuario, otorgarle acceso a la base de datos, y luego quitarle privilegios específicos sin eliminar al usuario?",
+    "enunciado": "¿Cuál es la raíz cuadrada de 81?",
     "opciones": [
-      "CREATE USER, DROP USER, COMMIT",
-      "GRANT, REVOKE, COMMIT",
-      "CREATE USER, DROP USER, REVOKE",
-      "CREATE USER, GRANT, REVOKE"
+      "7",
+      "8",
+      "9",
+      "10"
     ],
-    "respuestaCorrecta": "CREATE USER, GRANT, REVOKE"
+    "respuestaCorrecta": "9"
   },
   {
-    "enunciado": "¿De qué manera se pueden manejar excepciones de forma global en Spring Boot?",
+    "enunciado": "¿Qué es un argumento?",
     "opciones": [
-      "Usando @ControllerAdvice",
-      "Con @Entity",
-      "Creando un repositorio",
-      "Usando FetchType.LAZY"
+      "Una opinión sin fundamento",
+      "Una razón que sustenta una idea",
+      "Una emoción",
+      "Una conclusión aislada"
     ],
-    "respuestaCorrecta": "Usando @ControllerAdvice"
+    "respuestaCorrecta": "Una razón que sustenta una idea"
+  },
+  {
+    "enunciado": "¿Cuál es el principal órgano legislativo de Ecuador?",
+    "opciones": [
+      "Corte Nacional",
+      "Presidencia",
+      "Asamblea Nacional",
+      "Contraloría"
+    ],
+    "respuestaCorrecta": "Asamblea Nacional"
+  },
+  {
+    "enunciado": "¿Qué número continúa la serie? 2, 4, 8, 16, ...",
+    "opciones": [
+      "20",
+      "24",
+      "30",
+      "32"
+    ],
+    "respuestaCorrecta": "32"
+  },
+  {
+    "enunciado": "¿Qué significa la palabra 'jurisprudencia'?",
+    "opciones": [
+      "Conjunto de decisiones judiciales",
+      "Conjunto de leyes",
+      "Conjunto de contratos",
+      "Conjunto de reglamentos"
+    ],
+    "respuestaCorrecta": "Conjunto de decisiones judiciales"
+  },
+  {
+    "enunciado": "¿Cuál es el resultado de 120 ÷ 6?",
+    "opciones": [
+      "15",
+      "18",
+      "20",
+      "22"
+    ],
+    "respuestaCorrecta": "20"
+  },
+  {
+    "enunciado": "¿Qué es un derecho?",
+    "opciones": [
+      "Una obligación exclusiva",
+      "Una facultad reconocida por la ley",
+      "Una sanción",
+      "Un castigo"
+    ],
+    "respuestaCorrecta": "Una facultad reconocida por la ley"
+  },
+  {
+    "enunciado": "¿Cuál es el plural de 'juez'?",
+    "opciones": [
+      "Juezes",
+      "Jueces",
+      "Juezes",
+      "Jueses"
+    ],
+    "respuestaCorrecta": "Jueces"
+  },
+  {
+    "enunciado": "Si un vehículo recorre 60 km en una hora, ¿cuánto recorrerá en 3 horas?",
+    "opciones": [
+      "120 km",
+      "150 km",
+      "180 km",
+      "200 km"
+    ],
+    "respuestaCorrecta": "180 km"
+  },
+  {
+    "enunciado": "¿Qué es una norma jurídica?",
+    "opciones": [
+      "Una recomendación opcional",
+      "Una regla obligatoria respaldada por el Estado",
+      "Una opinión personal",
+      "Una costumbre familiar"
+    ],
+    "respuestaCorrecta": "Una regla obligatoria respaldada por el Estado"
+  },
+  {
+    "enunciado": "¿Cuál es el antónimo de 'legalidad'?",
+    "opciones": [
+      "Normativa",
+      "Legitimidad",
+      "Ilegalidad",
+      "Justicia"
+    ],
+    "respuestaCorrecta": "Ilegalidad"
+  },
+  {
+    "enunciado": "¿Qué institución organiza elecciones en Ecuador?",
+    "opciones": [
+      "Fiscalía",
+      "CNE",
+      "Defensoría Pública",
+      "Asamblea Nacional"
+    ],
+    "respuestaCorrecta": "CNE"
+  },
+  {
+    "enunciado": "¿Cuánto es el 10% de 500?",
+    "opciones": [
+      "25",
+      "50",
+      "75",
+      "100"
+    ],
+    "respuestaCorrecta": "50"
+  },
+  {
+    "enunciado": "¿Qué significa 'ética'?",
+    "opciones": [
+      "Conjunto de principios morales",
+      "Conjunto de leyes",
+      "Conjunto de impuestos",
+      "Conjunto de sanciones"
+    ],
+    "respuestaCorrecta": "Conjunto de principios morales"
+  },
+  {
+    "enunciado": "¿Cuál palabra está correctamente escrita?",
+    "opciones": [
+      "Legislasión",
+      "Legislación",
+      "Legizlación",
+      "Legislacion"
+    ],
+    "respuestaCorrecta": "Legislación"
+  },
+  {
+    "enunciado": "¿Qué es la ciudadanía?",
+    "opciones": [
+      "Condición de pertenecer a un Estado con derechos y deberes",
+      "Solo el derecho al voto",
+      "La nacionalidad extranjera",
+      "Un documento de identidad"
+    ],
+    "respuestaCorrecta": "Condición de pertenecer a un Estado con derechos y deberes"
+  },
+  {
+    "enunciado": "¿Cuál es el resultado de 7²?",
+    "opciones": [
+      "14",
+      "42",
+      "49",
+      "56"
+    ],
+    "respuestaCorrecta": "49"
   }
 ]
